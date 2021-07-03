@@ -1,0 +1,101 @@
+.burger
+    position: relative
+    display: none
+    z-index: 990
+    cursor: pointer
+    transition: all 0.2s ease-in-out
+    margin-left: 20px
+    +r(992)
+        display: block
+
+.burger .line
+    height: 2px
+    width: 40px
+    background-color: $blck
+    margin-bottom: 8px
+    transition: all 0.2s ease-in-out
+    &:last-child
+        margin-bottom: 0
+
+.burger.transformed .line:first-child
+    transform: rotate(45deg)
+    margin-bottom: 2px
+    background-color: $blck
+
+.burger.transformed .line:last-child
+    transform: rotate(-45deg)
+    margin-top: -5px
+    background-color: $blck
+
+.mob-menu
+    display: none
+    height: 100%
+    width: 100%
+    position: fixed
+    top: -108vh
+    left: 0
+    z-index: 900
+    box-sizing: border-box
+    padding: 80px 30px 40px
+    font-weight: bold
+    font-size: 12px
+    transition: all 0.2s ease-in-out
+    opacity: 0
+    background-color: white
+    color: $blck
+    &.opened
+        top: 0
+        opacity: 1
+    +r(992)
+        display: block
+
+    hr
+        width: 100%
+        height: 1px
+        background: $blck
+        margin: 20px 0
+
+    .social img
+        filter: brightness(0.5)
+
+    .middle
+        margin: 30px 0
+
+    .header__buttons
+        +r(992)
+            display: flex
+            align-items: center
+            justify-content: space-around
+
+.mob-menu .mob-nav
+    margin-top: 10vh
+    text-transform: uppercase
+    +med
+    font-size: 8vw 
+    // font-size: 60px
+    -webkit-transform: scale(1, 0.8)
+    -moz-transform: scale(1, 0.8)
+    -ms-transform: scale(1, 0.8)
+    -o-transform: scale(1, 0.8)
+    transform: scale(1, 0.8)
+    letter-spacing: -0.05em
+    list-style-type: none
+    a
+        color: $blck
+        display: block
+        margin-bottom: 15px
+
+.lng
+    text-transform: uppercase
+    position: absolute
+    top: 30px
+    left: 30px
+    font-size: 14px
+
+// .mob-menu
+//     .profile
+//         display: block
+//         margin-left: 0
+//         background-color: $red
+//         color: $w
+//         display: inline-block

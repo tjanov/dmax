@@ -1,0 +1,103 @@
+.login
+	.container
+		height: 100vh
+
+.fpage
+	display: grid
+	grid-template-columns: 40% 1fr
+	+r(1024)
+		grid-template-columns: 1fr 30%
+	+r(992)
+		grid-template-columns: 1fr
+
+	.container
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+
+	.form
+		display: flex
+		flex-direction: column
+		text-align: center
+		align-items: center
+
+		&__inline
+			display: flex
+			justify-content: center
+
+			p
+				+med
+				font-size: 14px
+				margin-right: 10px
+		.link
+			font-size: 14px
+			+med
+			color: $blck
+
+		.link--red
+			color: $red
+
+	&__header
+		padding: 25px 100px
+		display: flex
+		justify-content: space-between
+		width: 100%
+		+r(1024)
+			padding: 25px
+		+r(768)
+			padding: 15px 10px
+
+	&__block
+		position: relative
+
+	&__left
+
+	&__right
+		width: 100%
+		background: #ccc url(../img/form-slide.jpg) center right no-repeat
+		background-size: cover
+		background-attachment: fixed
+		+r(992)
+			display: none
+
+	.copy
+		width: 100%
+		height: 100%
+		font-size: 12px
+		+med
+		text-align: center
+		padding: 30px 0
+		+r(992)
+			font-size: 10px
+
+.error
+	color: $red
+
+.go-home
+	display: flex
+	align-items: center
+	text-transform: uppercase
+	color: $blck
+	font-size: 14px
+	+bold
+	+r(992)
+		font-size: 11px
+	&.--white
+		color: $w
+		img
+			filter: brightness(15)
+	img
+		margin-left: 3px
+		+r(992)
+			margin-left: 3px
+
+.password-eye
+	position: absolute
+	top: 20px
+	right: 30px
+	display: inline-block
+	width: 25px
+	height: 25px
+	background: url(../img/eye.svg) 0 0 no-repeat
+	&.view
+		background: url(../img/eye-crossed.svg) 0 0 no-repeat

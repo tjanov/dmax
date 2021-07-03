@@ -1,0 +1,629 @@
+.cabinet
+
+	.header
+		padding: 30px 0
+		position: relative
+		background-color: $blck
+		+r(992)
+			padding: 20px 0
+		.logo
+			+r(992)
+				max-width: 80px
+		&__active
+			display: flex
+			align-items: center
+			.lang
+				margin: 0 50px
+				+r(996)
+					display: none
+				a
+					color: $w
+					&.is-active
+						color: $red
+		.go-home
+			+r(992)
+				position: absolute
+				top: calc(100% + 10px)
+				left: 0
+				background-color: $red
+				padding: 10px
+
+		.go-exit
+			margin-left: 10px
+			+r(992)
+				left: 110px
+
+		.notification__btn
+			position: relative
+			margin-left: 15px
+			+r(992)
+				margin-left: 0
+		.is-have
+			position: absolute
+			width: 9px
+			height: 9px
+			background-color: $red
+			border-radius: 50%
+
+.profile
+	position: relative
+	background-color: $w
+	height: 50px
+	line-height: 50px
+	padding: 0 30px
+	transform: skew(-20deg)
+	margin-left: 65px
+	+r(1024)
+		margin-left: 30px
+	+r(992)
+		padding: 0 15px
+		height: 40px
+		line-height: 40px
+	&-inner
+		display: flex
+		align-items: center
+		transform: skew(20deg)
+	.ava-box
+		width: 40px
+		height: 40px
+		padding: 5px
+	&-logo
+		width: 30px
+		+r(992)
+			width: 20px
+	&-title
+		font-size: 14px
+		text-transform: uppercase
+		margin-left: 10px
+		position: relative
+		top: -2px
+		+bold
+		+r(992)
+			font-size: 12px
+	&-block
+		background-color: $red
+		color: $w
+		display: flex
+		align-items: center
+		justify-content: center
+		position: absolute
+		top: 80%
+		right: -20px
+		width: 75px
+		height: 35px
+		+r(992)
+			height: 25px
+		img
+			width: 15px
+			height: 15px
+			margin-right: 5px
+		span
+			font-size: 12px
+			+bold
+		img, span
+			transform: skew(20deg)
+
+.content
+	padding: 50px 0
+
+	&__header
+		display: flex
+		justify-content: space-between
+		align-items: center
+		+r(992)
+			flex-direction: column
+
+	&__header--info
+		display: flex
+		align-items: center
+		+r(992)
+			flex-direction: column
+			align-items: flex-start
+
+		.ava-box
+			width: 50px
+			height: 50px
+			+r(992)
+				position: absolute
+				top: 0
+				left: 0
+
+		img
+			width: 55px
+			margin-bottom: -5px
+			+r(992)
+				width: 30px
+
+	&__title
+		font-size: 40px
+		+bold
+		text-transform: uppercase
+		margin: 0 80px 0 30px
+		+r(992)
+			display: block
+			font-size: 26px
+			margin: 0 0 20px 50px
+
+	&__text
+		font-size: 18px
+		+med
+
+	.navigation
+		+r(992)
+			margin-top: 50px
+
+.users
+	margin-top: 50px
+	display: grid
+	grid-template-columns: repeat(4,1fr)
+	grid-column-gap: 20px
+	grid-row-gap: 20px
+	-webkit-box-align: stretch
+	-ms-flex-align: stretch
+	align-items: stretch
+	+r(992)
+		grid-template-columns: repeat(2,1fr)
+		grid-column-gap: 10px
+		grid-row-gap: 10px
+
+.user
+	position: relative
+	&:last-child
+		margin-right: 0
+	&:hover
+		.user-edit
+			-webkit-transition: opacity .3s, transform .3s
+			-o-transition: opacity .3s, transform .3s
+			transition: opacity .3s, transform .3s
+			opacity: 1
+			visibility: visible
+			transform: translateY(0)
+
+	&-pic
+		position: relative
+		background-color: #ddd
+		max-width: 325px
+		width: 100%
+
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+
+	&-edit
+		position: absolute
+		top: 15px
+		right: 15px
+		opacity: 0
+		visibility: hidden
+		transform: translateY(10px)
+		-webkit-transition: opacity .3s, transform .3s
+		-o-transition: opacity .3s, transform .3s
+		transition: opacity .3s, transform .3s
+		+r(992)
+			top: 10px
+			right: 10px
+			-webkit-transition: opacity .3s, transform .3s
+			-o-transition: opacity .3s, transform .3s
+			transition: opacity .3s, transform .3s
+			opacity: 1
+			visibility: visible
+			transform: translateY(0)
+			img
+				width: 30px
+
+	&-star
+		position: absolute
+		bottom: 15px
+		left: 15px
+		+r(992)
+			img
+				width: 30px
+
+	&-name
+		font-size: 30px
+		+med
+		text-align: center
+		margin-top: 30px
+		text-transform: uppercase
+		+r(1200)
+			font-size: 26px
+			margin-top: 20px
+		+r(992)
+			font-size: 16px
+			margin-top: 15px
+		+r(768)
+			font-size: 14px
+
+#usermodal
+	transform: scale(0.8)
+	+r(992)
+		width: 100%
+
+.popup_visible #usermodal
+	transform: scale(1)
+
+.modal
+	background-color: $w
+	padding: 50px
+	+r(992)
+		padding: 30px
+		width: 100%
+
+	&-close
+		position: absolute
+		top: 50px
+		right: 50px
+		z-index: 3
+		+r(992)
+			top: 30px
+			right: 30px
+
+	.form__upload--button
+		background-color: #f5f5f5
+		padding: 10px
+
+.content__slider
+	padding: 100px 0
+	+r(1200)
+		padding: 50px 0
+	+r(992)
+		padding: 0
+
+	.slick-slide
+		margin: 0 25px
+
+.tabs
+	display: flex
+	justify-content: center
+
+.tab_container
+	margin-top: 50px
+
+.tabs li.is-active a
+	background-color: $red
+	color: $w
+
+.tabs li a
+	display: block
+	font-size: 20px
+	+bold
+	color: $blck
+	width: 155px
+	height: 50px
+	line-height: 45px
+	transform: skew(-15deg)
+	border: 3px solid $blck
+	text-transform: uppercase
+	text-align: center
+	+r(992)
+		font-size: 16px
+		width: 120px
+	&:last-child
+		margin-left: -3px
+	span
+		transform: skew(15deg)
+
+.cabinet__task
+	margin-bottom: 80px
+	+r(992)
+		margin: 40px 0
+
+	.container
+		display: grid
+		grid-template-columns: repeat(2,1fr)
+		grid-column-gap: 30px
+		grid-row-gap: 30px
+		-webkit-box-align: stretch
+		-ms-flex-align: stretch
+		align-items: stretch
+		+r(992)
+			grid-template-columns: repeat(1,1fr)
+			grid-column-gap: 20px
+			grid-row-gap: 20px
+
+	.accordion-item
+		border-top: 3px solid $blck
+		border-bottom: 0
+		&:last-child
+			border-bottom: 3px solid $blck
+
+	.accordion .acc-btn
+		padding: 25px 0
+		display: flex
+		align-items: center
+		+med
+
+	.accordion .acc-btn .icon
+		top: 50%
+		transform: translateY(-50%)
+
+	.accordion .acc-btn .icon::after
+		top: 0
+		left: 12px
+		width: 1px
+
+	.accordion .acc-btn .icon::before
+		top: 13px
+		left: -3px
+		height: 1px
+
+	.accordion .accordion-item .acc-btn[aria-expanded='true']
+		border: none
+
+	.accordion .acc-btn[aria-expanded='true']
+		color: $blck
+
+	.accordion-title
+		+med
+		margin-right: 150px
+		+r(1200)
+			margin-right: 100px
+		+r(992)
+			margin-right: 50px
+			font-size: 16px
+
+	.accordion .accordion-content p
+		margin-top: 0
+		+r(992)
+			line-height: 1.5
+
+	.accordion .acc-btn[aria-expanded='true'] .icon
+		transform: translateY(-50%) rotate(45deg)
+
+	.accordion .acc-btn[aria-expanded='true'] + .accordion-content
+		max-height: unset
+
+	.task-lock
+		img
+			padding: 25px 0
+			margin: 0 auto
+
+.task__column
+	background-color: #eee
+	position: relative
+	overflow: hidden
+	&--title
+		text-transform: uppercase
+		+bold
+		font-size: 24px
+		padding: 0 0 40px 0
+		+r(992)
+			font-size: 18px
+			padding: 0 0 20px 0
+
+.tasks
+	padding: 40px
+	+r(992)
+		padding: 20px
+
+	.accordion-ball
+		+r(992)
+			font-size: 12px
+
+	&__answer
+		padding: 20px
+		background-color: $w
+		margin: 30px 0
+		hr
+			width: 100%
+			height: 2px
+			background-color: $blck
+			display: block
+			margin: 15px 0
+		&--title
+			font-size: 22px
+			+bold
+			text-transform: uppercase
+			+r(992)
+				font-size: 16px
+		&--subtitle
+			+med
+			text-transform: uppercase
+			+r(992)
+				font-size: 14px
+
+	&__answers
+		margin-top: 20px
+		margin-bottom: 20px
+
+.enemy
+	.task__column--title
+		padding: 40px 0 40px 40px
+		+r(992)
+			padding: 20px 0 20px 20px
+	.countdown
+		width: 100%
+		background-color: $w
+		padding: 40px
+		+r(992)
+			max-width: 100%
+			padding: 20px
+	.countdown__block
+		align-items: center
+	.countdown__title
+		margin-bottom: 15px
+		+med
+	.countdown__group
+		display: flex
+		align-items: center
+		margin-right: 10px
+		+r(992)
+			margin-right: 5px
+	.countdown__num
+		margin-right: 5px
+	.countdown__group,
+	.countdown__num,
+	.countdown__divider,
+		font-size: 16px
+		+bold
+		color: $red
+		+r(992)
+			font-size: 12px
+	.countdown__divider
+		+reg
+	.countdown__text
+		font-size: 12px
+		color: $red
+		margin-top: 0
+		+med
+	&-block
+		padding: 40px 40px 15px 40px
+		display: flex
+		justify-content: space-between
+		position: relative
+		+r(992)
+			flex-direction: column
+		& > img
+			max-width: 50px
+			position: absolute
+			top: 30px
+	&-name
+		font-size: 28px
+		text-transform: uppercase
+		+bold
+		margin-bottom: 10px
+		+r(992)
+			margin-bottom: 30px
+			margin-left: 60px
+			font-size: 24px
+	&-deviz
+		font-size: 14px
+		+r(992)
+			margin-bottom: 15px
+	&-ball
+		display: flex
+		img
+			width: 30px
+			height: 30px
+			margin-right: 10px
+		&-text
+			+bold
+			font-size: 20px
+
+.enemy-users
+	display: grid
+	grid-template-columns: repeat(4,1fr)
+	grid-column-gap: 20px
+	grid-row-gap: 20px
+	padding: 20px
+	+r(992)
+		grid-template-columns: repeat(2,1fr)
+		grid-column-gap: 15px
+		grid-row-gap: 15px
+		padding: 15px
+
+.slider__photo
+	cursor: url(/img/cursor-2.png) 45 45, auto
+
+.slider__video video:hover
+	cursor: default !important
+
+.slider__video,
+.slider__photo
+	.swiper-slide
+		+r(992)
+			width: 300px !important
+
+.notifications
+	position: relative
+	width: 500px
+	height: 100%
+	display: block
+	position: fixed
+	top: 0
+	right: 0
+	background-color: $w
+	z-index: 150
+	transform: translateX(500px)
+	-webkit-transition: transform .25s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0s linear .25s
+	transition: transform .25s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0s linear .25s
+	will-change: visibility
+	visibility: hidden
+	&.is-active
+		transform: translateX(0)
+		visibility: visible
+		-webkit-box-shadow: 0 0 16px rgba(0, 0, 0, .28)
+		box-shadow: 0 0 16px rgba(0, 0, 0, .28)
+		-webkit-transition: transform .25s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0s linear 0s
+		transition: transform .25s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0s linear 0s
+
+	&__top
+		display: flex
+		justify-content: space-between
+		margin-bottom: 40px
+		padding: 50px 25px 0
+
+		img
+			width: 30px
+			height: 30px
+
+	&__toptitle
+		font-size: 25px
+		+med
+		text-transform: uppercase
+
+	&__content
+		position: relative
+		overflow-y: scroll
+		height: 100%
+		padding: 25px 25px 150px
+
+	&__item
+		background-color: #eee
+		padding: 25px
+		margin-bottom: 25px
+
+	&__date
+		text-align: right
+		+med
+		margin-bottom: 20px
+
+	&__title
+		font-size: 18px
+		+bold
+
+	&__text
+		font-size: 14px
+		margin: 20px 0
+
+.slider__video 
+	.swiper-slide
+		+r(992)
+			padding-right: 20px
+	.plyr video
+		height: 450px
+		+r(992)
+			height: 300px
+		+r(768)
+			height: 200px
+
+.tasks__videos
+	margin-top: 30px
+	.plyr video
+		height: 300px
+
+.mt20
+	background-color: $w !important
+	margin-top: -20px !important
+
+#answerform textarea
+	height: 150px
+	margin-top: 20px
+	transform: skew(0)
+	padding: 15px
+	line-height: unset
+	+placeholder
+		transform: skew(0)
+		text-indent: 5px
+		padding: 5px
+
+
+.form__answer
+	margin-top: 50px
+	background-color: $w
+	position: relative
+	display: block
+
+.fileuploader-items .fileuploader-item .column-title div
+	max-width: 200px

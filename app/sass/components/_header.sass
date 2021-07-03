@@ -1,0 +1,75 @@
+.header
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	padding: 15px 0
+	z-index: 2
+
+	.logo img
+		+r(992)
+			width: 90px
+
+	.container
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__buttons
+		background-color: $red
+		transform: skew(-15deg)
+		padding: 0 15px
+		+r(992)
+			display: none
+
+		span
+			display: inline-block
+			width: 2px
+			height: 10px
+			background-color: $w
+
+		a
+			color: $w
+			+bold
+			font-size: 14px
+			transform: skew(15deg)
+			display: inline-block
+			padding: 12px
+
+
+
+.nav
+	+r(992)
+		display: none
+	a
+		display: inline-block
+		color: $blck
+		font-size: 14px
+		+med
+		text-transform: uppercase
+		margin-right: 30px
+		&:last-child
+			margin-right: 0
+
+.lang
+	display: flex
+	+r(992)
+		display: none
+	a
+		+bold
+		font-size: 14px
+		color: $blck
+		text-transform: uppercase
+		&:first-child
+			margin-right: 20px
+		&.is-active
+			color: $red
+
+.guest
+	.header
+		top: 40px
+		+r(992)
+			top: 85px
+	.nav a,
+	.lang a
+		color: $w
