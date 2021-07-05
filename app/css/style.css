@@ -5474,6 +5474,9 @@ a.plyr__control:before {
         flex-direction: column; } }
   .about__bottom {
     margin-top: 150px; }
+    @media only screen and (max-width: 992px) {
+      .about__bottom {
+        margin-top: 50px; } }
     .about__bottom .about__left {
       margin-right: 0;
       margin-left: 50px; }
@@ -5517,6 +5520,9 @@ a.plyr__control:before {
 
 .mexanika {
   padding: 80px 0 150px; }
+  @media only screen and (max-width: 992px) {
+    .mexanika {
+      padding: 60px 0 100px; } }
 
 .mex {
   position: relative; }
@@ -6437,6 +6443,8 @@ input[name="commond-logo"] + .fileuploader-wrapper > .fileuploader-items {
       @media only screen and (max-width: 992px) {
         .content__header--info img {
           width: 30px; } }
+      .content__header--info img.add-command {
+        width: 100%; }
   .content__title {
     font-size: 40px;
     font-family: tbold, sans-serif;
@@ -6856,6 +6864,10 @@ input[name="commond-logo"] + .fileuploader-wrapper > .fileuploader-items {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.25s;
   will-change: visibility;
   visibility: hidden; }
+  @media only screen and (max-width: 992px) {
+    .notifications {
+      width: 100%;
+      transform: translateX(100%); } }
   .notifications.is-active {
     transform: translateX(0);
     visibility: visible;
@@ -6868,13 +6880,23 @@ input[name="commond-logo"] + .fileuploader-wrapper > .fileuploader-items {
     justify-content: space-between;
     margin-bottom: 40px;
     padding: 50px 25px 0; }
+    @media only screen and (max-width: 992px) {
+      .notifications__top {
+        padding: 30px 15px 0; } }
     .notifications__top img {
       width: 30px;
       height: 30px; }
+      @media only screen and (max-width: 992px) {
+        .notifications__top img {
+          width: 20px;
+          height: 20px; } }
   .notifications__toptitle {
     font-size: 25px;
     font-family: tmedium, sans-serif;
     text-transform: uppercase; }
+    @media only screen and (max-width: 992px) {
+      .notifications__toptitle {
+        font-size: 18px; } }
   .notifications__content {
     position: relative;
     overflow-y: scroll;

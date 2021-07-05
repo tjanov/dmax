@@ -133,6 +133,8 @@
 			margin-bottom: -5px
 			+r(992)
 				width: 30px
+			&.add-command
+				width: 100%
 
 	&__title
 		font-size: 40px
@@ -540,6 +542,9 @@
 	transition: transform .25s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0s linear .25s
 	will-change: visibility
 	visibility: hidden
+	+r(992)
+		width: 100%
+		transform: translateX(100%)
 	&.is-active
 		transform: translateX(0)
 		visibility: visible
@@ -553,15 +558,22 @@
 		justify-content: space-between
 		margin-bottom: 40px
 		padding: 50px 25px 0
+		+r(992)
+			padding: 30px 15px 0
 
 		img
 			width: 30px
 			height: 30px
+			+r(992)
+				width: 20px
+				height: 20px
 
 	&__toptitle
 		font-size: 25px
 		+med
 		text-transform: uppercase
+		+r(992)
+			font-size: 18px
 
 	&__content
 		position: relative
