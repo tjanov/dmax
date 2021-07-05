@@ -56,66 +56,70 @@
                         <a class="fpage__header--back go-home" href="index.html">на главную <img src="img/back-icon.svg" alt=""></a>
                     </header>
 
-                    <!-- wizard -->
+                    <!-- form -->
                     <div class="form">
                         <div class="form__title">Регистрация</div>
 
-                        <form id="contact" method="" action="" autocomplete="off">
+                        <form id="contact" method="post" action="https://dmaxquest.uz/register" enctype="multipart/form-data" novalidate="novalidate">
                             <div class="form__inner">
-                                <div class="form__group">
+                                <div class="form__left">
                                     <div class="w-32 h-32 mb-1 border rounded-lg overflow-hidden relative bg-gray-100">
-                                        <img id="image" class="object-cover w-full h-32" src="https://placehold.co/300x300/e2e8f0/e2e8f0" />
-                                        <div class="absolute top-0 left-0 right-0 bottom-0 w-full block cursor-pointer flex items-center justify-center" onClick="document.getElementById('fileInput').click()">
+                                        <img id="image" class="object-cover w-full h-32" src="https://placehold.co/300x300/e2e8f0/e2e8f0">
+                                        <div class="absolute top-0 left-0 right-0 bottom-0 w-full block cursor-pointer flex items-center justify-center" onclick="document.getElementById('fileInput').click()">
                                             <button type="button" style="background-color: rgba(255, 255, 255, 0.65)" class="hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded-lg shadow-sm">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-camera" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-                                                    <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
-                                                    <circle cx="12" cy="13" r="3" />
+                                                    <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"></path>
+                                                    <circle cx="12" cy="13" r="3"></circle>
                                                 </svg>
                                             </button>
                                         </div>
                                     </div>
-                                    <input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" onChange="let file = this.files[0];
-                                              var reader = new FileReader();
-                                              reader.onload = function (e) {
-                                                document.getElementById('image').src = e.target.result;
-                                              };
-                                              reader.readAsDataURL(file);
-                                            ">
+                                    <input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" onchange="let file = this.files[0];
+                                    var reader = new FileReader();
+                                    reader.onload = function (e) {
+                                        document.getElementById('image').src = e.target.result;
+                                    };
+                                    reader.readAsDataURL(file);
+                                ">
                                 </div>
-                                <div class="form__group">
-                                    <label for="name">Введите имя</label>
-                                    <input id="name" name="name" type="text" class="required input" placeholder="Имя">
+
+                                <div class="form__right">
+                                    <div class="form__group">
+                                        <label for="name">Введите имя</label>
+                                        <input id="name" name="name" type="text" class="required input" placeholder="Имя">
+                                    </div>
+                                    <div class="form__group">
+                                        <label for="surname">Введите фамилия</label>
+                                        <input id="surname" name="surname" type="text" class="required input" placeholder="Фамилия">
+                                    </div>
+                                    <div class="form__group">
+                                        <label for="tel">Введите номер</label>
+                                        <input id="tel" name="phone" type="tel" class="required input" placeholder="Телефон" inputmode="text">
+                                    </div>
+                                    <div class="form__group">
+                                        <label for="password">Пароль</label>
+                                        <input id="password" name="password" type="text" class="required input" placeholder="Пароль">
+                                    </div>
+                                    <div class="form__group">
+                                        <label for="confirm">Повторите пароль</label>
+                                        <input id="confirm" name="password_confirmation" type="text" class="required input" placeholder="Повторите пароль">
+                                    </div>
+                                    <div class="form__group">
+                                        <button class="btn btn-red"><span>Завершить регистрацию</span></button>
+                                    </div>
+                                    <div class="form__group">
+                                        <div class="form__inline">
+                                            <p>Уже есть аккаунт?</p>
+                                            <a class="link link--red" href="login.html">Войти</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form__group">
-                                    <label for="surname">Введите фамилия</label>
-                                    <input id="surname" name="surname" type="text" class="required input" placeholder="Фамилия">
-                                </div>
-                                <div class="form__group">
-                                    <label for="tel">Введите номер</label>
-                                    <input id="tel" name="tel" type="tel" class="required input" placeholder="Телефон">
-                                </div>
-                                <div class="form__group">
-                                    <label for="password">Пароль</label>
-                                    <input id="password" name="password" type="password" class="required input" placeholder="Пароль">
-                                    <a href="#" class="password-eye password-eye-22"></a>
-                                </div>
-                                <div class="form__group">
-                                    <label for="confirm">Повторите пароль</label>
-                                    <input id="confirm" name="confirm" type="password" class="required input" placeholder="Повторите пароль">
-                                    <a href="#" class="password-eye password-eye-2"></a>
-                                </div>
-                                <div class="form__group-2">
-                                    <input id="politic" class="custom-checkbox" type="checkbox" checked>
-                                    <label for="politic">Политика конфиденциальности</label>
-                                </div>
-                                <div class="form__group">
-                                    <button type="submit" class="btn btn-red">Завершить регистрацию</button>
-                                </div>
+
                             </div>
                         </form>
                     </div>
-                        
+
                     <!-- footer -->
                     <footer class="fpage__footer">
                         <div class="copy">Copyright © 2021 DMAX QUEST All rights reserved.</div>

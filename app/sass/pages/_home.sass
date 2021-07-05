@@ -2,8 +2,8 @@
 .hero
 	width: 100%
 	background-color: $w
-	padding: 180px 0 100px
-	background: url(../img/hero-right.png) no-repeat center right
+	padding: 200px 0 120px
+	background: url(../img/hero-right.png) no-repeat center right -100px
 	background-size: contain
 	position: relative
 	+r(992)
@@ -28,22 +28,24 @@
 
 	&__title
 		display: inline-block
-		font-size: 60px
+		font-size: 56px
 		+bold
 		color: $blck
 		position: relative
-		// background: url(../img/home-title.svg) no-repeat
-		// background-position: right 5px bottom 4px
-		&:hover div::before 
-			width: 100%
-			transition: width 0.5s cubic-bezier(0.23, 1.08, 0.62, 0.95)
+		text-transform: uppercase
+		// line-height: 60px
 		+r(992)
 			font-size: 38px
 			padding-top: 60px
 		div
 			display: table
 			position: relative
-			// +bb
+		&:hover .hero__title--link div::before 
+			width: 100%
+			transition: width 0.5s cubic-bezier(0.23, 1.08, 0.62, 0.95)
+
+		&--link
+			position: relative
 			&::before
 				content: ''
 				display: block
@@ -92,6 +94,32 @@
 				margin-bottom: 20px
 				margin-top: 20px
 
+	.btn-link
+		position: absolute
+		bottom: 120px
+		right: 100px
+		border: 0
+		display: flex
+		align-items: center
+		color: $w
+		text-transform: uppercase
+		+bold
+		font-size: 14px
+		+r(992)
+			top: 300px
+			bottom: auto
+		&__arrow
+			display: flex
+			align-items: center
+			justify-content: center
+			width: 57px
+			height: 57px
+			border: 2px solid $w
+			border-radius: 50%
+			margin-left: 20px
+			background-color: transparent
+		svg
+
 // about
 .about
 	padding: 80px 0 150px
@@ -117,7 +145,7 @@
 			flex-direction: column
 
 	&__bottom
-		margin-top: 50px
+		margin-top: 150px
 
 		.about__left
 			margin-right: 0
@@ -164,7 +192,7 @@
 
 // mexanika
 .mexanika
-	padding: 50px 0 100px
+	padding: 80px 0 150px
 
 .mex
 	position: relative

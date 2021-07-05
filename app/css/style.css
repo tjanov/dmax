@@ -573,7 +573,8 @@ body {
       width: 100%; } }
   @media only screen and (max-width: 768px) {
     .form__group {
-      min-height: auto; } }
+      min-height: auto;
+      max-width: 100%; } }
 
 .form__row {
   display: flex; }
@@ -619,6 +620,9 @@ label {
   @media only screen and (max-width: 992px) {
     .input {
       font-size: 14px; } }
+  @media only screen and (max-width: 768px) {
+    .input {
+      max-width: unset; } }
   .input::placeholder {
     font-size: 18px;
     font-family: tregular, sans-serif;
@@ -5321,8 +5325,8 @@ a.plyr__control:before {
 .hero {
   width: 100%;
   background-color: #fff;
-  padding: 180px 0 100px;
-  background: url(../img/hero-right.png) no-repeat center right;
+  padding: 200px 0 120px;
+  background: url(../img/hero-right.png) no-repeat center right -100px;
   background-size: contain;
   position: relative; }
   @media only screen and (max-width: 992px) {
@@ -5347,13 +5351,11 @@ a.plyr__control:before {
         width: 100%; } }
   .hero__title {
     display: inline-block;
-    font-size: 60px;
+    font-size: 56px;
     font-family: tbold, sans-serif;
     color: #1B1C22;
-    position: relative; }
-    .hero__title:hover div::before {
-      width: 100%;
-      transition: width 0.5s cubic-bezier(0.23, 1.08, 0.62, 0.95); }
+    position: relative;
+    text-transform: uppercase; }
     @media only screen and (max-width: 992px) {
       .hero__title {
         font-size: 38px;
@@ -5361,7 +5363,12 @@ a.plyr__control:before {
     .hero__title div {
       display: table;
       position: relative; }
-      .hero__title div::before {
+    .hero__title:hover .hero__title--link div::before {
+      width: 100%;
+      transition: width 0.5s cubic-bezier(0.23, 1.08, 0.62, 0.95); }
+    .hero__title--link {
+      position: relative; }
+      .hero__title--link::before {
         content: '';
         display: block;
         width: 0;
@@ -5408,6 +5415,31 @@ a.plyr__control:before {
           margin-right: 0;
           margin-bottom: 20px;
           margin-top: 20px; } }
+  .hero .btn-link {
+    position: absolute;
+    bottom: 120px;
+    right: 100px;
+    border: 0;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: tbold, sans-serif;
+    font-size: 14px; }
+    @media only screen and (max-width: 992px) {
+      .hero .btn-link {
+        top: 300px;
+        bottom: auto; } }
+    .hero .btn-link__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 57px;
+      height: 57px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      margin-left: 20px;
+      background-color: transparent; }
 
 .about {
   padding: 80px 0 150px;
@@ -5430,7 +5462,7 @@ a.plyr__control:before {
       .about__block {
         flex-direction: column; } }
   .about__bottom {
-    margin-top: 50px; }
+    margin-top: 150px; }
     .about__bottom .about__left {
       margin-right: 0;
       margin-left: 50px; }
@@ -5473,7 +5505,7 @@ a.plyr__control:before {
       margin-right: 50px; }
 
 .mexanika {
-  padding: 50px 0 100px; }
+  padding: 80px 0 150px; }
 
 .mex {
   position: relative; }
@@ -6027,8 +6059,7 @@ a.plyr__control:before {
   .fpage__right {
     width: 100%;
     background: #ccc url(../img/form-slide.jpg) center right no-repeat;
-    background-size: cover;
-    background-attachment: fixed; }
+    background-size: cover; }
     @media only screen and (max-width: 992px) {
       .fpage__right {
         display: none; } }
@@ -6076,6 +6107,17 @@ a.plyr__control:before {
   background: url(../img/eye.svg) 0 0 no-repeat; }
   .password-eye.view {
     background: url(../img/eye-crossed.svg) 0 0 no-repeat; }
+
+.reg .fpage__right {
+  background: #ccc url(../img/form-slide-2.jpg) center right no-repeat;
+  background-size: cover; }
+
+.reg .form__title {
+  margin-bottom: 100px;
+  margin-top: 40px; }
+
+.reg .btn.btn-red {
+  font-size: 14px; }
 
 .reg .fpage {
   grid-template-columns: 60% 1fr; }
