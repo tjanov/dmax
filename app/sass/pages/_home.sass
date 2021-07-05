@@ -40,6 +40,11 @@
 		div
 			display: table
 			position: relative
+			&:first-child
+				color: $red
+			+r(992)
+				br
+					display: none
 		&:hover .hero__title--link div::before 
 			width: 100%
 			transition: width 0.5s cubic-bezier(0.23, 1.08, 0.62, 0.95)
