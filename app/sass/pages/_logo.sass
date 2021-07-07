@@ -1,0 +1,96 @@
+.cl-page
+	background: #ddd
+
+.cl
+	margin: 50px 0
+
+	&-title
+		font-size: 40px
+		+med
+		text-transform: uppercase
+		margin-bottom: 50px
+
+	.container
+		display: flex
+
+	&-result
+		width: 300px
+		height: 300px
+		display: block
+		position: relative
+		border: 2px solid #090909
+		margin-right: 50px
+
+	&-canvas
+		position: relative
+		width: 300px
+		height: 300px
+
+	&-canvas__item
+		position: absolute
+		top: 0
+		left: 0
+
+	&-button
+		margin-top: 40px
+		.btn
+			max-width: 100%
+			width: 100%
+			font-size: 20px
+
+	.canvas-animal
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%,-50%)
+		img
+			width: 150px
+			height: 150px
+
+	.canvas-shield img
+		width: 300px
+		height: 297px
+	
+	.canvas-color img
+		width: 295px
+		height: 295px
+		margin: 0 auto
+
+	.canvas-animal
+		z-index: 4
+	.canvas-shield
+		z-index: 3
+	.canvas-color
+		z-index: 2
+
+	&-choose
+		width: 650px
+
+	&-item
+		display: block
+		height: 150px
+		margin-bottom: 25px
+		border: 2px solid #090909
+		position: relative
+		background: #fff
+		img
+			max-height: 140px
+
+	&-animal
+		img 
+			height: 140px
+
+	.swiper-slide
+		background: #fff
+		display: -webkit-box
+		display: -ms-flexbox
+		display: -webkit-flex
+		display: flex
+		-webkit-box-pack: center
+		-ms-flex-pack: center
+		-webkit-justify-content: center
+		justify-content: center
+		-webkit-box-align: center
+		-ms-flex-align: center
+		-webkit-align-items: center
+		align-items: center

@@ -75,7 +75,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" onchange="let file = this.files[0];
+                                    <input name="photo" id="fileInput" accept="image/*" class="required hidden" type="file" onchange="let file = this.files[0];
                                     var reader = new FileReader();
                                     reader.onload = function (e) {
                                         document.getElementById('image').src = e.target.result;
