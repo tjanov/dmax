@@ -37,57 +37,68 @@
 </head>
 <body class="">
 
-    <!-- login -->
-    <section class="login">
-
-        <div class="fpage">
-            <div class="fpage__left fpage__block">
-
-                <div class="container">
-                    
-                    <header class="fpage__header">
-                        <a href="#"><img src="img/logo.svg" alt=""></a>
-                        <a class="fpage__header--back go-home" href="index.html">на главную <img src="img/back-icon.svg" alt=""></a>
-                    </header>
-
-                    <div class="form">
-                        <div class="form__title">вход</div>
-                        <form id="login-form" method="" action="" autocomplete="off">
-                            <div class="form__group">
-                                <input type="tel" id="tel" name="tel" class="required input" placeholder="Телефон" />
-                            </div>
-                            <div class="form__group">
-                                <input type="password" id="password" name="passowrd" class="required input" placeholder="Пароль" />
-                                <a href="#" class="password-eye password-eye-1"></a>
-                            </div>
-                            <div class="form__forget">
-                                <a class="link" href="#">Забыли пароль?</a>
-                            </div>
-                            <div class="form__group">
-                                <button type="submit" class="btn btn-red"><span>Войти</span></button>
-                            </div>
-                            <div class="form__group">
-                                <div class="form__inline">
-                                    <p>Нет учетной записи?</p>
-                                    <a class="link link--red" href="reg.html">Регистрация</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <footer class="fpage__footer">
-                        <div class="copy">Copyright © 2021 DMAX QUEST All rights reserved.</div>
-                    </footer>
-
-                </div>
-
+    <main class="global" data-scroll-container>
+        
+        <div class="loader-background"></div>
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="img/logo-2.svg" alt="">
             </div>
-            
-            <!-- slider / image -->
-            <div class="fpage__right fpage__block"></div>
         </div>
 
-    </section>
+        <!-- login -->
+        <section class="login">
+
+            <div class="fpage">
+                <div class="fpage__left fpage__block">
+
+                    <div class="container">
+                        
+                        <header class="fpage__header">
+                            <a href="#"><img src="img/logo.svg" alt=""></a>
+                            <a class="fpage__header--back go-home" href="index.html">на главную <img src="img/back-icon.svg" alt=""></a>
+                        </header>
+
+                        <div class="form">
+                            <div class="form__title">вход</div>
+                            <form id="login-form" method="" action="" autocomplete="off">
+                                <div class="form__group">
+                                    <input type="tel" id="tel" name="tel" class="required input" placeholder="Телефон" />
+                                </div>
+                                <div class="form__group">
+                                    <input type="password" id="password" name="passowrd" class="required input" placeholder="Пароль" />
+                                    <a href="#" class="password-eye password-eye-1"></a>
+                                </div>
+                                <div class="form__forget">
+                                    <a class="link" href="#">Забыли пароль?</a>
+                                </div>
+                                <div class="form__group">
+                                    <button type="submit" class="btn btn-red"><span>Войти</span></button>
+                                </div>
+                                <div class="form__group">
+                                    <div class="form__inline">
+                                        <p>Нет учетной записи?</p>
+                                        <a class="link link--red" href="reg.html">Регистрация</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <footer class="fpage__footer">
+                            <div class="copy">Copyright © 2021 DMAX QUEST All rights reserved.</div>
+                        </footer>
+
+                    </div>
+
+                </div>
+                
+                <!-- slider / image -->
+                <div class="fpage__right fpage__block"></div>
+            </div>
+
+        </section>
+
+    </main>
 
     <!-- js -->
     <script type="text/javascript" src="js/libs.js"></script>

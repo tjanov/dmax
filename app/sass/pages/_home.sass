@@ -33,6 +33,8 @@
 		color: $blck
 		position: relative
 		text-transform: uppercase
+		opacity: 0
+		transform: translateY(100px)
 		// line-height: 60px
 		+r(992)
 			font-size: 38px
@@ -64,6 +66,8 @@
 
 	.herocount
 		margin: 50px 0
+		opacity: 0
+		transform: translateY(100px)
 		+r(992)
 			margin: 20px 0
 
@@ -89,6 +93,8 @@
 
 	&__active
 		display: flex
+		opacity: 0
+		transform: translateY(100px)
 		+r(992)
 			flex-direction: column
 
@@ -101,29 +107,71 @@
 
 	.btn-link
 		position: absolute
-		bottom: 120px
+		height: 57px
+		bottom: 0
 		right: 100px
 		border: 0
 		display: flex
 		align-items: center
-		color: $w
 		text-transform: uppercase
+		color: $w
 		+bold
 		font-size: 14px
+		opacity: 0
+		transform: translateY(100px)
+		transition: color cubic-bezier(0.73, 0.29, 0, 1)
+		&:hover
+			.btn-link__border
+				transform: scale(1.15)
 		+r(992)
 			top: 300px
 			bottom: auto
-		&__arrow
+			right: 0
+
+		&__text
+			+r(992)
+				max-width: 60%
+
+		&__circle
+			width: 57px
+			height: 57px
+			position: relative
 			display: flex
 			align-items: center
 			justify-content: center
-			width: 57px
-			height: 57px
+			background-color: transparent
+			margin-left: 20px
+			+r(992)
+				margin-left: 10px
+				width: 40px
+				height: 40px
+
+		&__border
 			border: 2px solid $w
 			border-radius: 50%
-			margin-left: 20px
-			background-color: transparent
-		svg
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			transition: transform 0.5s cubic-bezier(0.73, 0.29, 0, 1)
+
+.loader-gone .hero__title,
+.loader-gone .herocount,
+.loader-gone .hero__active,
+.loader-gone .btn-link
+	animation: fadeInUp 0.6s ease
+	animation-delay: 1.3s
+	animation-fill-mode: forwards
+
+.loader-gone .herocount
+	animation-delay: 1.4s
+
+.loader-gone .hero__active
+	animation-delay: 1.5s
+
+.loader-gone .hero__active
+	animation-delay: 1.6s
 
 // about
 .about
@@ -192,6 +240,10 @@
 			border-top: 2px solid $w
 			padding: 15px 0 30px
 			color: $w
+		a
+			color: $w
+			+bold
+			text-decoration: underline
 		.about__list--num
 			+bold
 			display: inline-block

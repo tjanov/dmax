@@ -1,104 +1,210 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 // /////////////////////////////       BASIC
-$(document).ready(function() {
-	
-	const observer = lozad('.lozad');
-	observer.observe();
+var dev = 0;
+var animationTime = 2400;
 
-	let inputPhone = $('[type="tel"]').inputmask({
-		mask: "+\\9\\98 99 999 99 99",
-		placeholder: "-",
-	});
+$(document).ready(function () {
 
-    //MOBILE OPEN MENU
-    $('.burger').click(function() {
-        if (!$(this).hasClass('transformed')) {
-            $(this).addClass('transformed');
-            $('.mob-menu').addClass('opened');
-            setTimeout(function() {
-                $('body').addClass('overflow');
-            }, 200)
-        } else {
-            $(this).removeClass('transformed');
+    //nojs
+    $('body').removeClass('no-js');
+
+    function heroFix() {
+        $('.hero-ios-fix').height(window.innerHeight);
+    }
+    
+    heroFix();
+
+    $(window).resize(function () {
+        heroFix();
+    });
+
+    //------------------------------------------------------------------------//
+
+    //fakelink
+    $(document).on('click', 'a[href="#"]', function (event) {
+        event.preventDefault();
+    });
+
+    //------------------------------------------------------------------------------------------//
+
+    if (dev) {
+        $('body').addClass('dev-mode');
+        $('body').find('video').each(function (index) {
+            var thisElement = $(this);
+            thisElement[0].pause();
+        });
+        animationTime = 0;
+    }
+
+});//document ready
+
+var ScrollTrigger;
+var scroller;
+$(window).on('load', function() {
+
+    var html = $('html');
+
+    html.addClass('loader-done');
+
+    setTimeout(function() {
+
+        html.addClass('loader-gone');
+
+        html.removeClass('loader-html');
+
+        scroller = new LocomotiveScroll({
+            el: document.querySelector('[data-scroll-container]'),
+            smooth: true,
+            getDirection: true,
+            direction: 'vertical',
+            reloadOnContextChange: true,
+            //getSpeed: true,
+            smartphone: {
+                smooth: true,
+                direction: 'vertical',
+            },
+            tablet: {
+                smooth: true,
+                direction: 'vertical',
+            }
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+        scroller.on('scroll', ScrollTrigger.update);
+
+        $(window).resize(function() {
+            ScrollTrigger.update;
+        });
+
+        //------------------------------------------------------------------------------------------//
+        
+        $(document).on('click', '.to-anim-about', function(event) {
+            event.preventDefault();
+            var target = document.querySelector('#about');
+            scroller.scrollTo(target);
+        });
+        $(document).on('click', '.to-anim-mexanika', function(event) {
+            event.preventDefault();
+            var target = document.querySelector('#mexanika');
+            scroller.scrollTo(target);
+        });
+        $(document).on('click', '.to-anim-create', function(event) {
+            event.preventDefault();
+            var target = document.querySelector('#create');
+            scroller.scrollTo(target);
+        });
+        $(document).on('click', '.to-anim-how', function(event) {
+            event.preventDefault();
+            var target = document.querySelector('#how');
+            scroller.scrollTo(target);
+        });
+
+    	const observer = lozad('.lozad');
+    	observer.observe();
+
+    	let inputPhone = $('[type="tel"]').inputmask({
+    		mask: "+\\9\\98 99 999 99 99",
+    		placeholder: "-",
+    	});
+
+        //MOBILE OPEN MENU
+        $('.burger').click(function() {
+            if (!$(this).hasClass('transformed')) {
+                $(this).addClass('transformed');
+                $('.mob-menu').addClass('opened');
+                setTimeout(function() {
+                    $('body').addClass('overflow');
+                }, 200)
+            } else {
+                $(this).removeClass('transformed');
+                $('.mob-menu').removeClass('opened');
+                $('body').removeClass('overflow');
+            }
+        });
+
+        $(".mob-menu a").click(function() {
+            $('.burger').removeClass('transformed');
             $('.mob-menu').removeClass('opened');
             $('body').removeClass('overflow');
-        }
-    });
-
-    $('.mex__item').each(function() {
-         $(this).mouseenter(function() {
-             $(this).addClass('show');
-        }).mouseleave(function() {
-             $(this).removeClass('show');
         })
-    });
 
-	// Fancy Box active
-    $('[data-fancybox]').fancybox();
+        $('.mex__item').each(function() {
+             $(this).mouseenter(function() {
+                 $(this).addClass('show');
+            }).mouseleave(function() {
+                 $(this).removeClass('show');
+            })
+        });
 
-	// FAQ
-    const items = document.querySelectorAll(".acc-btn");
-    function toggleAccordion() {
-        const itemToggle = this.getAttribute('aria-expanded');
-        for (let i = 0; i < items.length; i++) {
-            items[i].setAttribute('aria-expanded', 'false');
+    	// Fancy Box active
+        $('[data-fancybox]').fancybox();
+
+    	// FAQ
+        const items = document.querySelectorAll(".acc-btn");
+        function toggleAccordion() {
+            const itemToggle = this.getAttribute('aria-expanded');
+            for (let i = 0; i < items.length; i++) {
+                items[i].setAttribute('aria-expanded', 'false');
+            }
+            if (itemToggle == 'false') {
+                this.setAttribute('aria-expanded', 'true');
+            }
         }
-        if (itemToggle == 'false') {
-            this.setAttribute('aria-expanded', 'true');
-        }
-    }
-    items.forEach(item => item.addEventListener('click', toggleAccordion));
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
 
-    // home-2
-    const userMediaSlider = new Swiper('.usermedia__slider', {
-        slidesPerView: 4,
-        centeredSlides: true,
-        spaceBetween: 15,
-        initialSlide: 1,
-        watchOverflow: true,
-        speed: 600
-    });
+        // home-2
+        const userMediaSlider = new Swiper('.usermedia__slider', {
+            slidesPerView: 4,
+            centeredSlides: true,
+            spaceBetween: 15,
+            initialSlide: 1,
+            watchOverflow: true,
+            speed: 600
+        });
 
-    // Slider Tabs
-    $('.tab_content').hide();
-    $('.tab_content:first').show();
-    $('.tabs li:first').addClass('is-active');
-
-    $('.tabs li').click(function(e) {
-        e.preventDefault()
-        $('.tabs li').removeClass('is-active');
-        $(this).addClass('is-active');
+        // Slider Tabs
         $('.tab_content').hide();
+        $('.tab_content:first').show();
+        $('.tabs li:first').addClass('is-active');
 
-        let selectTab = $(this).find('a').attr("href");
+        $('.tabs li').click(function(e) {
+            e.preventDefault()
+            $('.tabs li').removeClass('is-active');
+            $(this).addClass('is-active');
+            $('.tab_content').hide();
 
-        $(selectTab).fadeIn();
-    });
+            let selectTab = $(this).find('a').attr("href");
 
-    $('a[href^="#"]').click(function(event) {
+            $(selectTab).fadeIn();
+        });
 
-        event.preventDefault();
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            slidesPerColumn: 2,
+            spaceBetween: 20,
+            freeMode: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
 
-        var target = $(this).attr('href');
-        if (target == '#') return;
+        ScrollTrigger.addEventListener('refresh', () => scroller.update());
+        ScrollTrigger.refresh();
 
-        $('body, html').animate({
-            scrollTop: $(target).offset().top
-        }, 1500);
+        // scroller.on('scroll', (args) => {
+        //     //console.log(args.speed);
+        //     if (args.scroll.y > 150) {
+        //         $('.cl-canvas').css('position','fixed');
+        //     } else {
+        //         $('.cl-canvas').css('position','absolute');
+        //     }
+        // });
 
-    });
+    }, animationTime);
 
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        freeMode: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
+}); //window load
 
-});
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // /////////////////////////////       FORM

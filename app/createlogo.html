@@ -28,133 +28,294 @@
     <meta name="og:locale" content="uz_UZ">
     <meta name="og:type" content="website">
     <link rel="stylesheet" media="all" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 </head>
 <body class="cl-page">
 
-    <section class="cl">
-        <div class="container">
-            <div class="cl-title">создать логотип</div>
-        </div>
-        <div class="container">
-            <div class="cl-result">
-                <div class="cl-canvas">
-                    <div class="cl-canvas__item canvas-animal"><img src="img/cl/animals/animal13.png" alt=""></div>
-                    <div class="cl-canvas__item canvas-shield"><img src="img/cl/shields/shield3.png" alt=""></div>
-                    <div class="cl-canvas__item canvas-color"><img src="img/cl/colors/color9.png" alt=""></div>
-                </div>
-                <div class="cl-button">
-                    <button class="btn btn-red"><span>Создать</span></button>
-                </div>
+    <main class="global" data-scroll-container>
+        
+        <div class="loader-background"></div>
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="img/logo-2.svg" alt="">
             </div>
-            <div class="cl-choose">
-                <div class="cl-item cl-shield">
-                    <div class="swiper-container mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="img/cl/shields/shield1.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/shields/shield2.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/shields/shield3.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/shields/shield4.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/shields/shield5.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/shields/shield6.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/shields/shield7.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/shields/shield8.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/shields/shield9.png" alt="">
-                            </div>
+        </div>
+
+        <header class="header">
+            <div class="container">
+                <a href="/" class="logo"><img src="img/logo.svg" alt=""></a>
+                <div class="header__cl-right">
+                    <a class="fpage__header--back go-home" href="index.html">на главную <img src="img/back-icon.svg" alt=""></a>
+                    <div class="header__active">
+                        <div class="lang">
+                            <a class="is-active" href="#">RU</a>
+                            <a href="#">Uz</a>
                         </div>
-                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="header__buttons">
+                        <a class="" href="login.html">ВХОД</a>
+                        <span></span>
+                        <a class="" href="reg.html">РЕГИСТРАЦИЯ</a>
                     </div>
                 </div>
-                <div class="cl-item cl-color">
-                    <div class="swiper-container mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="img/cl/colors/color1.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/colors/color2.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/colors/color3.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/colors/color4.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/colors/color5.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/colors/color6.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/colors/color7.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/colors/color8.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/colors/color9.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
+                <!-- burger -->
+                <div class="burger">
+                    <div class="line"></div>
+                    <div class="line"></div>
                 </div>
-                <div class="cl-item cl-animal">
-                    <div class="swiper-container mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="img/cl/animals/animal1.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/animals/animal2.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/animals/animal3.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/animals/animal4.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/animals/animal5.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/animals/animal6.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/animals/animal7.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/animals/animal8.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img//cl/animals/animal9.png" alt="">
-                            </div>
+
+                <!-- mobile menu-->
+                <div class="mob-menu">
+                    <a href="#" class="lng">UZ</a>
+                    <ul class="mob-nav">
+                        <li class="menuitem active"> 
+                            <a href="" class="to-anim-about">О квесте</a> 
+                        </li>
+                        <li class="menuitem"> 
+                            <a href="" class="to-anim-mexanika">Механика</a> 
+                        </li>
+                        <li class="menuitem"> 
+                            <a href="" class="to-anim-create">Создать лого</a> 
+                        </li>
+                        <li class="menuitem"> 
+                            <a href="" class="to-anim-how">Как пользоваться сайтом</a> 
+                        </li>
+                    </ul>
+                    <div class="middle">
+                        <div class="header__buttons">
+                            <a class="" href="login.html">ВХОД</a>
+                            <span></span>
+                            <a class="" href="reg.html">РЕГИСТРАЦИЯ</a>
                         </div>
-                        <div class="swiper-pagination"></div>
+                    </div>
+                    <hr>
+                    <div class="bottom"> 
+                        <ul class="social">
+                            <li><a target="_blank" href="https://instagram.com/samauto.uz/"><img src="img/instagram.png" alt=""></a></li>
+                            <li><a target="_blank" href="https://facebook.com/samauto.uz/"><img src="img/facebook.png" alt=""></a></li>
+                            <li><a target="_blank" href="https://t.me/samauto_uz"><img src="img/telegram.svg" alt=""></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
+
+        <section class="cl">
+            <div class="container">
+                <div class="cl-title">создать логотип</div>
+            </div>
+            <div class="container">
+                <div class="cl-result" id="cl-result">
+                    <div class="cl-fixed">
+                        <div class="cl-canvas" id="toImage" data-scroll data-scroll-sticky data-scroll-target="#cl-result">
+                            <div class="cl-canvas__item canvas-animal"><img src="img/cl/animals/animal13.png" id="animal" alt=""></div>
+                            <div class="cl-canvas__item canvas-shield"><img src="img/cl/shields/shield3.png" id="shield" alt=""></div>
+                            <div class="cl-canvas__item canvas-color"><img src="img/cl/colors/color9.png" id="color" alt=""></div>
+                        </div>
+                        <div class="cl-button">
+                            <button class="btn btn-red" type="button" id="btnSave"><span>Создать</span></button>
+
+                            <!--<a id="btn-Convert-Html2Image" href="#">convertto image</a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="img-out"></div>
+
+                <div class="cl-choose">
+                    <div class="cl-item cl-shield">
+                        <div class="swiper-container mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield1.png" onclick="shield(1)" id="shield_1" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield2.png" onclick="shield(2)" id="shield_2" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield3.png" onclick="shield(3)" id="shield_3" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield4.png" onclick="shield(4)" id="shield_4" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield5.png" onclick="shield(5)" id="shield_5" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield6.png" onclick="shield(6)" id="shield_6" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield7.png" onclick="shield(7)" id="shield_7" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield8.png" onclick="shield(8)" id="shield_8" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield9.png" onclick="shield(9)" id="shield_9" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield10.png" onclick="shield(10)" id="shield_10" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield11.png" onclick="shield(11)" id="shield_11" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield12.png" onclick="shield(12)" id="shield_12" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield13.png" onclick="shield(13)" id="shield_13" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield14.png" onclick="shield(14)" id="shield_14" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield15.png" onclick="shield(15)" id="shield_15" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield16.png" onclick="shield(16)" id="shield_16" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield17.png" onclick="shield(17)" id="shield_17" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield18.png" onclick="shield(18)" id="shield_18" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield19.png" onclick="shield(19)" id="shield_19" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/shields/shield20.png" onclick="shield(20)" id="shield_20" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="cl-item cl-color">
+                        <div class="swiper-container mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color1.png" onclick="color_l(1)" id="color_l_1" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color2.png" onclick="color_l(2)" id="color_l_2" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color3.png" onclick="color_l(3)" id="color_l_3" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color4.png" onclick="color_l(4)" id="color_l_4" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color5.png" onclick="color_l(5)" id="color_l_5" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color6.png" onclick="color_l(6)" id="color_l_6" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color7.png" onclick="color_l(7)" id="color_l_7" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color8.png" onclick="color_l(8)" id="color_l_8" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/colors/color9.png" onclick="color_l(9)" id="color_l_9" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="cl-item cl-animal">
+                        <div class="swiper-container mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal1.png" onclick="animal(1)" id="animal_1" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal2.png" onclick="animal(2)" id="animal_2" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal3.png" onclick="animal(3)" id="animal_3" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal4.png" onclick="animal(4)" id="animal_4" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal5.png" onclick="animal(5)" id="animal_5" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal6.png" onclick="animal(6)" id="animal_6" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal7.png" onclick="animal(7)" id="animal_7" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal8.png" onclick="animal(8)" id="animal_8" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/cl/animals/animal9.png" onclick="animal(9)" id="animal_9" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__top">
+                    <a href="#" class="logo">
+                        <img src="img/logo-2.svg" alt="">
+                    </a>
+                    <nav class="nav footer__nav">
+                        <a class="to-anim-about" href="">О квесте</a>
+                        <a class="to-anim-mexanika" href="">Механика</a>
+                        <a class="to-anim-create" href="">Создать лого</a>
+                        <a class="to-anim-how" href="">Как пользоваться сайтом</a>
+                    </nav>
+                </div>
+                <div class="footer__bottom">
+                    <ul class="social social__footer">
+                        <li><a target="_blank" href="https://instagram.com/samauto.uz/"><img src="img/instagram.png" alt=""></a></li>
+                        <li><a target="_blank" href="https://facebook.com/samauto.uz/"><img src="img/facebook.png" alt=""></a></li>
+                        <li><a target="_blank" href="https://t.me/samauto_uz"><img src="img/telegram.svg" alt=""></a></li>
+                    </ul>
+                    <img class="logo-xs" src="img/logo-2.svg" alt="">
+                    <div class="copyright">© СП ООО «СамАвто». Все права защищены. 2021</div>
+                    <a target="_blank" href="https://yeko.uz" class="footer__dev">
+                        <img src="img/oke.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script type="text/javascript">
+        function shield(id) {
+            var img = $('#shield_'+id).attr('src');
+            $('#shield').attr('src', img);
+        }
+        function animal(id) {
+            var img = $('#animal_'+id).attr('src');
+            $('#animal').attr('src', img);
+        }
+        function color_l(id) {
+            var img = $('#color_l_'+id).attr('src');
+            $('#color').attr('src', img);
+        }
+        var button = document.getElementById('btnSave');
+        button.addEventListener('click', function (e) {
+            var dataURL = canvas.toDataURL('image/png');
+            button.href = dataURL;
+        });
+    </script>
 
     <!-- js -->
-    <script type="text/javascript" src="js/libs.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="/js/libs.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
 </body>
 </html>

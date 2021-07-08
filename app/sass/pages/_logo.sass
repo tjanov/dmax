@@ -1,6 +1,17 @@
 .cl-page
 	background: #ddd
 
+	header
+		margin: 30px 0
+		position: static
+
+.header__cl-right
+	display: flex
+	align-items: center
+
+	.lang
+		margin: 0 50px
+
 .cl
 	margin: 50px 0
 
@@ -21,10 +32,15 @@
 		border: 2px solid #090909
 		margin-right: 50px
 
+	&-fixed
+		position: sticky
+		top: 0
+
 	&-canvas
 		position: relative
 		width: 300px
 		height: 300px
+		top: 0
 
 	&-canvas__item
 		position: absolute
@@ -68,7 +84,7 @@
 
 	&-item
 		display: block
-		height: 150px
+		height: 350px
 		margin-bottom: 25px
 		border: 2px solid #090909
 		position: relative
@@ -80,8 +96,15 @@
 		img 
 			height: 140px
 
+	.swiper-container
+		width: 100%
+		height: 100%
+		margin-left: auto
+		margin-right: auto
+
 	.swiper-slide
 		background: #fff
+		height: calc((100% - 30px) / 2)
 		display: -webkit-box
 		display: -ms-flexbox
 		display: -webkit-flex
