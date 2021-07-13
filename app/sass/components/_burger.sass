@@ -9,7 +9,7 @@
     cursor: pointer
     transition: all 0.2s ease-in-out
     margin-left: 20px
-    +r(992)
+    +r(1200)
         display: block
 
 .burger .line
@@ -45,12 +45,14 @@
     font-size: 12px
     transition: all 0.2s ease-in-out
     opacity: 0
+    visibility: hidden
     background-color: white
     color: $blck
     &.opened
         top: 0
         opacity: 1
-    +r(992)
+        visibility: visible
+    +r(1200)
         display: block
 
     hr
@@ -66,7 +68,7 @@
         margin: 30px 0
 
     .header__buttons
-        +r(992)
+        +r(1200)
             display: flex
             align-items: center
             justify-content: space-around
@@ -76,7 +78,6 @@
     text-transform: uppercase
     +med
     font-size: 8vw 
-    // font-size: 60px
     -webkit-transform: scale(1, 0.8)
     -moz-transform: scale(1, 0.8)
     -ms-transform: scale(1, 0.8)
@@ -95,11 +96,3 @@
     top: 30px
     left: 30px
     font-size: 14px
-
-// .mob-menu
-//     .profile
-//         display: block
-//         margin-left: 0
-//         background-color: $red
-//         color: $w
-//         display: inline-block

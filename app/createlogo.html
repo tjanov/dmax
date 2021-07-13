@@ -46,7 +46,7 @@
             <div class="container">
                 <a href="/" class="logo"><img src="img/logo.svg" alt=""></a>
                 <div class="header__cl-right">
-                    <a class="fpage__header--back go-home" href="index.html">на главную <img src="img/back-icon.svg" alt=""></a>
+                    <a class="fpage__header--back go-home" href="index.html">на главную</a>
                     <div class="header__active">
                         <div class="lang">
                             <a class="is-active" href="#">RU</a>
@@ -78,9 +78,6 @@
                         <li class="menuitem"> 
                             <a href="" class="to-anim-create">Создать лого</a> 
                         </li>
-                        <li class="menuitem"> 
-                            <a href="" class="to-anim-how">Как пользоваться сайтом</a> 
-                        </li>
                     </ul>
                     <div class="middle">
                         <div class="header__buttons">
@@ -103,20 +100,29 @@
 
         <section class="cl">
             <div class="container">
-                <div class="cl-title">создать логотип</div>
+                <div class="cl-title">создать герб</div>
             </div>
             <div class="container">
                 <div class="cl-result" id="cl-result">
-                    <div class="cl-fixed">
-                        <div class="cl-canvas" id="toImage" data-scroll data-scroll-sticky data-scroll-target="#cl-result">
-                            <div class="cl-canvas__item canvas-animal"><img src="img/cl/animals/animal13.png" id="animal" alt=""></div>
-                            <div class="cl-canvas__item canvas-shield"><img src="img/cl/shields/shield3.png" id="shield" alt=""></div>
-                            <div class="cl-canvas__item canvas-color"><img src="img/cl/colors/color9.png" id="color" alt=""></div>
+                    <div class="cl-fixed" data-scroll data-scroll-sticky data-scroll-target="#cl-result">
+                        <div class="cl-canvas" id="toImage">
+                            <div class="cl-canvas__item canvas-animal">
+                                <img src="img/cl/animals/animal101.png" id="animal" alt="">
+                            </div>
+                            <div class="cl-canvas__item canvas-shield">
+                                <img src="img/cl/shields/shield101.png" id="shield" alt="">
+                            </div>
+                            <div class="cl-canvas__item canvas-color">
+                                <img src="img/cl/colors/color101.png" id="color" alt="">
+                            </div>
+                            <div class="cl-canvas__item canvas-bg">
+                                <img src="img/cl/backgrounds/background_2.png" id="background" alt="">
+                            </div>
                         </div>
-                        <div class="cl-button">
-                            <button class="btn btn-red" type="button" id="btnSave"><span>Создать</span></button>
-
-                            <!--<a id="btn-Convert-Html2Image" href="#">convertto image</a>-->
+                        <div class="cl-button md">
+                            <button class="btn btn-red" type="button" id="btnSave">
+                                <span>Создать</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -125,138 +131,250 @@
 
                 <div class="cl-choose">
                     <div class="cl-item cl-shield">
-                        <div class="swiper-container mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield1.png" onclick="shield(1)" id="shield_1" alt="">
+                        <div class="cl-item__title">Выберите форму</div>
+                        <div class="cl-item__inner">
+                            <div class="swiper-container mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield101.png" onclick="shield(101)" id="shield_101" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield201.png" onclick="shield(201)" id="shield_201" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield301.png" onclick="shield(301)" id="shield_301" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield401.png" onclick="shield(401)" id="shield_401" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield501.png" onclick="shield(501)" id="shield_501" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield601.png" onclick="shield(601)" id="shield_601" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield701.png" onclick="shield(701)" id="shield_701" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield801.png" onclick="shield(801)" id="shield_801" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield901.png" onclick="shield(901)" id="shield_901" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/shields/shield1001.png" onclick="shield(1001)" id="shield_1001" alt="">
+                                    </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield2.png" onclick="shield(2)" id="shield_2" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield3.png" onclick="shield(3)" id="shield_3" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield4.png" onclick="shield(4)" id="shield_4" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield5.png" onclick="shield(5)" id="shield_5" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield6.png" onclick="shield(6)" id="shield_6" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield7.png" onclick="shield(7)" id="shield_7" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield8.png" onclick="shield(8)" id="shield_8" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield9.png" onclick="shield(9)" id="shield_9" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield10.png" onclick="shield(10)" id="shield_10" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield11.png" onclick="shield(11)" id="shield_11" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield12.png" onclick="shield(12)" id="shield_12" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield13.png" onclick="shield(13)" id="shield_13" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield14.png" onclick="shield(14)" id="shield_14" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield15.png" onclick="shield(15)" id="shield_15" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield16.png" onclick="shield(16)" id="shield_16" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield17.png" onclick="shield(17)" id="shield_17" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield18.png" onclick="shield(18)" id="shield_18" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield19.png" onclick="shield(19)" id="shield_19" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/shields/shield20.png" onclick="shield(20)" id="shield_20" alt="">
-                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
-                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="cl-item cl-background">
+                        <div class="cl-item__title">Выберите фон</div>
+                        <div class="cl-item__inner">
+                            <div class="swiper-container mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_1.png" onclick="bg(1)" id="background_1" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_2.png" onclick="bg(2)" id="background_2" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_3.png" onclick="bg(3)" id="background_3" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_4.png" onclick="bg(4)" id="background_4" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_5.png" onclick="bg(5)" id="background_5" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_6.png" onclick="bg(6)" id="background_6" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_7.png" onclick="bg(7)" id="background_7" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_8.png" onclick="bg(8)" id="background_8" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/cl/backgrounds/background_9.png" onclick="bg(9)" id="background_9" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="cl-item cl-color">
-                        <div class="swiper-container mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color1.png" onclick="color_l(1)" id="color_l_1" alt="">
+                        <div class="cl-item__title">Выберите паттерн</div>
+                        <div class="cl-item__inner">
+                            <div class="swiper-container mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <button class="color1_open">
+                                            <img src="img/cl/colors/color101.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color2_open">
+                                            <img src="img/cl/colors/color201.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color3_open">
+                                            <img src="img/cl/colors/color301.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color4_open">
+                                            <img src="img/cl/colors/color401.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color5_open">
+                                            <img src="img/cl/colors/color501.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color6_open">
+                                            <img src="img/cl/colors/color601.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color7_open">
+                                            <img src="img/cl/colors/color701.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color8_open">
+                                            <img src="img/cl/colors/color801.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color9_open">
+                                            <img src="img/cl/colors/color901.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color10_open">
+                                            <img src="img/cl/colors/color1001.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="color11_open">
+                                            <img src="img/cl/colors/color1101.png" alt="">
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color2.png" onclick="color_l(2)" id="color_l_2" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color3.png" onclick="color_l(3)" id="color_l_3" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color4.png" onclick="color_l(4)" id="color_l_4" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color5.png" onclick="color_l(5)" id="color_l_5" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color6.png" onclick="color_l(6)" id="color_l_6" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color7.png" onclick="color_l(7)" id="color_l_7" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color8.png" onclick="color_l(8)" id="color_l_8" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/colors/color9.png" onclick="color_l(9)" id="color_l_9" alt="">
-                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
-                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
                     <div class="cl-item cl-animal">
-                        <div class="swiper-container mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal1.png" onclick="animal(1)" id="animal_1" alt="">
+                        <div class="cl-item__title">Выберите символ</div>
+                        <div class="cl-item__inner">
+                            <div class="swiper-container mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <button class="animal1_open">
+                                            <img src="img/cl/animals/animal101.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal2_open">
+                                            <img src="img/cl/animals/animal201.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal3_open">
+                                            <img src="img/cl/animals/animal301.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal4_open">
+                                            <img src="img/cl/animals/animal401.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal5_open">
+                                            <img src="img/cl/animals/animal501.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal6_open">
+                                            <img src="img/cl/animals/animal601.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal7_open">
+                                            <img src="img/cl/animals/animal701.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal8_open">
+                                            <img src="img/cl/animals/animal801.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal9_open">
+                                            <img src="img/cl/animals/animal901.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal10_open">
+                                            <img src="img/cl/animals/animal1001.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal11_open">
+                                            <img src="img/cl/animals/animal1101.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal12_open">
+                                            <img src="img/cl/animals/animal1201.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal13_open">
+                                            <img src="img/cl/animals/animal1301.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal14_open">
+                                            <img src="img/cl/animals/animal1401.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal15_open">
+                                            <img src="img/cl/animals/animal1501.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal16_open">
+                                            <img src="img/cl/animals/animal1601.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal17_open">
+                                            <img src="img/cl/animals/animal1701.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button class="animal18_open">
+                                            <img src="img/cl/animals/animal1801.png" alt="">
+                                        </button>
+                                    </div>
+
                                 </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal2.png" onclick="animal(2)" id="animal_2" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal3.png" onclick="animal(3)" id="animal_3" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal4.png" onclick="animal(4)" id="animal_4" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal5.png" onclick="animal(5)" id="animal_5" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal6.png" onclick="animal(6)" id="animal_6" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal7.png" onclick="animal(7)" id="animal_7" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal8.png" onclick="animal(8)" id="animal_8" alt="">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/cl/animals/animal9.png" onclick="animal(9)" id="animal_9" alt="">
-                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
-                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
                 </div>
@@ -285,8 +403,8 @@
                     </ul>
                     <img class="logo-xs" src="img/logo-2.svg" alt="">
                     <div class="copyright">© СП ООО «СамАвто». Все права защищены. 2021</div>
-                    <a target="_blank" href="https://yeko.uz" class="footer__dev">
-                        <img src="img/oke.svg" alt="">
+                    <a target="_blank" href="https://samauto.uz/" class="footer__dev">
+                        <img src="img/sam.png" alt="">
                     </a>
                 </div>
             </div>
@@ -294,28 +412,561 @@
 
     </main>
 
-    <script type="text/javascript">
-        function shield(id) {
-            var img = $('#shield_'+id).attr('src');
-            $('#shield').attr('src', img);
-        }
-        function animal(id) {
-            var img = $('#animal_'+id).attr('src');
-            $('#animal').attr('src', img);
-        }
-        function color_l(id) {
-            var img = $('#color_l_'+id).attr('src');
-            $('#color').attr('src', img);
-        }
-        var button = document.getElementById('btnSave');
-        button.addEventListener('click', function (e) {
-            var dataURL = canvas.toDataURL('image/png');
-            button.href = dataURL;
-        });
-    </script>
+    <!-- =================== 
+        animals modals 
+        ===================  -->
+    <div id="animal1">
+        <div class="modal">
+            <button class="animal1_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal101.png" onclick="animal(101)" id="animal_101" alt="">
+                <img src="img/cl/animals/animal102.png" onclick="animal(102)" id="animal_102" alt="">
+                <img src="img/cl/animals/animal103.png" onclick="animal(103)" id="animal_103" alt="">
+                <img src="img/cl/animals/animal104.png" onclick="animal(104)" id="animal_104" alt="">
+                <img src="img/cl/animals/animal105.png" onclick="animal(105)" id="animal_105" alt="">
+                <img src="img/cl/animals/animal106.png" onclick="animal(106)" id="animal_106" alt="">
+                <img src="img/cl/animals/animal107.png" onclick="animal(107)" id="animal_107" alt="">
+                <img src="img/cl/animals/animal108.png" onclick="animal(108)" id="animal_108" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal2">
+        <div class="modal">
+            <button class="animal2_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal201.png" onclick="animal(201)" id="animal_201" alt="">
+                <img src="img/cl/animals/animal202.png" onclick="animal(202)" id="animal_202" alt="">
+                <img src="img/cl/animals/animal203.png" onclick="animal(203)" id="animal_203" alt="">
+                <img src="img/cl/animals/animal204.png" onclick="animal(204)" id="animal_204" alt="">
+                <img src="img/cl/animals/animal205.png" onclick="animal(205)" id="animal_205" alt="">
+                <img src="img/cl/animals/animal206.png" onclick="animal(206)" id="animal_206" alt="">
+                <img src="img/cl/animals/animal207.png" onclick="animal(207)" id="animal_207" alt="">
+                <img src="img/cl/animals/animal208.png" onclick="animal(208)" id="animal_208" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal3">
+        <div class="modal">
+            <button class="animal3_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal301.png" onclick="animal(301)" id="animal_301" alt="">
+                <img src="img/cl/animals/animal302.png" onclick="animal(302)" id="animal_302" alt="">
+                <img src="img/cl/animals/animal303.png" onclick="animal(303)" id="animal_303" alt="">
+                <img src="img/cl/animals/animal304.png" onclick="animal(304)" id="animal_304" alt="">
+                <img src="img/cl/animals/animal305.png" onclick="animal(305)" id="animal_305" alt="">
+                <img src="img/cl/animals/animal306.png" onclick="animal(306)" id="animal_306" alt="">
+                <img src="img/cl/animals/animal307.png" onclick="animal(307)" id="animal_307" alt="">
+                <img src="img/cl/animals/animal308.png" onclick="animal(308)" id="animal_308" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal4">
+        <div class="modal">
+            <button class="animal4_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal401.png" onclick="animal(401)" id="animal_401" alt="">
+                <img src="img/cl/animals/animal402.png" onclick="animal(402)" id="animal_402" alt="">
+                <img src="img/cl/animals/animal403.png" onclick="animal(403)" id="animal_403" alt="">
+                <img src="img/cl/animals/animal404.png" onclick="animal(404)" id="animal_404" alt="">
+                <img src="img/cl/animals/animal405.png" onclick="animal(405)" id="animal_405" alt="">
+                <img src="img/cl/animals/animal406.png" onclick="animal(406)" id="animal_406" alt="">
+                <img src="img/cl/animals/animal407.png" onclick="animal(407)" id="animal_407" alt="">
+                <img src="img/cl/animals/animal408.png" onclick="animal(408)" id="animal_408" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal5">
+        <div class="modal">
+            <button class="animal5_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal501.png" onclick="animal(501)" id="animal_501" alt="">
+                <img src="img/cl/animals/animal502.png" onclick="animal(502)" id="animal_502" alt="">
+                <img src="img/cl/animals/animal503.png" onclick="animal(503)" id="animal_503" alt="">
+                <img src="img/cl/animals/animal504.png" onclick="animal(504)" id="animal_504" alt="">
+                <img src="img/cl/animals/animal505.png" onclick="animal(505)" id="animal_505" alt="">
+                <img src="img/cl/animals/animal506.png" onclick="animal(506)" id="animal_506" alt="">
+                <img src="img/cl/animals/animal507.png" onclick="animal(507)" id="animal_507" alt="">
+                <img src="img/cl/animals/animal508.png" onclick="animal(508)" id="animal_508" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal6">
+        <div class="modal">
+            <button class="animal6_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal601.png" onclick="animal(601)" id="animal_601" alt="">
+                <img src="img/cl/animals/animal602.png" onclick="animal(602)" id="animal_602" alt="">
+                <img src="img/cl/animals/animal603.png" onclick="animal(603)" id="animal_603" alt="">
+                <img src="img/cl/animals/animal604.png" onclick="animal(604)" id="animal_604" alt="">
+                <img src="img/cl/animals/animal605.png" onclick="animal(605)" id="animal_605" alt="">
+                <img src="img/cl/animals/animal606.png" onclick="animal(606)" id="animal_606" alt="">
+                <img src="img/cl/animals/animal607.png" onclick="animal(607)" id="animal_607" alt="">
+                <img src="img/cl/animals/animal608.png" onclick="animal(608)" id="animal_608" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal7">
+        <div class="modal">
+            <button class="animal7_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal701.png" onclick="animal(701)" id="animal_701" alt="">
+                <img src="img/cl/animals/animal702.png" onclick="animal(702)" id="animal_702" alt="">
+                <img src="img/cl/animals/animal703.png" onclick="animal(703)" id="animal_703" alt="">
+                <img src="img/cl/animals/animal704.png" onclick="animal(704)" id="animal_704" alt="">
+                <img src="img/cl/animals/animal705.png" onclick="animal(705)" id="animal_705" alt="">
+                <img src="img/cl/animals/animal706.png" onclick="animal(706)" id="animal_706" alt="">
+                <img src="img/cl/animals/animal707.png" onclick="animal(707)" id="animal_707" alt="">
+                <img src="img/cl/animals/animal708.png" onclick="animal(708)" id="animal_708" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal8">
+        <div class="modal">
+            <button class="animal8_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal801.png" onclick="animal(801)" id="animal_801" alt="">
+                <img src="img/cl/animals/animal802.png" onclick="animal(802)" id="animal_802" alt="">
+                <img src="img/cl/animals/animal803.png" onclick="animal(803)" id="animal_803" alt="">
+                <img src="img/cl/animals/animal804.png" onclick="animal(804)" id="animal_804" alt="">
+                <img src="img/cl/animals/animal805.png" onclick="animal(805)" id="animal_805" alt="">
+                <img src="img/cl/animals/animal806.png" onclick="animal(806)" id="animal_806" alt="">
+                <img src="img/cl/animals/animal807.png" onclick="animal(807)" id="animal_807" alt="">
+                <img src="img/cl/animals/animal808.png" onclick="animal(808)" id="animal_808" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal9">
+        <div class="modal">
+            <button class="animal9_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal901.png" onclick="animal(901)" id="animal_901" alt="">
+                <img src="img/cl/animals/animal902.png" onclick="animal(902)" id="animal_902" alt="">
+                <img src="img/cl/animals/animal903.png" onclick="animal(903)" id="animal_903" alt="">
+                <img src="img/cl/animals/animal904.png" onclick="animal(904)" id="animal_904" alt="">
+                <img src="img/cl/animals/animal905.png" onclick="animal(905)" id="animal_905" alt="">
+                <img src="img/cl/animals/animal906.png" onclick="animal(906)" id="animal_906" alt="">
+                <img src="img/cl/animals/animal907.png" onclick="animal(907)" id="animal_907" alt="">
+                <img src="img/cl/animals/animal908.png" onclick="animal(908)" id="animal_908" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal10">
+        <div class="modal">
+            <button class="animal10_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1001.png" onclick="animal(1001)" id="animal_1001" alt="">
+                <img src="img/cl/animals/animal1002.png" onclick="animal(1002)" id="animal_1002" alt="">
+                <img src="img/cl/animals/animal1003.png" onclick="animal(1003)" id="animal_1003" alt="">
+                <img src="img/cl/animals/animal1004.png" onclick="animal(1004)" id="animal_1004" alt="">
+                <img src="img/cl/animals/animal1005.png" onclick="animal(1005)" id="animal_1005" alt="">
+                <img src="img/cl/animals/animal1006.png" onclick="animal(1006)" id="animal_1006" alt="">
+                <img src="img/cl/animals/animal1007.png" onclick="animal(1007)" id="animal_1007" alt="">
+                <img src="img/cl/animals/animal1008.png" onclick="animal(1008)" id="animal_1008" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal11">
+        <div class="modal">
+            <button class="animal11_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1101.png" onclick="animal(1101)" id="animal_1101" alt="">
+                <img src="img/cl/animals/animal1102.png" onclick="animal(1102)" id="animal_1102" alt="">
+                <img src="img/cl/animals/animal1103.png" onclick="animal(1103)" id="animal_1103" alt="">
+                <img src="img/cl/animals/animal1104.png" onclick="animal(1104)" id="animal_1104" alt="">
+                <img src="img/cl/animals/animal1105.png" onclick="animal(1105)" id="animal_1105" alt="">
+                <img src="img/cl/animals/animal1106.png" onclick="animal(1106)" id="animal_1106" alt="">
+                <img src="img/cl/animals/animal1107.png" onclick="animal(1107)" id="animal_1107" alt="">
+                <img src="img/cl/animals/animal1108.png" onclick="animal(1108)" id="animal_1108" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal12">
+        <div class="modal">
+            <button class="animal12_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1201.png" onclick="animal(1201)" id="animal_1201" alt="">
+                <img src="img/cl/animals/animal1202.png" onclick="animal(1202)" id="animal_1202" alt="">
+                <img src="img/cl/animals/animal1203.png" onclick="animal(1203)" id="animal_1203" alt="">
+                <img src="img/cl/animals/animal1204.png" onclick="animal(1204)" id="animal_1204" alt="">
+                <img src="img/cl/animals/animal1205.png" onclick="animal(1205)" id="animal_1205" alt="">
+                <img src="img/cl/animals/animal1206.png" onclick="animal(1206)" id="animal_1206" alt="">
+                <img src="img/cl/animals/animal1207.png" onclick="animal(1207)" id="animal_1207" alt="">
+                <img src="img/cl/animals/animal1208.png" onclick="animal(1208)" id="animal_1208" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal13">
+        <div class="modal">
+            <button class="animal13_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1301.png" onclick="animal(1301)" id="animal_1301" alt="">
+                <img src="img/cl/animals/animal1302.png" onclick="animal(1302)" id="animal_1302" alt="">
+                <img src="img/cl/animals/animal1303.png" onclick="animal(1303)" id="animal_1303" alt="">
+                <img src="img/cl/animals/animal1304.png" onclick="animal(1304)" id="animal_1304" alt="">
+                <img src="img/cl/animals/animal1305.png" onclick="animal(1305)" id="animal_1305" alt="">
+                <img src="img/cl/animals/animal1306.png" onclick="animal(1306)" id="animal_1306" alt="">
+                <img src="img/cl/animals/animal1307.png" onclick="animal(1307)" id="animal_1307" alt="">
+                <img src="img/cl/animals/animal1308.png" onclick="animal(1308)" id="animal_1308" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal14">
+        <div class="modal">
+            <button class="animal14_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1401.png" onclick="animal(1401)" id="animal_1401" alt="">
+                <img src="img/cl/animals/animal1402.png" onclick="animal(1402)" id="animal_1402" alt="">
+                <img src="img/cl/animals/animal1403.png" onclick="animal(1403)" id="animal_1403" alt="">
+                <img src="img/cl/animals/animal1404.png" onclick="animal(1404)" id="animal_1404" alt="">
+                <img src="img/cl/animals/animal1405.png" onclick="animal(1405)" id="animal_1405" alt="">
+                <img src="img/cl/animals/animal1406.png" onclick="animal(1406)" id="animal_1406" alt="">
+                <img src="img/cl/animals/animal1407.png" onclick="animal(1407)" id="animal_1407" alt="">
+                <img src="img/cl/animals/animal1408.png" onclick="animal(1408)" id="animal_1408" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal15">
+        <div class="modal">
+            <button class="animal15_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1501.png" onclick="animal(1501)" id="animal_1501" alt="">
+                <img src="img/cl/animals/animal1502.png" onclick="animal(1502)" id="animal_1502" alt="">
+                <img src="img/cl/animals/animal1503.png" onclick="animal(1503)" id="animal_1503" alt="">
+                <img src="img/cl/animals/animal1504.png" onclick="animal(1504)" id="animal_1504" alt="">
+                <img src="img/cl/animals/animal1505.png" onclick="animal(1505)" id="animal_1505" alt="">
+                <img src="img/cl/animals/animal1506.png" onclick="animal(1506)" id="animal_1506" alt="">
+                <img src="img/cl/animals/animal1507.png" onclick="animal(1507)" id="animal_1507" alt="">
+                <img src="img/cl/animals/animal1508.png" onclick="animal(1508)" id="animal_1508" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal16">
+        <div class="modal">
+            <button class="animal16_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1601.png" onclick="animal(1601)" id="animal_1601" alt="">
+                <img src="img/cl/animals/animal1602.png" onclick="animal(1602)" id="animal_1602" alt="">
+                <img src="img/cl/animals/animal1603.png" onclick="animal(1603)" id="animal_1603" alt="">
+                <img src="img/cl/animals/animal1604.png" onclick="animal(1604)" id="animal_1604" alt="">
+                <img src="img/cl/animals/animal1605.png" onclick="animal(1605)" id="animal_1605" alt="">
+                <img src="img/cl/animals/animal1606.png" onclick="animal(1606)" id="animal_1606" alt="">
+                <img src="img/cl/animals/animal1607.png" onclick="animal(1607)" id="animal_1607" alt="">
+                <img src="img/cl/animals/animal1608.png" onclick="animal(1608)" id="animal_1608" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal17">
+        <div class="modal">
+            <button class="animal17_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1701.png" onclick="animal(1701)" id="animal_1701" alt="">
+                <img src="img/cl/animals/animal1702.png" onclick="animal(1702)" id="animal_1702" alt="">
+                <img src="img/cl/animals/animal1703.png" onclick="animal(1703)" id="animal_1703" alt="">
+                <img src="img/cl/animals/animal1704.png" onclick="animal(1704)" id="animal_1704" alt="">
+                <img src="img/cl/animals/animal1705.png" onclick="animal(1705)" id="animal_1705" alt="">
+                <img src="img/cl/animals/animal1706.png" onclick="animal(1706)" id="animal_1706" alt="">
+                <img src="img/cl/animals/animal1707.png" onclick="animal(1707)" id="animal_1707" alt="">
+                <img src="img/cl/animals/animal1708.png" onclick="animal(1708)" id="animal_1708" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="animal18">
+        <div class="modal">
+            <button class="animal18_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/animals/animal1801.png" onclick="animal(1801)" id="animal_1801" alt="">
+                <img src="img/cl/animals/animal1802.png" onclick="animal(1802)" id="animal_1802" alt="">
+                <img src="img/cl/animals/animal1803.png" onclick="animal(1803)" id="animal_1803" alt="">
+                <img src="img/cl/animals/animal1804.png" onclick="animal(1804)" id="animal_1804" alt="">
+                <img src="img/cl/animals/animal1805.png" onclick="animal(1805)" id="animal_1805" alt="">
+                <img src="img/cl/animals/animal1806.png" onclick="animal(1806)" id="animal_1806" alt="">
+                <img src="img/cl/animals/animal1807.png" onclick="animal(1807)" id="animal_1807" alt="">
+                <img src="img/cl/animals/animal1808.png" onclick="animal(1808)" id="animal_1808" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== 
+        colors modals 
+        ===================  -->
+
+    <div id="color1">
+        <div class="modal">
+            <button class="color1_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color101.png" onclick="color_l(101)" id="color_l_101" alt="">
+                <img src="img/cl/colors/color102.png" onclick="color_l(102)" id="color_l_102" alt="">
+                <img src="img/cl/colors/color103.png" onclick="color_l(103)" id="color_l_103" alt="">
+                <img src="img/cl/colors/color104.png" onclick="color_l(104)" id="color_l_104" alt="">
+                <img src="img/cl/colors/color105.png" onclick="color_l(105)" id="color_l_105" alt="">
+                <img src="img/cl/colors/color106.png" onclick="color_l(106)" id="color_l_106" alt="">
+                <img src="img/cl/colors/color107.png" onclick="color_l(107)" id="color_l_107" alt="">
+                <img src="img/cl/colors/color108.png" onclick="color_l(108)" id="color_l_108" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color2">
+        <div class="modal">
+            <button class="color2_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color201.png" onclick="color_l(201)" id="color_l_201" alt="">
+                <img src="img/cl/colors/color202.png" onclick="color_l(202)" id="color_l_202" alt="">
+                <img src="img/cl/colors/color203.png" onclick="color_l(203)" id="color_l_203" alt="">
+                <img src="img/cl/colors/color204.png" onclick="color_l(204)" id="color_l_204" alt="">
+                <img src="img/cl/colors/color205.png" onclick="color_l(205)" id="color_l_205" alt="">
+                <img src="img/cl/colors/color206.png" onclick="color_l(206)" id="color_l_206" alt="">
+                <img src="img/cl/colors/color207.png" onclick="color_l(207)" id="color_l_207" alt="">
+                <img src="img/cl/colors/color208.png" onclick="color_l(208)" id="color_l_208" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color3">
+        <div class="modal">
+            <button class="color3_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color301.png" onclick="color_l(301)" id="color_l_301" alt="">
+                <img src="img/cl/colors/color302.png" onclick="color_l(302)" id="color_l_302" alt="">
+                <img src="img/cl/colors/color303.png" onclick="color_l(303)" id="color_l_303" alt="">
+                <img src="img/cl/colors/color304.png" onclick="color_l(304)" id="color_l_304" alt="">
+                <img src="img/cl/colors/color305.png" onclick="color_l(305)" id="color_l_305" alt="">
+                <img src="img/cl/colors/color306.png" onclick="color_l(306)" id="color_l_306" alt="">
+                <img src="img/cl/colors/color307.png" onclick="color_l(307)" id="color_l_307" alt="">
+                <img src="img/cl/colors/color308.png" onclick="color_l(308)" id="color_l_308" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color4">
+        <div class="modal">
+            <button class="color4_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color401.png" onclick="color_l(401)" id="color_l_401" alt="">
+                <img src="img/cl/colors/color402.png" onclick="color_l(402)" id="color_l_402" alt="">
+                <img src="img/cl/colors/color403.png" onclick="color_l(403)" id="color_l_403" alt="">
+                <img src="img/cl/colors/color404.png" onclick="color_l(404)" id="color_l_404" alt="">
+                <img src="img/cl/colors/color405.png" onclick="color_l(405)" id="color_l_405" alt="">
+                <img src="img/cl/colors/color406.png" onclick="color_l(406)" id="color_l_406" alt="">
+                <img src="img/cl/colors/color407.png" onclick="color_l(407)" id="color_l_407" alt="">
+                <img src="img/cl/colors/color408.png" onclick="color_l(408)" id="color_l_408" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color5">
+        <div class="modal">
+            <button class="color5_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color501.png" onclick="color_l(501)" id="color_l_501" alt="">
+                <img src="img/cl/colors/color502.png" onclick="color_l(502)" id="color_l_502" alt="">
+                <img src="img/cl/colors/color503.png" onclick="color_l(503)" id="color_l_503" alt="">
+                <img src="img/cl/colors/color504.png" onclick="color_l(504)" id="color_l_504" alt="">
+                <img src="img/cl/colors/color505.png" onclick="color_l(505)" id="color_l_505" alt="">
+                <img src="img/cl/colors/color506.png" onclick="color_l(506)" id="color_l_506" alt="">
+                <img src="img/cl/colors/color507.png" onclick="color_l(507)" id="color_l_507" alt="">
+                <img src="img/cl/colors/color508.png" onclick="color_l(508)" id="color_l_508" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color6">
+        <div class="modal">
+            <button class="color6_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color601.png" onclick="color_l(601)" id="color_l_601" alt="">
+                <img src="img/cl/colors/color602.png" onclick="color_l(602)" id="color_l_602" alt="">
+                <img src="img/cl/colors/color603.png" onclick="color_l(603)" id="color_l_603" alt="">
+                <img src="img/cl/colors/color604.png" onclick="color_l(604)" id="color_l_604" alt="">
+                <img src="img/cl/colors/color605.png" onclick="color_l(605)" id="color_l_605" alt="">
+                <img src="img/cl/colors/color606.png" onclick="color_l(606)" id="color_l_606" alt="">
+                <img src="img/cl/colors/color607.png" onclick="color_l(607)" id="color_l_607" alt="">
+                <img src="img/cl/colors/color608.png" onclick="color_l(608)" id="color_l_608" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color7">
+        <div class="modal">
+            <button class="color7_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color701.png" onclick="color_l(701)" id="color_l_701" alt="">
+                <img src="img/cl/colors/color702.png" onclick="color_l(702)" id="color_l_702" alt="">
+                <img src="img/cl/colors/color703.png" onclick="color_l(703)" id="color_l_703" alt="">
+                <img src="img/cl/colors/color704.png" onclick="color_l(704)" id="color_l_704" alt="">
+                <img src="img/cl/colors/color705.png" onclick="color_l(705)" id="color_l_705" alt="">
+                <img src="img/cl/colors/color706.png" onclick="color_l(706)" id="color_l_706" alt="">
+                <img src="img/cl/colors/color707.png" onclick="color_l(707)" id="color_l_707" alt="">
+                <img src="img/cl/colors/color708.png" onclick="color_l(708)" id="color_l_708" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color8">
+        <div class="modal">
+            <button class="color8_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color801.png" onclick="color_l(801)" id="color_l_801" alt="">
+                <img src="img/cl/colors/color802.png" onclick="color_l(802)" id="color_l_802" alt="">
+                <img src="img/cl/colors/color803.png" onclick="color_l(803)" id="color_l_803" alt="">
+                <img src="img/cl/colors/color804.png" onclick="color_l(804)" id="color_l_804" alt="">
+                <img src="img/cl/colors/color805.png" onclick="color_l(805)" id="color_l_805" alt="">
+                <img src="img/cl/colors/color806.png" onclick="color_l(806)" id="color_l_806" alt="">
+                <img src="img/cl/colors/color807.png" onclick="color_l(807)" id="color_l_807" alt="">
+                <img src="img/cl/colors/color808.png" onclick="color_l(808)" id="color_l_808" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color9">
+        <div class="modal">
+            <button class="color9_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color901.png" onclick="color_l(901)" id="color_l_901" alt="">
+                <img src="img/cl/colors/color902.png" onclick="color_l(902)" id="color_l_902" alt="">
+                <img src="img/cl/colors/color903.png" onclick="color_l(903)" id="color_l_903" alt="">
+                <img src="img/cl/colors/color904.png" onclick="color_l(904)" id="color_l_904" alt="">
+                <img src="img/cl/colors/color905.png" onclick="color_l(905)" id="color_l_905" alt="">
+                <img src="img/cl/colors/color906.png" onclick="color_l(906)" id="color_l_906" alt="">
+                <img src="img/cl/colors/color907.png" onclick="color_l(907)" id="color_l_907" alt="">
+                <img src="img/cl/colors/color908.png" onclick="color_l(908)" id="color_l_908" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color10">
+        <div class="modal">
+            <button class="color10_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color1001.png" onclick="color_l(1001)" id="color_l_1001" alt="">
+                <img src="img/cl/colors/color1002.png" onclick="color_l(1002)" id="color_l_1002" alt="">
+                <img src="img/cl/colors/color1003.png" onclick="color_l(1003)" id="color_l_1003" alt="">
+                <img src="img/cl/colors/color1004.png" onclick="color_l(1004)" id="color_l_1004" alt="">
+                <img src="img/cl/colors/color1005.png" onclick="color_l(1005)" id="color_l_1005" alt="">
+                <img src="img/cl/colors/color1006.png" onclick="color_l(1006)" id="color_l_1006" alt="">
+                <img src="img/cl/colors/color1007.png" onclick="color_l(1007)" id="color_l_1007" alt="">
+                <img src="img/cl/colors/color1008.png" onclick="color_l(1008)" id="color_l_1008" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="color11">
+        <div class="modal">
+            <button class="color11_close modal-close" type="button">
+                <img src="img/usermoda-close.svg" alt="">
+            </button>
+            <div class="cl-modal">
+                <img src="img/cl/colors/color1101.png" onclick="color_l(1101)" id="color_l_1101" alt="">
+                <img src="img/cl/colors/color1102.png" onclick="color_l(1102)" id="color_l_1102" alt="">
+                <img src="img/cl/colors/color1103.png" onclick="color_l(1103)" id="color_l_1103" alt="">
+                <img src="img/cl/colors/color1104.png" onclick="color_l(1104)" id="color_l_1104" alt="">
+                <img src="img/cl/colors/color1105.png" onclick="color_l(1105)" id="color_l_1105" alt="">
+                <img src="img/cl/colors/color1106.png" onclick="color_l(1106)" id="color_l_1106" alt="">
+                <img src="img/cl/colors/color1107.png" onclick="color_l(1107)" id="color_l_1107" alt="">
+                <img src="img/cl/colors/color1108.png" onclick="color_l(1108)" id="color_l_1108" alt="">
+            </div>
+        </div>
+    </div>
 
     <!-- js -->
     <script type="text/javascript" src="/js/libs.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
+    <script>
+        function shield(id) {
+            let img = $('#shield_'+id).attr('src');
+            $('#shield').attr('src', img);
+        }
+        function color_l(id) {
+            let img = $('#color_l_'+id).attr('src');
+            $('#color').attr('src', img);
+            console.log(img)
+        }
+        function animal(id) {
+            let img = $('#animal_'+id).attr('src');
+            $('#animal').attr('src', img);
+        }
+        function bg(id) {
+            let img = $('#background_'+id).attr('src');
+            $('#background').attr('src', img);
+        }
+        let button = document.getElementById('btnSave');
+        button.addEventListener('click', function (e) {
+            let dataURL = canvas.toDataURL('image/png');
+            button.href = dataURL;
+        });
+    </script>
 </body>
 </html>

@@ -44,13 +44,6 @@
 
     <main class="global" data-scroll-container>
         
-        <div class="loader-background"></div>
-        <div class="loader">
-            <div class="loader-logo">
-                <img src="img/logo-2.svg" alt="">
-            </div>
-        </div>
-
         <!-- reg -->
         <section class="reg">
 
@@ -58,17 +51,17 @@
                 <div class="fpage__left fpage__block">
 
                     <div class="container">
+
+                        <div class="form__title">Регистрация</div>
                         
                         <!-- header -->
                         <header class="fpage__header">
                             <a href="#"><img src="img/logo.svg" alt=""></a>
-                            <a class="fpage__header--back go-home" href="index.html">на главную <img src="img/back-icon.svg" alt=""></a>
+                            <a class="fpage__header--back go-home" href="index.html">на главную</a>
                         </header>
 
                         <!-- form -->
                         <div class="form">
-                            <div class="form__title">Регистрация</div>
-
                             <form id="contact" method="post" action="https://dmaxquest.uz/register" enctype="multipart/form-data" novalidate="novalidate">
                                 <div class="form__inner">
                                     <div class="form__left">
@@ -90,7 +83,8 @@
                                             document.getElementById('image').src = e.target.result;
                                         };
                                         reader.readAsDataURL(file);
-                                    ">
+                                        ">
+                                        <label for="fileInput">Ваше фото</label>
                                     </div>
 
                                     <div class="form__right">
@@ -99,7 +93,7 @@
                                             <input id="name" name="name" type="text" class="required input" placeholder="Имя">
                                         </div>
                                         <div class="form__group">
-                                            <label for="surname">Введите фамилия</label>
+                                            <label for="surname">Введите фамилию</label>
                                             <input id="surname" name="surname" type="text" class="required input" placeholder="Фамилия">
                                         </div>
                                         <div class="form__group">
@@ -107,12 +101,16 @@
                                             <input id="tel" name="phone" type="tel" class="required input" placeholder="Телефон" inputmode="text">
                                         </div>
                                         <div class="form__group">
-                                            <label for="password">Пароль</label>
-                                            <input id="password" name="password" type="text" class="required input" placeholder="Пароль">
+                                            <label for="password">Придумайте пароль</label>
+                                            <input id="password" name="password" type="text" class="required input" placeholder="Придуамйте пароль">
                                         </div>
                                         <div class="form__group">
                                             <label for="confirm">Повторите пароль</label>
                                             <input id="confirm" name="password_confirmation" type="text" class="required input" placeholder="Повторите пароль">
+                                        </div>
+                                        <div class="form__group form__group-2">
+                                            <input id="checkbox" name="checkbox" type="checkbox" class="required custom-checkbox">
+                                            <label for="checkbox" class="custom-label">Я соглашаюсь с условиями <a target="_blank" href="#">публичной оферты</a></label>
                                         </div>
                                         <div class="form__group">
                                             <button class="btn btn-red"><span>Завершить регистрацию</span></button>
@@ -124,7 +122,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </form>
                         </div>
@@ -139,7 +136,9 @@
                 </div>
 
                 <!-- slider / image -->
-                <div class="fpage__right fpage__block"></div>
+                <div class="fpage__right fpage__block">
+                    <img src="img/form-slide-2.jpg" alt="">
+                </div>
             </div>
 
         </section>

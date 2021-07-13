@@ -44,6 +44,7 @@
 
     <main class="global" data-scroll-container>
         
+        <!-- loader -->
         <div class="loader-background"></div>
         <div class="loader">
             <div class="loader-logo">
@@ -51,6 +52,7 @@
             </div>
         </div>
  
+        <!-- header -->
         <header class="header">
             <div class="container">
                 <a href="/" class="logo"><img src="img/logo.svg" alt=""></a>
@@ -58,12 +60,11 @@
                     <a class="to-anim-about" href="">О квесте</a>
                     <a class="to-anim-mexanika" href="">Механика</a>
                     <a class="to-anim-create" href="">Создать лого</a>
-                    <a class="to-anim-how" href="">Как пользоваться сайтом</a>
                 </nav>
                 <div class="header__active">
                     <div class="lang">
-                        <a class="is-active" href="#">RU</a>
-                        <a href="#">Uz</a>
+                        <a class="is-active" href="#">Uz</a>
+                        <a class="" href="">RU</a>
                     </div>
                 </div>
                 <div class="header__buttons">
@@ -91,9 +92,6 @@
                         <li class="menuitem"> 
                             <a href="" class="to-anim-create">Создать лого</a> 
                         </li>
-                        <li class="menuitem"> 
-                            <a href="" class="to-anim-how">Как пользоваться сайтом</a> 
-                        </li>
                     </ul>
                     <div class="middle">
                         <div class="header__buttons">
@@ -115,24 +113,26 @@
         </header>
 
         <!-- hero -->
-        <section class="hero">
-            <img class="hero__mob" src="img/mob-hero.jpg" alt="">
+        <section id="home" class="hero">
+            <div class="hero__tab">
+                <img class="hero__tablet" src="img/hero-tablet.jpg" alt="">
+            </div>
             <div class="container">
                 <div class="hero__title">
-                    <div>Travel-квест</div>
+                    <div>SAMAUTO запускает <br> TRAVEL-quest </div>
                     <div>Главный приз — <br>пикап ISUZU D-Max</div>
                 </div>
                 <div class="herocount">
-                    <div class="herocount__title">до регистрации осталось</div>
-                    <div class="countdown" data-countdown="2021/08/01"></div>
+                    <div class="herocount__title">до окончания регистрации осталось</div>
+                    <div class="countdown" data-countdown="2021-07-30"></div>
                 </div>
                 <div class="hero__active">
-                    <a href="reg.html" target="_blank" class="btn btn-red"><span>Успей участвовать</span></a>
-                    <a data-fancybox href="https://youtube.com/watch?v=JGeOroGUazw" class="btn btn-black"><span>посмотреть видео</span></a>
+                    <a href="reg.html" target="_blank" class="btn btn-red"><span>Зарегистрироваться</span></a>
+                    <a href="" class="btn btn-black btn-show-video"><span>посмотреть видео</span></a>
                 </div>
             </div>
             <a target="_blank" href="https://samauto.uz/transport/pickupitem/32" class="btn-link">
-                <span class="btn-link__text">Узнать подробнее o пикапе d-max</span>
+                <span class="btn-link__text">Узнать подробнее o пикапе ISUZU d-max</span>
                 <span class="btn-link__circle">
                     <span class="btn-link__border"></span>
                     <span class="btn-link__arrow">
@@ -142,6 +142,7 @@
                         </svg>
                     </span>
                 </span>
+                <img src="img/sam.png" alt="">
             </a>
         </section>
 
@@ -151,32 +152,35 @@
                 <div class="inview-fade-in-up-group" data-scroll data-scroll-offset="50%, 0">
                     <div class="subtitle subtitle--white inview-fade-in-up-element delay01"><span></span> о квесте</div>
                     <div class="about__block">
-                        <div class="about__left inview-fade-in-up-element delay01">
-                            <img src="img/about.jpg" alt="">
+                        <div class="about__left inview-fade-in-up-element delay01" id="about-video-block">
+                            <video id="player" class="lozad js-player" playsinline controls data-poster="">
+                                <source src="video/ru.mp4" type="video/mp4" />
+                            </video>
                         </div>
                         <div class="about__right">
-                            <div class="about__title inview-fade-in-up-element delay02">о нас</div>
                             <div class="about__text inview-fade-in-up-element delay02">
                                 <p>Маршрут travel-квеста от SamAuto охватит всю страну. Участники будут выполнять увлекательные задания, разгадывать головоломки и открывать для себя живописные, малоизвестные локации.</p>
                             </div>
-                            <div class="about__img inview-fade-in-up-element delay02">
-                                <img src="img/about.jpg" alt="">
-                            </div>
+                            <div class="about__title inview-fade-in-up-element delay03">что нужно сделать?</div>
+                            <ul>
+                                <li class="inview-fade-in-up-element delay03">
+                                    <div class="about__list--num">01</div>
+                                    <div class="about__list--text">Соберите команду из 4 человек</div>
+                                </li>
+                                <li class="inview-fade-in-up-element delay03">
+                                    <div class="about__list--num">02</div>
+                                    <div class="about__list--text"><a target="_blank" href="#" style="display: flex;">Ознакомьтесь с публичьной офертой <img  src="img/pdf.svg" alt=""></a></div>
+                                </li>
+                                <li class="inview-fade-in-up-element delay03">
+                                    <div class="about__list--num">03</div>
+                                    <div class="about__list--text"><a target="_blank" href="https://dmaxquest.uz/" style="color: #E30613; text-decoration: underline !important;">Зарегистрируйтесь здесь</a></div>
+                                </li>
+                                <li class="inview-fade-in-up-element delay03">
+                                    <div class="about__list--num">04</div>
+                                    <div class="about__list--text">Путешествуйте по Узбекистану, разгадайте загадки и выиграйте красный ISUZU D-Max.</div>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="about__block about__bottom inview-fade-in-up-group" data-scroll data-scroll-offset="50%, 0">
-                    <div class="about__right">
-                        <div class="about__title inview-fade-in-up-element delay01">правила</div>
-                        <ul>
-                            <li class="inview-fade-in-up-element delay01">
-                                <div class="about__list--num">01</div> 
-                                <div class="about__list--text">Соберите команду из 4 человек, зарегистрируйте её на сайте <a target="_blank" href="https://dmaxquest.uz/">https://dmaxquest.uz/</a>, путешествуйте по Узбекистану, разгадайте загадки и выиграйте красный ISUZU D-Max.</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="about__left inview-fade-in-up-element delay02">
-                        <img src="img/about.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -186,37 +190,45 @@
         <section id="mexanika" class="mexanika">
 
             <div class="container">
-                <div class="subtitle"><span></span> механика</div>
+                <div class="subtitle"><span></span> Этапы квеста</div>
             </div>
             
-            <img class="mex__img" src="img/mex.svg" alt="">
-
             <div class="container mex">
-                <div class="mex__list">
-                    <div class="mex__item" data-info="1">
-                        <div class="mex__num">1</div>
-                        <div class="mex__subtext">этап</div>
-                        <div class="mex__text">описание этапов квеста</div>
+                <div class="mex__list inview-fade-in-up-group" data-scroll data-scroll-offset="60%, 0">
+                    <div class="mex__item inview-fade-in-up-element delay10" data-info="1">
+                        <div class="mex__left">
+                            <div class="mex__num">01</div>
+                            <div class="mex__subtext">этап</div>
+                        </div>
+                        <div class="mex__right">
+                            <div class="mex__date">с 2 по 15 августа</div>
+                        </div>
+                        <div class="mex__texts">Отборочный этап D-MAX quest состоит из трех заданий. Первые два можно выпольнить не выходя своего района из которых - вы сможете выполнить находясь в своём регионе. Решающее задание будет проходить на нейтральной территории Х. <br> <br>Переход на следующий этап зависит от того, выполнила ли команда задание или нет.</div>
                     </div>
-                    <div class="mex__item" data-info="2">
-                        <div class="mex__num">2</div>
-                        <div class="mex__subtext">этап</div>
-                        <div class="mex__text">описание этапов квеста</div>
+                    <div class="mex__item inview-fade-in-up-element delay11" data-info="2">
+                        <div class="mex__left">
+                            <div class="mex__num">02</div>
+                            <div class="mex__subtext">этап</div>
+                        </div>
+                        <div class="mex__right">
+                            <div class="mex__date">с 23 августа <br> по 26 сентября</div>
+                        </div>
+                        <div class="mex__texts">Отборочный этап D-MAX quest состоит из трёх заданий. 
+                        Первые два можно выполнить в своём городе. Третье задание будет проходить на другой территории.
+                        <br><br>
+                        Переход на следующий этап зависит от того, выполнила команда задание или нет.</div>
                     </div>
-                    <div class="mex__item" data-info="3">
-                        <div class="mex__num">3</div>
-                        <div class="mex__subtext">этап</div>
-                        <div class="mex__text">описание этапов квеста</div>
-                    </div>
-                    <div class="mex__item" data-info="4">
-                        <div class="mex__num">4</div>
-                        <div class="mex__subtext">этап</div>
-                        <div class="mex__text">описание этапов квеста</div>
-                    </div>
-                    <div class="mex__item" data-info="5">
-                        <div class="mex__num">5</div>
-                        <div class="mex__subtext">этап</div>
-                        <div class="mex__text">описание этапов квеста</div>
+                    <div class="mex__item inview-fade-in-up-element delay12" data-info="1">
+                        <div class="mex__left">
+                            <div class="mex__num">03</div>
+                            <div class="mex__subtext">этап</div>
+                        </div>
+                        <div class="mex__right">
+                            <div class="mex__date">с 4 по 18 октября</div>
+                        </div>
+                        <div class="mex__texts">Финальный этап — начинается плей-офф, то есть команды теперь играют по «Олимпийской сетке»  навылет, пока не останется одна команда-победитель. 
+                        <br><br>
+                        Отметим, что автомобиль будет оформлен на заявленного капитана команды-победителя D-MAX quest.</div>
                     </div>
                 </div>
             </div>
@@ -225,17 +237,27 @@
         <!-- create logo -->
         <section id="create" class="createlogo inview-fade-in-up-group" data-scroll data-scroll-offset="50%, 0">
             <div class="container">
-                <div class="subtitle subtitle--white inview-fade-in-up-element delay01"><span></span> создать лого</div>
+                <div class="subtitle subtitle--white inview-fade-in-up-element delay01"><span></span> создать герб</div>
                 <div class="createlogo__block">
                     <div class="createlogo__left inview-fade-in-up-element delay02">
-                        <div class="title title--white">создай <br>себе команду</div>
-                        <p>Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.</p>
+                        <div class="title title--white">СОЗДАЙТЕ <br> ГЕРБ КОМАНДЫ</div>
+                        <p>СДЕЛАЙ УНИКАЛЬНЫЙ герб ДЛЯ СВОЕЙ КОМАНДЫ ПРИ ПОМОЩИ КОНСТРУКТОРА</p>
                         <a href="#" class="btn"><span>попробовать</span></a>
                     </div>
                     <div class="createlogo__right inview-fade-in-up-element delay03">
-                        <img src="img/create-small.png" alt="">
-                        <img class="big" src="img/create-big.png" alt="">
-                        <img src="img/create-small-2.png" alt="">
+                        <div class="swiper-container demoherb">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/create-small.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/create-small.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/create-small-2.png" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -257,11 +279,13 @@
         <!-- are you ready -->
         <section class="youready inview-fade-in-up-group" data-scroll data-scroll-offset="50%, 0">
             <div class="container">
-                <div class="title youready__title inview-fade-in-up-element delay01">Ну что, готов? <br>Успей зарегистрироваться</div>
+                <div class="title youready__title inview-fade-in-up-element delay01">Ну что, готовы? <br>УСПЕЙТЕ УЧАСТВОВАТЬ!</div>
                 <div class="countdown inview-fade-in-up-element delay02">
                     <div class="countdown" data-countdown="2021/08/01"></div>
                 </div>
-                <a href="#" class="btn inview-fade-in-up-element delay03"><span>Успей участвовать</span></a>
+                <div class="inview-fade-in-up-element delay03">
+                    <a href="#" class="btn"><span>ЗАРЕГИСТРИРОВАТЬСЯ</span></a>
+                </div>
             </div>
         </section>
 
@@ -327,7 +351,7 @@
                         <!-- item -->
                         <div class="accordion-item">
                             <button class="acc-btn" aria-expanded="false">
-                                <span class="accordion-title">В какое время будут проходить соревнования? </span>
+                                <span class="accordion-title">Через какой промежуток времени выполняются задания D-MAX quest?</span>
                                 <span class="icon" aria-hidden="true"></span>
                             </button>
                             <div class="accordion-content">
@@ -350,7 +374,6 @@
                         <a class="to-anim-about" href="">О квесте</a>
                         <a class="to-anim-mexanika" href="">Механика</a>
                         <a class="to-anim-create" href="">Создать лого</a>
-                        <a class="to-anim-how" href="">Как пользоваться сайтом</a>
                     </nav>
                 </div>
                 <div class="footer__bottom">
@@ -361,13 +384,28 @@
                     </ul>
                     <img class="logo-xs" src="img/logo-2.svg" alt="">
                     <div class="copyright">© СП ООО «СамАвто». Все права защищены. 2021</div>
-                    <a target="_blank" href="https://yeko.uz" class="footer__dev">
-                        <img src="img/oke.svg" alt="">
+                    <a target="_blank" href="https://samauto.uz/" class="footer__dev">
+                        <img src="img/sam.png" alt="">
                     </a>
                 </div>
             </div>
         </footer>
     </main>
+
+    <a class="to_top" href="#">
+        <div class="arrowSliding">
+            <div class="arrow"></div>
+        </div>
+        <div class="arrowSliding delay1">
+            <div class="arrow"></div>
+        </div>
+        <div class="arrowSliding delay2">
+            <div class="arrow"></div>
+        </div>
+        <div class="arrowSliding delay3">
+            <div class="arrow"></div>
+        </div>
+    </a>
 
     <!-- js -->
     <script type="text/javascript" src="js/libs.js"></script>

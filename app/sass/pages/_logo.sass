@@ -2,8 +2,23 @@
 	background: #ddd
 
 	header
-		margin: 30px 0
 		position: static
+
+	.modal
+		padding: 50px
+		img
+			cursor: pointer
+			margin-right: 15px
+			&:last-child
+				margin-right: 0
+
+	.modal-close
+		top: 15px
+		right: 15px
+
+	.cl-modal
+		img
+			width: 70px
 
 .header__cl-right
 	display: flex
@@ -21,26 +36,29 @@
 		text-transform: uppercase
 		margin-bottom: 50px
 
+	&-background,
+	&-shield
+		img
+			cursor: pointer
+
 	.container
 		display: flex
 
 	&-result
-		width: 300px
-		height: 300px
 		display: block
-		position: relative
-		border: 2px solid #090909
-		margin-right: 50px
+		flex-basis: 30%
 
 	&-fixed
-		position: sticky
-		top: 0
+		position: relative
+		width: 260px
+		height: 280px
 
 	&-canvas
 		position: relative
-		width: 300px
-		height: 300px
-		top: 0
+		width: 260px
+		height: 280px
+		z-index: 38
+		border: 2px solid #090909
 
 	&-canvas__item
 		position: absolute
@@ -60,16 +78,16 @@
 		left: 50%
 		transform: translate(-50%,-50%)
 		img
-			width: 150px
-			height: 150px
+			width: 1500px
+			max-width: 165px
 
 	.canvas-shield img
-		width: 300px
-		height: 297px
+		width: 255px
+		height: 275px
 	
 	.canvas-color img
-		width: 295px
-		height: 295px
+		width: 255px
+		height: 275px
 		margin: 0 auto
 
 	.canvas-animal
@@ -80,21 +98,34 @@
 		z-index: 2
 
 	&-choose
-		width: 650px
+		flex-basis: 70%
+		max-width: 70%
 
 	&-item
 		display: block
-		height: 350px
 		margin-bottom: 25px
-		border: 2px solid #090909
 		position: relative
+
+	&-item__title
+		margin-bottom: 20px
+		text-transform: uppercase
+		+bold
+
+	&-item__inner
 		background: #fff
+		border: 2px solid #090909
+		padding: 20px 0
 		img
 			max-height: 140px
 
 	&-animal
-		img 
+		img
+			width: 140px
 			height: 140px
+
+	&-modal
+		display: flex
+		align-items: center
 
 	.swiper-container
 		width: 100%
@@ -104,7 +135,6 @@
 
 	.swiper-slide
 		background: #fff
-		height: calc((100% - 30px) / 2)
 		display: -webkit-box
 		display: -ms-flexbox
 		display: -webkit-flex

@@ -6,22 +6,23 @@
 		+med
 		+r(992)
 			font-size: 36px
+		+r(768)
+			font-size: 26px
 
 	&__group
 		margin-bottom: 20px
 		position: relative
 		width: 380px
-		min-height: 64px
+		// min-height: 64px
 		display: block
 		text-align: left
 		&:last-child
 			margin-bottom: 0
 		+r(992)
-			max-width: 380px
+			max-width: 100%
 			width: 100%
 		+r(768)
 			min-height: auto
-			max-width: 100%
 
 	&__row
 		display: flex
@@ -65,7 +66,8 @@ label
 	+r(992)
 		font-size: 14px
 	+r(768)
-		max-width: unset
+		max-width: 100%
+		width: 100%
 	+reg
 	+placeholder
 		font-size: 18px
@@ -76,9 +78,6 @@ label
 	&.valid
 		border-color: #00C851
 
-.fileuploader-theme-avatar
-	border: 3px solid $blck
-	border-radius: 0
-
-.fileuploader-items .fileuploader-item .fileuploader-item-image
-	border-radius: 0 !important
+textarea
+	height: 120px !important
+	max-height: 130px !important

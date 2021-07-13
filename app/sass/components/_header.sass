@@ -4,7 +4,7 @@
 	left: 0
 	width: 100%
 	padding: 15px 0
-	z-index: 2
+	z-index: 5
 
 	.logo img
 		+r(992)
@@ -19,15 +19,13 @@
 		background-color: $red
 		transform: skew(-15deg)
 		padding: 0 15px
-		+r(992)
+		+r(1200)
 			display: none
-
 		span
 			display: inline-block
 			width: 2px
 			height: 10px
 			background-color: $w
-
 		a
 			color: $w
 			+bold
@@ -36,16 +34,14 @@
 			display: inline-block
 			padding: 12px
 
-
-
 .nav
-	+r(992)
+	+r(1200)
 		display: none
 	a
 		display: inline-block
 		color: $blck
 		font-size: 14px
-		+med
+		+bold
 		text-transform: uppercase
 		margin-right: 30px
 		&:last-child
@@ -53,7 +49,7 @@
 
 .lang
 	display: flex
-	+r(992)
+	+r(1200)
 		display: none
 	a
 		+bold
@@ -68,7 +64,7 @@
 .guest
 	.header
 		top: 40px
-		+r(992)
+		+r(1200)
 			top: 85px
 	.nav a,
 	.lang a

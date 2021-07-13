@@ -58,7 +58,8 @@ $(window).on('load', function() {
             getDirection: true,
             direction: 'vertical',
             reloadOnContextChange: true,
-            //getSpeed: true,
+            scrollingClass: "has-scroll-scrolling",
+            draggingClass: "has-scroll-dragging",
             smartphone: {
                 smooth: true,
                 direction: 'vertical',
@@ -78,6 +79,11 @@ $(window).on('load', function() {
 
         //------------------------------------------------------------------------------------------//
         
+        $(document).on('click', '.to_top', function(event) {
+            event.preventDefault();
+            var target = document.querySelector('#home');
+            scroller.scrollTo(target);
+        });
         $(document).on('click', '.to-anim-about', function(event) {
             event.preventDefault();
             var target = document.querySelector('#about');
@@ -96,6 +102,11 @@ $(window).on('load', function() {
         $(document).on('click', '.to-anim-how', function(event) {
             event.preventDefault();
             var target = document.querySelector('#how');
+            scroller.scrollTo(target);
+        });
+        $(document).on('click', '.btn-show-video', function(event) {
+            event.preventDefault();
+            var target = document.querySelector('#about');
             scroller.scrollTo(target);
         });
 
@@ -128,12 +139,18 @@ $(window).on('load', function() {
             $('body').removeClass('overflow');
         })
 
-        $('.mex__item').each(function() {
-             $(this).mouseenter(function() {
-                 $(this).addClass('show');
-            }).mouseleave(function() {
-                 $(this).removeClass('show');
-            })
+        var mySwiper = new Swiper(".demoherb", {
+            spaceBetween: 30,
+            slidesPerView: 3,
+            centeredSlides: true,
+            roundLengths: true,
+            loop: true,
+            speed: 1000,
+            loopAdditionalSlides: 30,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
         });
 
     	// Fancy Box active
@@ -179,32 +196,66 @@ $(window).on('load', function() {
         });
 
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
-            slidesPerColumn: 2,
+            slidesPerView: 4,
             spaceBetween: 20,
             freeMode: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
         });
 
         ScrollTrigger.addEventListener('refresh', () => scroller.update());
         ScrollTrigger.refresh();
 
-        // scroller.on('scroll', (args) => {
-        //     //console.log(args.speed);
-        //     if (args.scroll.y > 150) {
-        //         $('.cl-canvas').css('position','fixed');
-        //     } else {
-        //         $('.cl-canvas').css('position','absolute');
-        //     }
-        // });
+        $('#usermodal_command').popup({
+            blur: false,
+            transition: 'all 0.3s'
+        });
+
+        $('#usermodal_create').popup({
+            blur: false,
+            transition: 'all 0.3s'
+        });
+
+        // password-eye
+        $('body').on('click', '.password-eye-1', function(){
+            if ($('#password').attr('type') == 'password'){
+                $(this).addClass('view');
+                $('#password').attr('type', 'text');
+            } else {
+                $(this).removeClass('view');
+                $('#password').attr('type', 'password');
+            }
+            return false;
+        });
+
+        $('body').on('click', '.password-eye-22', function(){
+            if ($('#password').attr('type') == 'password'){
+                $(this).addClass('view');
+                $('#password').attr('type', 'text');
+            } else {
+                $(this).removeClass('view');
+                $('#password').attr('type', 'password');
+            }
+            return false;
+        });
+
+        $('body').on('click', '.password-eye-2', function(){
+            if ($('#confirm').attr('type') == 'password'){
+                $(this).addClass('view');
+                $('#confirm').attr('type', 'text');
+            } else {
+                $(this).removeClass('view');
+                $('#confirm').attr('type', 'password');
+            }
+            return false;
+        });
 
     }, animationTime);
 
 }); //window load
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // /////////////////////////////       FORM
@@ -214,40 +265,6 @@ function validatePhone(phoneVal) {
 }
 
 $(document).ready(function() {
-    
-    // password-eye
-    $('body').on('click', '.password-eye-1', function(){
-        if ($('#password').attr('type') == 'password'){
-            $(this).addClass('view');
-            $('#password').attr('type', 'text');
-        } else {
-            $(this).removeClass('view');
-            $('#password').attr('type', 'password');
-        }
-        return false;
-    });
-
-    $('body').on('click', '.password-eye-22', function(){
-        if ($('#password').attr('type') == 'password'){
-            $(this).addClass('view');
-            $('#password').attr('type', 'text');
-        } else {
-            $(this).removeClass('view');
-            $('#password').attr('type', 'password');
-        }
-        return false;
-    });
-
-    $('body').on('click', '.password-eye-2', function(){
-        if ($('#confirm').attr('type') == 'password'){
-            $(this).addClass('view');
-            $('#confirm').attr('type', 'text');
-        } else {
-            $(this).removeClass('view');
-            $('#confirm').attr('type', 'password');
-        }
-        return false;
-    });
 
     // enable fileuploader plugin
     var $fileuploader = $('input.gallery_media').fileuploader({
@@ -620,6 +637,21 @@ jQuery.extend(jQuery.validator.messages, {
     // remote: "Please fix this field.",
 });
 
+// form user invite
+$('#userinvite').on('submit', function() {
+    $.ajax({
+        type: 'POST',
+        url: '/profiles',
+        data: $('#userinvite').serialize(),
+        success: function() {
+            setTimeout(function() {
+                $('.modal-form__sent').addClass('is-active')
+            }, 2e3);
+        }
+    });
+    return false;
+})
+
 let form = $("#contact");
 form.validate({
     errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -673,9 +705,127 @@ $('#answerform').validate({
 
 // user change info modal
 $('#usermodal').popup({
-    escape: false,
     blur: false,
-    scrolllock: true,
+    transition: 'all 0.3s'
+});
+
+$('#animal1').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal2').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal3').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal4').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal5').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal6').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal7').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal8').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal9').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal10').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal11').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal12').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal13').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal14').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal15').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal16').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal17').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#animal18').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+
+
+// user change info modal
+$('#color1').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color2').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color3').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color4').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color5').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color6').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color7').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color8').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color9').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color10').popup({
+    blur: false,
+    transition: 'all 0.3s'
+});
+$('#color11').popup({
+    blur: false,
     transition: 'all 0.3s'
 });
 
@@ -712,14 +862,7 @@ if (mediaSliderLength) {
         spaceBetween: 20,
         breakpoints: {
             992: {
-                slidesPerView: 2
-            },
-            1200: {
-                spaceBetween: 62,
-                slidesPerView: 3
-            },
-            1400: {
-                spaceBetween: 72,
+                slidesPerView: 1
             },
         }
     });
@@ -743,7 +886,7 @@ $('[data-countdown]').each(function() {
   finalDate = $(this).data('countdown');
   $this.countdown(finalDate, function(event) {
     let $this = $(this).html(event.strftime(''
-      + '<div class="countdown__group"><div class="countdown__num">%d</div> <div class="countdown__text days">день</div></div> '
+      + '<div class="countdown__group"><div class="countdown__num">%D</div> <div class="countdown__text days">день</div></div> '
       + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
       + '<div class="countdown__group"><div class="countdown__num">%H</div> <div class="countdown__text hours">часы</div></div> '
       + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
