@@ -10,33 +10,6 @@
 		+r(992)
 			grid-template-columns: 1fr
 
-	.container
-		display: flex
-		flex-direction: column
-		justify-content: space-between
-
-	.form
-		display: flex
-		flex-direction: column
-		text-align: center
-		align-items: center
-
-		&__inline
-			display: flex
-			justify-content: center
-
-			p
-				+med
-				font-size: 14px
-				margin-right: 10px
-		.link
-			font-size: 14px
-			+med
-			color: $blck
-
-		.link--red
-			color: $red
-
 		&__header
 			padding: 25px
 			display: flex
@@ -56,6 +29,36 @@
 			background-size: cover
 			+r(992)
 				display: none
+
+	.container
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+
+	.form
+		display: flex
+		flex-direction: column
+		text-align: center
+		align-items: center
+
+		&__title
+			font-size: 48px
+
+		&__inline
+			display: flex
+			justify-content: center
+
+			p
+				+med
+				font-size: 14px
+				margin-right: 10px
+		.link
+			font-size: 14px
+			+med
+			color: $blck
+
+		.link--red
+			color: $red
 
 .copy
 	width: 100%

@@ -7,6 +7,7 @@
 			margin-bottom: 50px
 	
 	.logo img
+		width: 165px
 		+r(992)
 			display: none
 
@@ -29,9 +30,9 @@
 		font-size: 12px
 		+med
 		color: $w
+		text-align: center
 		+r(992)
 			font-size: 10px
-			text-align: center
 			max-width: 70%
 			margin: 0 auto
 
@@ -56,17 +57,16 @@
 		display: none
 		+r(992)
 			display: block
-			width: 140px
+			width: 100px
 			margin: 50px auto 30px
 
 	&__dev
 		img
-			max-width: 150px
+			max-width: 165px
 		+r(992)
 			margin: 30px auto 0
 			img
 				max-width: 100px
-
 
 .social
 	display: flex
@@ -78,7 +78,6 @@
 		margin-right: 20px
 		&:last-child
 			margin-right: 0
-			img
-				max-width: 30px
-				+r(992)
-					max-width: 25px
+		svg
+			width: 25px
+			fill: white

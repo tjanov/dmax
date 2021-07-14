@@ -270,18 +270,22 @@
 			border-top: 2px solid $w
 			padding: 15px 0 30px
 			color: $w
-			&:nth-child(2)
-				img
-					width: 30px
-					margin-left: 5px
 		a
 			color: $w
 			+bold
 			text-decoration: underline
+		
 		.about__list--num
 			+bold
 			display: inline-block
 			margin-right: 50px
+
+.oferta .about__list--text
+	display: flex
+	height: 40px
+	img
+		width: 30px
+		margin-left: 5px
 
 // mexanika
 .mexanika
@@ -300,9 +304,8 @@
 	&__list
 		display: flex
 		position: relative
-		flex-direction: column
 		margin-top: 80px
-		+r(992)
+		flex-direction: column
 
 	&__item
 		display: flex
@@ -310,16 +313,25 @@
 		justify-content: space-between
 		border-top: 3px solid #1B1C22
 		padding-top: 20px
+		+r(576)
+			flex-direction: column
 
 	&__left
 		display: flex
 		flex-basis: 30%
 		max-width: 30%
+		+r(576)
+			flex-basis: 100%
+			max-width: 100%
 
 	&__right
 		display: flex
 		flex-basis: 25%
 		max-width: 25%
+		+r(576)
+			flex-basis: 100%
+			max-width: 100%
+			margin: 20px 0
 
 	&__num
 		font-size: 105px
@@ -327,15 +339,17 @@
 		+bold
 		+r(992)
 			font-size: 100px
+		+r(576)
+			font-size: 90px
 
 	&__subtext
 		font-size: 25px
 		+bold
 		+r(992)
-			font-size: 20px
-			position: absolute
-			top: 15px
-			left: 85px
+			// font-size: 20px
+			// position: absolute
+			// top: 15px
+			// left: 85px
 
 	&__date
 		font-size: 20px
@@ -347,6 +361,9 @@
 		+med
 		flex-basis: 45%
 		max-width: 45%
+		+r(576)
+			flex-basis: 100%
+			max-width: 100%
 
 // Create Logo
 .createlogo
@@ -386,10 +403,6 @@
 			margin: 0 30px
 			+r(992)
 				max-width: 150px
-
-		img
-			+r(992)
-				max-width: 40px
 
 	p
 		margin: 30px 0 50px
@@ -495,9 +508,9 @@
 			font-size: 18px
 			max-width: 80%
 			padding: 0
-	.accordion .acc-btn[aria-expanded='true'] + .accordion-content
-		+r(992)
-			padding-bottom: 150px
+
+	a
+		color: $red
 
 
 .to_top
@@ -513,3 +526,5 @@
 	font-size: 12px
 	color: $w
 	+bold
+	+r(768)
+		right: 5px

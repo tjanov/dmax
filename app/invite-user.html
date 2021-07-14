@@ -49,11 +49,11 @@
             <div class="container">
                 <a href="/" class="logo"><img src="img/logo.svg" alt=""></a>
                 <div class="header__cl-right">
-                    <a class="fpage__header--back go-home" href="https://dmaxquest.uz">перейти на сайт</a>
+                    <a class="fpage__header--back go-home" href="/">перейти на сайт</a>
                     <div class="header__active">
                         <div class="lang">
-                            <a class="is-active" href="#">RU</a>
                             <a href="#">Uz</a>
+                            <a class="is-active" href="#">RU</a>
                         </div>
                     </div>
                     <div class="header__buttons">
@@ -104,31 +104,26 @@
         <!-- invite-user-form -->
         <div class="invite">
             <div class="container">
-                <div class="invite__title">Добро пожаловать в D-MAX!</div>
+                <div class="invite__title">Добро пожаловать в D-MAX QUEST!</div>
                 
-                <form class="invite-form" action="/" method="post" enctype="multipart/form-data">
-                    <div class="invite-form__title">Чтобы приянть приглашение запольните форму</div>
+                <form class="invite-form" id="invite-form" action="/" method="post" enctype="multipart/form-data">
+                    <div class="invite-form__title">Чтобы принять приглашение заполните форму</div>
                     <div class="form__group">
-                        <label>Ваше фото</label>
+                        <label for="fileInput">Ваше фото</label>
                         <div class="w-32 h-32 mb-1 border rounded-lg overflow-hidden relative bg-gray-100">
-                            <img id="image" class="object-cover w-full h-32" src="https://placehold.co/300x300/e2e8f0/e2e8f0" />
-
-                            <div class="absolute top-0 left-0 right-0 bottom-0 w-full block cursor-pointer flex items-center justify-center" onClick="document.getElementById('fileInput').click()">
+                            <img id="image" class="object-cover w-full h-32" src="https://im0-tub-ru.yandex.net/i?id=cc67e77e784fcf04018ff099fd10242b&ref=rim&n=33&w=135&h=135">
+                            <div class="absolute top-0 left-0 right-0 bottom-0 w-full block cursor-pointer flex items-center justify-center" onclick="document.getElementById('fileInput').click()">
                                 <button type="button" style="background-color: rgba(255, 255, 255, 0.65)" class="hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded-lg shadow-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-camera" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-                                        <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
-                                        <circle cx="12" cy="13" r="3" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-camera" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="24" height="24" stroke="none"></rect><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"></path><circle cx="12" cy="13" r="3"></circle></svg>
                                 </button>
                             </div>
                         </div>
-                        <input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" onChange="let file = this.files[0];
-                            var reader = new FileReader();
-                            reader.onload = function (e) {
-                                document.getElementById('image').src = e.target.result;
-                            };
-                            reader.readAsDataURL(file);
+                        <input name="photo" id="fileInput" accept="image/jpeg" class="required" type="file" onchange="let file = this.files[0];
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            document.getElementById('image').src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
                         ">
                     </div>
                     <div class="form__group">
@@ -136,15 +131,15 @@
                         <input id="name" name="name" type="text" class="required input" value="Имран" placeholder="Введите имя">
                     </div>
                     <div class="form__group">
-                        <label for="name">Введите фамилия</label>
-                        <input id="name" name="surname" type="text" class="required input" value="" placeholder="Введите фамилия">
+                        <label for="name">Введите фамилию</label>
+                        <input id="name" name="surname" type="text" class="required input" value="" placeholder="Введите фамилию">
                     </div>
                     <div class="form__group form__group-2">
                         <input id="checkbox" name="checkbox" type="checkbox" class="required custom-checkbox">
-                        <label for="checkbox" class="custom-label">Я соглашаюсь с условиями <a target="_blank" href="#">публичной оферты</a></label>
+                        <label for="checkbox" class="custom-label">Я соглашаюсь с условиями <a target="_blank" href="#">Публичной Оферты</a></label>
                     </div>
                     <div class="form__group">
-                        <button class="btn btn-red" type="submit"><span>Принять участие</span></button>
+                        <button class="btn btn-red" type="submit"><span>Зарегистрироваться</span></button>
                     </div>
                 </form>
 

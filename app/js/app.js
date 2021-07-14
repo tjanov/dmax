@@ -140,8 +140,8 @@ $(window).on('load', function() {
         })
 
         var mySwiper = new Swiper(".demoherb", {
-            spaceBetween: 30,
-            slidesPerView: 3,
+            spaceBetween: 15,
+            slidesPerView: 2,
             centeredSlides: true,
             roundLengths: true,
             loop: true,
@@ -151,6 +151,12 @@ $(window).on('load', function() {
                 delay: 2000,
                 disableOnInteraction: false,
             },
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                },
+            }
         });
 
     	// Fancy Box active
@@ -196,14 +202,23 @@ $(window).on('load', function() {
         });
 
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 4,
-            spaceBetween: 20,
+            slidesPerView: 2,
+            spaceBetween: 15,
             freeMode: true,
             loop: true,
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                992: {
+                    slidesPerView: 4,
+                }
+            }
         });
 
         ScrollTrigger.addEventListener('refresh', () => scroller.update());
@@ -270,7 +285,7 @@ $(document).ready(function() {
     var $fileuploader = $('input.gallery_media').fileuploader({
         limit: 100,
         fileMaxSize: 20,
-        extensions: ['image/*', 'video/*'],
+        extensions: ['image/jpg', 'video/*'],
         changeInput: ' ',
         theme: 'gallery',
         enableApi: true,
@@ -652,6 +667,10 @@ $('#userinvite').on('submit', function() {
     return false;
 })
 
+$('.usermodal_create_close').on('click',function() {
+    $('.modal-form__sent').removeClass('is-active')
+})
+
 let form = $("#contact");
 form.validate({
     errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -697,6 +716,14 @@ $('#userchange').validate({
 
 // answer
 $('#answerform').validate({
+    errorPlacement: function errorPlacement(error, element) { element.after(error); },
+    success: function(label) {
+        label.addClass("valid");                        
+    }
+});
+
+// answer
+$('#invite-form').validate({
     errorPlacement: function errorPlacement(error, element) { element.after(error); },
     success: function(label) {
         label.addClass("valid");                        
@@ -856,13 +883,17 @@ let mediaSlider,
     mediaSliderLength = $('.slider__tabs').length;
 if (mediaSliderLength) {
     mediaSlider = new Swiper('.slider__tabs', {
+        slidesPerView: 1,
         speed: 600,
         lazy: true,
-        slidesPerView: 1,
         spaceBetween: 20,
+        freeMode: true,
         breakpoints: {
-            992: {
-                slidesPerView: 1
+            768: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
             },
         }
     });

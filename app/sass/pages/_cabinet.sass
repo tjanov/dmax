@@ -29,7 +29,7 @@
 				padding: 10px
 
 		.go-exit
-			margin-left: 10px
+			margin-left: 50px
 			+r(992)
 				left: 110px
 
@@ -246,7 +246,7 @@
 	.modal
 		padding: 100px
 		+r(992)
-			padding: 40px
+			padding: 40px !important
 
 .modal-form__title
 	font-size: 30px
@@ -353,6 +353,7 @@
 
 .cabinet__task
 	margin-bottom: 80px
+	margin-top: 60px
 	+r(992)
 		margin: 40px 0
 
@@ -475,6 +476,7 @@
 		margin-bottom: 20px
 
 .enemy
+
 	.task__column--title
 		padding: 40px 0 40px 40px
 		+r(992)
@@ -524,7 +526,9 @@
 		& > img
 			max-width: 50px
 			position: absolute
-			top: 30px
+			top: 40px
+	&-text
+		padding-left: 70px
 	&-name
 		font-size: 28px
 		text-transform: uppercase
@@ -689,3 +693,19 @@
 #usermodal_command
 	.modal
 		padding: 70px
+
+.user
+	&__lock
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 0
+		left: 0
+		background-color: rgba($blck, 1)
+		z-index: 777
+		display: flex
+		align-items: center
+		justify-content: center
+		img
+			width: 50px
+			filter: brightness(10)

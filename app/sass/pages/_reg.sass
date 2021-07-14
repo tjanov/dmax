@@ -1,10 +1,16 @@
 .reg
     position: relative
 
+    .container 
+        +r(768)
+            padding: 0 50px
+        +r(560)
+            padding: 0 30px
+        +r(480)
+            padding: 0 20px
+
     .copy
-        padding: 40px 0 0
-        +r(1200)
-            padding-top: 30px
+        padding: 25px 0 0
         +r(992)
             padding-top: 20px
 
@@ -38,17 +44,28 @@
         &.valid
             border-color: #00C851
 
+    #fileInput
+        visibility: hidden
+        +r(768)
+            position: relative
+            top: -30px
+
     label
         margin-bottom: 5px
 
     .fpage
         display: flex
-        justify-content: space-between
         padding-left: 100px
+        background: url(../img/form-slide-2.jpg) no-repeat right center
+        background-size: contain
+        height: 100vh
         +r(1200)
             padding-left: 100px
         +r(1024)
             padding-left: 0
+            background: none
+        +r(768)
+            display: block
         &__header
             padding: 25px 0
             display: flex
@@ -58,16 +75,14 @@
                 padding: 25px 0
         &__left
             position: relative
-            flex-basis: 70%
-            max-width: 70%
-        &__right
-            flex-basis: 30%
-            max-width: 30%
-            +r(992)
-                display: none
 
     .form
         margin-top: 10px
+        &__left
+            width: 8rem
+            #fileInput-error
+                position: relative
+                top: -30px
         &__inline
             display: flex
             justify-content: center
@@ -82,9 +97,6 @@
         .link--red
             color: $red
 
-    .fpage__right
-        background: none
-
     .form__title
         position: absolute
         top: 60%
@@ -94,6 +106,9 @@
         font-size: 36px
         +r(1200)
             font-size: 24px
+        +r(768)
+            display: none
+
 
     .btn.btn-red
         font-size: 14px
@@ -103,13 +118,17 @@
             width: 100%
 
     .password-eye
-        top: 50px
+        top: 35px
 
 .form__inner
     display: flex
+    +r(768)
+        flex-direction: column
 
 .form__left
     margin-right: 100px
+    +r(768)
+        margin-right: 0
 
 .form__group-2
     text-align: left

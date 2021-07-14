@@ -62,7 +62,7 @@
     }
     + .accordion-content {
       opacity: 1;
-      max-height: 11em;
+      max-height: 100vh;
       transition: all 200ms linear;
       will-change: opacity, max-height;
     }
