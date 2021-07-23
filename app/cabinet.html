@@ -40,13 +40,6 @@
 
     <main class="global" data-scroll-container>
         
-        <div class="loader-background"></div>
-        <div class="loader">
-            <div class="loader-logo">
-                <img src="img/logo-2.svg" alt="">
-            </div>
-        </div>
-
         <section class="cabinet">
 
             <!-- top countdown -->
@@ -57,9 +50,9 @@
                         <div class="countdown__title">до окончания этапа осталось</div>
                         <div class="countdown__block" data-countdown="2021/08/01"></div>
                     </div>
-                    <button class="countdown__top--close" type="button">
+<!--                     <button class="countdown__top--close" type="button">
                         <img src="img/top-close.svg" alt="">
-                    </button>
+                    </button> -->
                 </div>
             </div>
 
@@ -82,7 +75,7 @@
                         </div>
                         
                         <!-- button notifications -->
-                        <button class="notification__btn" type="button">
+                        <button class="notification__btn is-active" type="button">
                             <span class="is-have"></span>
                             <img src="img/bell.svg" alt="">
                         </button>
@@ -104,7 +97,21 @@
                     </div>
                 </div>
             </header>
+            
+            <div class="header__bottom">
+                <!-- go home -->
+                <div class="action">
+                    <a class="fpage__header--back go-home --white" href="#">на главную</a>
+                    <a class="fpage__header--back go-home go-exit --white" href="#">выход</a>
+                </div>
+                <!-- lang -->
+                <div class="lang">
+                    <a href="#">Uz</a>
+                    <a class="is-active" href="#">RU</a>
+                </div>
+            </div>
 
+            <!-- content -->
             <main class="content">
                 <div class="container">
 
@@ -112,8 +119,11 @@
                     <section class="content__header">
                         
                         <div class="content__header--info">
-                            <div class="ava-box">
-                                <img src="img/profile-logo.png" alt="">
+                            <div class="command-logo-box">
+                                <img class="command-logo" src="img/profile-logo.png" alt="">
+                                <button type="button" class="logo-delete">
+                                    <svg enable-background="new 0 0 511.058 511.058" height="512" viewBox="0 0 511.058 511.058" width="512" xmlns="http://www.w3.org/2000/svg"><g><path d="m511.058 60.811-60.811-60.811-194.718 194.718-194.718-194.718-60.811 60.811 194.718 194.718-194.718 194.718 60.811 60.811 194.718-194.718 194.718 194.718 60.811-60.811-194.718-194.718z"/></g></svg>
+                                </button>
                             </div>
                             <div class="content__title">musaffo</div>
                             <div class="content__deviz">ПУТЬ К УСПЕХУ ЛЕЖИМ<br> ЧЕРЕЗ ЖЕЛУБОК...</div>
@@ -128,8 +138,8 @@
                                     <img src="img/car-mini.png" alt="">
                                 </div>
                                 <div class="navigation-steps">
-                                    <div class="navigation-step">
-                                        <img src="img/flag.svg finished" alt="">
+                                    <div class="navigation-step finished">
+                                        <img src="img/flag.svg" alt="">
                                     </div>
                                     <div class="navigation-step">
                                         <img src="img/flag.svg" alt="">
@@ -163,7 +173,7 @@
                                     <img src="img/user-star.svg" alt="">
                                 </div>
                             </div>
-                            <div class="user-name">artur jorayev</div>
+                            <div class="user-name">Сабиржон Мухтаров</div>
                         </div>
 
                         <div class="user">
@@ -172,28 +182,33 @@
                                 <button type="button" class="user-edit usermodal_open">
                                     <img src="img/user-edit.svg" alt="">
                                 </button>
+                                <button type="button" class="user-delete">
+                                    <svg enable-background="new 0 0 511.058 511.058" height="512" viewBox="0 0 511.058 511.058" width="512" xmlns="http://www.w3.org/2000/svg"><g><path d="m511.058 60.811-60.811-60.811-194.718 194.718-194.718-194.718-60.811 60.811 194.718 194.718-194.718 194.718 60.811 60.811 194.718-194.718 194.718 194.718 60.811-60.811-194.718-194.718z"/></g></svg>
+                                </button>
                             </div>
                             <div class="user-name">artur jorayev</div>
                         </div>
                         
                         <div class="user">
                             <div class="user-pic">
-                                <img class="lozad" src="img/user-2.jpg" alt="">
+                                <img class="lozad" src="img/user-3.jpg" alt="">
                                 <button type="button" class="user-edit usermodal_open">
                                     <img src="img/user-edit.svg" alt="">
                                 </button>
                             </div>
                             <div class="user-name">artur jorayev</div>
                         </div>
-                        
-                        <div class="user user-add-btn usermodal_create_open">
+
+                        <div class="user">
                             <div class="user-pic">
-                                <img src="img/user-add.jpg" alt="">
+                                <img class="lozad" src="img/user-4.jpg" alt="">
+                                <button type="button" class="user-edit usermodal_open">
+                                    <img src="img/user-edit.svg" alt="">
+                                </button>
                             </div>
-                            <div class="user-name"></div>
+                            <div class="user-name">Иван Антонов</div>
                         </div>
                     </section>
-
                 </div>
             </main>
 
@@ -318,9 +333,9 @@
             <div class="container">
 
                 <div class="task__column tasks">
-                    <div class="user__lock">
+<!--                     <div class="user__lock">
                         <img src="img/lock.svg" alt="">
-                    </div>
+                    </div> -->
                     <div class="task__column--title">задания</div>
                     <div class="accordion">
                         <!-- item -->
@@ -495,31 +510,6 @@
             </button>
             
             <form id="userchange" action="/commands" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="_token" value="1K48R6sFA2sAnFhHRxHV2B7IUyZM4mujFGnPPMxV">
-                <div class="form__group">
-                    <label>Герб команды</label>
-                    <div class="w-32 h-32 mb-1 border rounded-lg overflow-hidden relative bg-gray-100">
-                        <img id="logo" class="object-cover w-full h-32" src="https://placehold.co/300x300/e2e8f0/e2e8f0" />
-                        <div class="absolute top-0 left-0 right-0 bottom-0 w-full block cursor-pointer flex items-center justify-center" onClick="document.getElementById('com_logo').click()">
-                            <button type="button" style="background-color: rgba(255, 255, 255, 0.65)" class="hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded-lg shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-camera" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-                                    <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
-                                    <circle cx="12" cy="13" r="3" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <input name="logo" id="com_logo" accept="image/*" class="hidden" type="file" onChange="let file = this.files[0];
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            document.getElementById('logo').src = e.target.result;
-                        };
-                        reader.readAsDataURL(file);
-                    ">
-                    
-                </div>
                 <div class="form__group">
                     <label for="name">Названия команды</label>
                     <input id="name" name="name" type="text" class="required input" placeholder="Имя">
@@ -626,6 +616,26 @@
                 <div class="notifications__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. </div>
             </div>
         </div>
+    </div>
+
+    <!-- help button -->
+    <button class="help__btn">
+        <svg enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g><circle cx="256" cy="452" r="60"/><path d="m256 0c-86.019 0-156 69.981-156 156v15h120v-15c0-19.851 16.149-36 36-36s36 16.149 36 36c0 10.578-4.643 20.59-12.74 27.471l-83.26 70.787v107.742h120v-52.258l40.976-34.837c34.968-29.714 55.024-73.052 55.024-118.905 0-86.019-69.981-156-156-156z"/></g></svg>
+    </button>
+
+    <!-- help -->
+    <div class="help__modal">
+        <div class="help__title">Title</div>
+        <button class="help__close" type="button">
+            <img src="img/usermoda-close.svg" alt="">
+        </button>
+        <div class="lines"></div>
+        <ul class="help__list">
+            <li><span>1.</span><p>Придумайте название и девиз для своей команды</p></li>
+            <li><span>2.</span><p>Создайте герб для своей команды</p></li>
+            <li><span>3.</span><p>Соберите полный состав команды, пригласив троих участников</p></li>
+            <li><span>4.</span><p>Следите за уведомлениями на сайте и ожидайте старта первого этапа</p></li>
+        </ul>
     </div>
 
     <!-- js -->

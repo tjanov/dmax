@@ -118,7 +118,7 @@
                                 </button>
                             </div>
                         </div>
-                        <input name="photo" id="fileInput" accept="image/jpeg" class="required" type="file" onchange="let file = this.files[0];
+                        <input name="photo" id="fileInput" accept="image/*" class="required" type="file" onchange="let file = this.files[0];
                         var reader = new FileReader();
                         reader.onload = function (e) {
                             document.getElementById('image').src = e.target.result;
@@ -128,7 +128,7 @@
                     </div>
                     <div class="form__group">
                         <label for="name">Введите имя</label>
-                        <input id="name" name="name" type="text" class="required input" value="Имран" placeholder="Введите имя">
+                        <input id="name" name="name" type="text" class="required input" value="" placeholder="Введите имя">
                     </div>
                     <div class="form__group">
                         <label for="name">Введите фамилию</label>

@@ -1,3 +1,9 @@
+.home
+	.lang a
+		color: $blck
+		+r(1000)
+			color: $w
+
 .header
 	position: absolute
 	top: 0
@@ -33,6 +39,13 @@
 			transform: skew(15deg)
 			display: inline-block
 			padding: 12px
+			+r(768)
+				padding: 15px
+
+	&__active
+		+r(1000)
+			display: flex
+			align-items: center
 
 	.social li svg
 		fill: $blck
@@ -52,8 +65,6 @@
 
 .lang
 	display: flex
-	+r(1200)
-		display: none
 	a
 		+bold
 		font-size: 14px

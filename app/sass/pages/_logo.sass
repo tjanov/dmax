@@ -1,14 +1,23 @@
 .cl-page
 	background: #ddd
 
+	.popup_content
+		+r(992)
+			width: 100%
+
 	header
 		position: static
 
 	.modal
 		padding: 50px
+		+r(768)
+			padding: 30px
 		img
 			cursor: pointer
 			margin-right: 15px
+			+r(768)
+				margin-right: 10px
+				margin-bottom: 10px
 			&:last-child
 				margin-right: 0
 
@@ -17,8 +26,12 @@
 		right: 15px
 
 	.cl-modal
+		+r(992)
+			flex-wrap: wrap
 		img
 			width: 70px
+			+r(768)
+				width: 120px
 
 .header__cl-right
 	display: flex
@@ -35,6 +48,8 @@
 		+med
 		text-transform: uppercase
 		margin-bottom: 50px
+		+r(768)
+			font-size: 36px
 
 	&-background,
 	&-shield
@@ -44,14 +59,15 @@
 	.container
 		display: flex
 		+r(992)
-			flex-direction: column
+			flex-wrap: wrap
 
 	&-result
 		display: block
 		flex-basis: 30%
-		z-index: 3333
+		z-index: 33
 		+r(992)
 			flex-basis: 100%
+			margin-bottom: 150px
 
 	&-fixed
 		position: relative
@@ -72,6 +88,8 @@
 
 	&-button
 		margin-top: 40px
+		+r(768)
+			width: 100%
 		.btn
 			max-width: 100%
 			width: 100%
@@ -89,58 +107,47 @@
 	.canvas-shield img
 		width: 255px
 		height: 275px
-	
 	.canvas-color img
 		width: 255px
 		height: 275px
 		margin: 0 auto
-
 	.canvas-animal
 		z-index: 4
 	.canvas-shield
 		z-index: 3
 	.canvas-color
 		z-index: 2
-
 	&-choose
 		flex-basis: 70%
 		max-width: 70%
 		+r(992)
 			flex-basis: 100%
 			max-width: 100%
-
 	&-item
 		display: block
 		margin-bottom: 25px
 		position: relative
-
 	&-item__title
 		margin-bottom: 20px
 		text-transform: uppercase
 		+bold
-
 	&-item__inner
 		background: #fff
 		border: 2px solid #090909
 		padding: 20px 0
 		img
 			max-height: 140px
-
 	&-animal
 		img
 			width: 140px
-			height: 140px
-
 	&-modal
 		display: flex
 		align-items: center
-
 	.swiper-container
 		width: 100%
 		height: 100%
 		margin-left: auto
 		margin-right: auto
-
 	.swiper-slide
 		background: #fff
 		display: -webkit-box
@@ -155,17 +162,38 @@
 		-ms-flex-align: center
 		-webkit-align-items: center
 		align-items: center
-
 	.swiper-button-next, .swiper-button-prev
 		background: $red
 		width: 35px
 		height: 40px
 		color: $w
-
 	.swiper-button-next:after, .swiper-button-prev:after
 		font-size: 18px
-
 	.swiper-button-next, .swiper-container-rtl .swiper-button-prev
 		right: 0
 	.swiper-button-prev, .swiper-container-rtl .swiper-button-next
 		left: 0
+
+.cl-success
+	display: flex
+	background-color: $w
+	padding: 30px
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	width: 100%
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 99999
+
+	&__title
+		font-size: 24px
+		+bold
+		margin-bottom: 50px
+		margin-top: 20px
+
+	.or
+		margin: 15px 0
+		+bold
+		font-size: 18px

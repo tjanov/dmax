@@ -11,14 +11,13 @@
 			grid-template-columns: 1fr
 
 		&__header
-			padding: 25px
+			padding: 20px 0
 			display: flex
 			justify-content: space-between
 			width: 100%
+			align-items: center
 			+r(1024)
-				padding: 25px
-			+r(768)
-				padding: 15px 10px
+				padding: 15px 0
 
 		&__block
 			position: relative
@@ -72,6 +71,11 @@
 
 .error
 	color: $red
+
+label.error
+	position: absolute
+	top: 0
+	right: 0
 
 .go-home
 	display: flex

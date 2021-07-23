@@ -10,9 +10,9 @@
             padding: 0 20px
 
     .copy
-        padding: 25px 0 0
+        padding: 5px 0
         +r(992)
-            padding-top: 20px
+            padding: 20px 0
 
     .form .btn
         height: 45px
@@ -55,31 +55,44 @@
 
     .fpage
         display: flex
-        padding-left: 100px
-        background: url(../img/form-slide-2.jpg) no-repeat right center
-        background-size: contain
         height: 100vh
-        +r(1200)
-            padding-left: 100px
-        +r(1024)
-            padding-left: 0
-            background: none
+        justify-content: space-between
+        +rh(800)
+            height: auto
+        +r(992)
+            justify-content: center
+            text-align: center
+            height: auto
         +r(768)
             display: block
         &__header
-            padding: 25px 0
+            padding: 20px 0
             display: flex
             justify-content: space-between
             width: 100%
+            align-items: center
             +r(1024)
-                padding: 25px 0
+                padding: 15px 0
         &__left
             position: relative
+
+        &__right
+            width: 100%
+            height: 100vh
+            background-image: url(../img/form-slide-2.jpg)
+            background-size: cover
+            background-position: center center
+            +r(992)
+                display: none
+                visibility: none
 
     .form
         margin-top: 10px
         &__left
-            width: 8rem
+            width: 10rem
+            +r(1200)
+                width: 8rem
+                margin-right: 70px
             #fileInput-error
                 position: relative
                 top: -30px
@@ -103,12 +116,15 @@
         left: 0
         transform: translateX(-40%) rotate(-90deg)
         text-transform: uppercase
-        font-size: 36px
+        font-size: 35px
         +r(1200)
-            font-size: 24px
-        +r(768)
-            display: none
-
+            font-size: 26px
+        +r(992)
+            font-size: 22px
+            transform: none
+            position: static
+            +bold
+            margin-top: 15px
 
     .btn.btn-red
         font-size: 14px
@@ -151,11 +167,11 @@
         display: block
         margin-right: 10px
 
+    .custom-checkbox.error ~ .custom-label
+        color: $red
+
     #checkbox-error
-        order: 3
-        display: block
-        position: absolute
-        top: 100%
+        display: none !important
 
 // .custom-checkbox
 //     position: absolute
@@ -185,3 +201,23 @@
 //   border-color: $red
 //   background-color: $red
 //   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e")
+
+
+.regform-load
+    position: fixed
+    top: 0 
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    height: 100%
+    background-color: rgba($red,0.85)
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    visibility: hidden
+    opacity: 0
+    &.is-active
+        visibility: visible
+        opacity: 1

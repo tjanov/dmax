@@ -35,29 +35,28 @@
 
     <main class="global" data-scroll-container>
         
-        <div class="loader-background"></div>
-        <div class="loader">
-            <div class="loader-logo">
-                <img src="img/logo-2.svg" alt="">
-            </div>
-        </div>
-
         <header class="header">
             <div class="container">
-                <a href="/" class="logo"><img src="img/logo.svg" alt=""></a>
-                <div class="header__cl-right">
-                    <a class="fpage__header--back go-home" href="/">на главную</a>
-                    <div class="header__active">
-                        <div class="lang">
-                            <a class="is-active" href="#">RU</a>
-                            <a href="#">Uz</a>
-                        </div>
+                <a href="/" class="logo"><img src="/img/logo.svg" alt=""></a>
+                <a class="fpage__header--back go-home" href="/">{{ __('asd.на главную') }}</a>
+                <div class="header__active">
+                    <div class="lang">
+                        <a @if(session()->get('locale') == 'uz') class="is-active" @endif href="/languages/uz">UZ</a>
+                        <a @if(session()->get('locale') == 'ru') class="is-active" @endif href="/languages/ru">RU</a>
                     </div>
-                    <div class="header__buttons">
-                        <a class="" href="login.html">ВХОД</a>
-                        <span></span>
-                        <a class="" href="reg.html">РЕГИСТРАЦИЯ</a>
-                    </div>
+                </div>
+                <div class="header__buttons">
+                    @if (Route::has('login'))
+                        @auth
+                            <a href="{{ url('/home') }}">{{ __('asd.Кабинет') }}</a>
+                        @else
+                            <a href="{{ route('login') }}">{{ __('asd.ВХОД') }}</a>
+                            @if (Route::has('register'))
+                                <span></span>
+                                <a href="{{ route('register') }}">{{ __('asd.РЕГИСТРАЦИЯ') }}</a>
+                            @endif
+                        @endauth
+                    @endif
                 </div>
                 <!-- burger -->
                 <div class="burger">
@@ -67,31 +66,51 @@
 
                 <!-- mobile menu-->
                 <div class="mob-menu">
-                    <a href="#" class="lng">UZ</a>
-                    <ul class="mob-nav">
-                        <li class="menuitem active"> 
-                            <a href="" class="to-anim-about">О квесте</a> 
-                        </li>
-                        <li class="menuitem"> 
-                            <a href="" class="to-anim-mexanika">Механика</a> 
-                        </li>
-                        <li class="menuitem"> 
-                            <a href="" class="to-anim-create">Создать лого</a> 
-                        </li>
-                    </ul>
+                    @if(session()->get('locale') == 'uz')
+                        <a href="/languages/ru" class="lng">RU</a>
+                    @else
+                        <a href="/languages/uz" class="lng">UZ</a>
+                    @endif
+    
                     <div class="middle">
                         <div class="header__buttons">
-                            <a class="" href="login.html">ВХОД</a>
-                            <span></span>
-                            <a class="" href="reg.html">РЕГИСТРАЦИЯ</a>
+                            @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ url('/home') }}">{{ __('asd.Кабинет') }}</a>
+                                @else
+                                    <a href="{{ route('login') }}">{{ __('asd.ВХОД') }}</a>
+    
+                                    @if (Route::has('register'))
+                                        <span></span>
+                                        <a href="{{ route('register') }}">{{ __('asd.РЕГИСТРАЦИЯ') }}</a>
+                                    @endif
+                                @endauth
+                            @endif
                         </div>
                     </div>
+                    
                     <hr>
-                    <div class="bottom"> 
+                    <div class="bottom">
                         <ul class="social">
-                            <li><a target="_blank" href="https://instagram.com/samauto.uz/"><img src="img/instagram.png" alt=""></a></li>
-                            <li><a target="_blank" href="https://facebook.com/samauto.uz/"><img src="img/facebook.png" alt=""></a></li>
-                            <li><a target="_blank" href="https://t.me/samauto_uz"><img src="img/telegram.svg" alt=""></a></li>
+                        <li><a target="_blank" href="https://t.me/samauto_uz">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve"><g><path d="M5.299,144.645l69.126,25.8l26.756,86.047c1.712,5.511,8.451,7.548,12.924,3.891l38.532-31.412 c4.039-3.291,9.792-3.455,14.013-0.391l69.498,50.457c4.785,3.478,11.564,0.856,12.764-4.926L299.823,29.22 c1.31-6.316-4.896-11.585-10.91-9.259L5.218,129.402C-1.783,132.102-1.722,142.014,5.299,144.645z M96.869,156.711l135.098-83.207 c2.428-1.491,4.926,1.792,2.841,3.726L123.313,180.87c-3.919,3.648-6.447,8.53-7.163,13.829l-3.798,28.146 c-0.503,3.758-5.782,4.131-6.819,0.494l-14.607-51.325C89.253,166.16,91.691,159.907,96.869,156.711z"></path></g></svg>
+                            </a></li>
+                            <li><a target="_blank" href="https://instagram.com/samauto.uz/">
+                                <svg viewBox="-21 -21 682.66669 682.66669" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m0 132.976562v374.046876c0 73.441406 59.535156 132.976562 132.976562 132.976562h374.046876c73.441406 0 132.976562-59.535156 132.976562-132.976562v-374.046876c0-73.441406-59.535156-132.976562-132.976562-132.976562h-374.046876c-73.441406 0-132.976562 59.535156-132.976562 132.976562zm387.792969 368.359376c-157.855469 54.464843-303.59375-91.273438-249.128907-249.128907 18.351563-53.203125 60.335938-95.191406 113.539063-113.542969 157.859375-54.464843 303.597656 91.273438 249.132813 249.132813-18.351563 53.203125-60.335938 95.1875-113.542969 113.539063zm154.28125-374.859376c-2.511719 13.152344-13.394531 20.804688-24.652344 20.804688-6.851563 0-13.835937-2.828125-19.183594-8.964844-.472656-.542968-.914062-1.125-1.304687-1.730468-5.519532-8.4375-5.691406-18.460938-1-26.589844 3.320312-5.753906 8.679687-9.863282 15.097656-11.582032 6.410156-1.726562 13.113281-.839843 18.859375 2.484376 8.132813 4.6875 12.992187 13.457031 12.4375 23.511718-.039063.6875-.121094 1.386719-.253906 2.066406zm0 0"></path><path d="m320 164.523438c-85.734375 0-155.476562 69.742187-155.476562 155.476562s69.742187 155.476562 155.476562 155.476562 155.476562-69.742187 155.476562-155.476562-69.742187-155.476562-155.476562-155.476562zm0 0"></path>
+                                </svg>
+                            </a></li>
+                            <li><a target="_blank" href="https://facebook.com/samauto.uz/">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 96.124 96.123" style="enable-background:new 0 0 96.124 96.123;" xml:space="preserve"><g><path d="M72.089,0.02L59.624,0C45.62,0,36.57,9.285,36.57,23.656v10.907H24.037c-1.083,0-1.96,0.878-1.96,1.961v15.803
+                                c0,1.083,0.878,1.96,1.96,1.96h12.533v39.876c0,1.083,0.877,1.96,1.96,1.96h16.352c1.083,0,1.96-0.878,1.96-1.96V54.287h14.654
+                                c1.083,0,1.96-0.877,1.96-1.96l0.006-15.803c0-0.52-0.207-1.018-0.574-1.386c-0.367-0.368-0.867-0.575-1.387-0.575H56.842v-9.246
+                                c0-4.444,1.059-6.7,6.848-6.7l8.397-0.003c1.082,0,1.959-0.878,1.959-1.96V1.98C74.046,0.899,73.17,0.022,72.089,0.02z"></path></g></svg>
+                            </a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/channel/UC_nOhhMXKjRATT9H-4Yw_lA/featured">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90"><defs/>
+                                <path d="M70.94 65.83H66l.02-2.87a2.33 2.33 0 012.33-2.32h.31A2.33 2.33 0 0171 62.96l-.06 2.87zM52.4 59.68c-1.25 0-2.27.85-2.27 1.88V75.5c0 1.03 1.02 1.87 2.27 1.87 1.26 0 2.29-.84 2.29-1.87V61.56c0-1.04-1.03-1.88-2.29-1.88zm30.09-7.8v26.54C82.5 84.8 76.98 90 70.23 90H19.77C13.02 90 7.5 84.79 7.5 78.42V51.88c0-6.37 5.52-11.58 12.27-11.58h50.46c6.75 0 12.27 5.21 12.27 11.58zM23.14 81.3V53.34h6.25V49.2l-16.68-.02v4.07l5.2.02V81.3h5.23zm18.75-23.8h-5.22v14.93c0 2.16.13 3.24 0 3.62-.43 1.16-2.34 2.39-3.08.13-.13-.4-.01-1.6-.02-3.65l-.02-15.03h-5.18l.01 14.8c0 2.26-.05 3.96.02 4.73.13 1.35.08 2.93 1.34 3.84 2.35 1.69 6.84-.25 7.97-2.67l-.01 3.08h4.19V57.52zm16.68 17.1l-.01-12.43c0-4.74-3.55-7.57-8.36-3.74l.02-9.24h-5.2l-.03 31.9 4.28-.06.4-1.99c5.47 5.02 8.9 1.58 8.9-4.44zm16.32-1.65l-3.9.02-.02.53v2.18c0 1.17-.96 2.12-2.14 2.12h-.76a2.14 2.14 0 01-2.14-2.12v-5.74h8.95v-3.37c0-2.46-.06-4.92-.26-6.33-.64-4.45-6.9-5.16-10.05-2.88a5.89 5.89 0 00-2.2 2.94 16.58 16.58 0 00-.66 5.26v7.4c0 12.33 14.97 10.59 13.18-.01zM54.83 32.73c.27.66.69 1.19 1.26 1.59.56.39 1.27.59 2.13.59.75 0 1.42-.2 2-.62a4.8 4.8 0 001.46-1.87l-.1 2.04h5.82V9.74h-4.58v19.24a1.9 1.9 0 01-3.81 0V9.74h-4.78v16.67c0 2.13.04 3.54.1 4.26.07.71.23 1.4.5 2.06zM37.22 18.77c0-2.37.2-4.23.59-5.56A6.2 6.2 0 0139.94 10a6.17 6.17 0 013.95-1.22c1.34 0 2.5.27 3.46.78.96.52 1.7 1.2 2.23 2.03a8 8 0 011.07 2.58c.2.89.3 2.23.3 4.04v6.26c0 2.29-.1 3.98-.28 5.05a8 8 0 01-1.15 3 5.43 5.43 0 01-2.23 2.06c-.92.44-1.97.66-3.16.66a8.76 8.76 0 01-3.36-.57 4.61 4.61 0 01-2.14-1.7 7.6 7.6 0 01-1.1-2.78c-.21-1.08-.32-2.7-.32-4.88v-6.54zm4.55 9.82c0 1.4 1.04 2.54 2.31 2.54s2.3-1.14 2.3-2.54V15.43c0-1.4-1.03-2.54-2.3-2.54-1.27 0-2.31 1.14-2.31 2.54v13.16zm-16.09 6.64h5.49V16.29L37.65.02h-6L28.21 12.1 24.7 0h-5.93l6.9 16.28v18.95z"/>
+                                </svg>
+                            </a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,29 +119,61 @@
 
         <section class="cl">
             <div class="container">
-                <div class="cl-title">создать герб</div>
+                <div class="cl-title">{{ __('asd.создать герб') }}</div>
             </div>
             <div class="container">
+
                 <div class="cl-result" id="cl-result">
                     <div class="cl-fixed" data-scroll data-scroll-sticky data-scroll-target="#cl-result">
                         <div class="cl-canvas" id="toImage">
                             <div class="cl-canvas__item canvas-animal">
-                                <img src="img/cl/animals/animal101.png" id="animal" alt="">
+                                <img src="/img/cl/animals/animal101.png" id="animal" alt="">
                             </div>
                             <div class="cl-canvas__item canvas-shield">
-                                <img src="img/cl/shields/shield101.png" id="shield" alt="">
+                                <img src="/img/cl/shields/shield101.png" id="shield" alt="">
                             </div>
                             <div class="cl-canvas__item canvas-color">
-                                <img src="img/cl/colors/color101.png" id="color" alt="">
+                                <img src="/img/cl/colors/color101.png" id="color" alt="">
                             </div>
                             <div class="cl-canvas__item canvas-bg">
-                                <img src="img/cl/backgrounds/background_2.png" id="background" alt="">
+                                <img src="/img/cl/backgrounds/background_2.png" id="background" alt="">
                             </div>
                         </div>
-                        <div class="cl-button md">
-                            <button class="btn btn-red" type="button" id="btnSave">
-                                <span>Создать</span>
-                            </button>
+                        <div class="cl-button" >
+                            <div>
+                                <input type="hidden" name="animal1" id="animal" value="/img/cl/animals/animal101.png">
+                                <input type="hidden" name="shield1" id="shield" value="/img/cl/shields/shield101.png">
+                                <input type="hidden" name="color1" id="color" value="/img/cl/colors/color101.png">
+                                <input type="hidden" name="background1" id="background" value="/img/cl/backgrounds/background_2.png">
+                                <button class="btn btn-red" type="button" id="logo_create">
+                                    <span>{{ __('asd.Создать') }}</span>
+                                </button>
+                                <div class="cl-success__title" id="is-have" style="display: none;">Этот герб уже есть</div>
+                            </div>
+                        </div>
+                        <div class="cl-success" style="display: none;">
+                            <div class="cl-canvas" id="toImage">
+                                <div class="cl-canvas__item canvas-animal">
+                                    <img src="img/cl/animals/animal101.png" id="animal" alt="">
+                                </div>
+                                <div class="cl-canvas__item canvas-shield">
+                                    <img src="img/cl/shields/shield101.png" id="shield" alt="">
+                                </div>
+                                <div class="cl-canvas__item canvas-color">
+                                    <img src="img/cl/colors/color101.png" id="color" alt="">
+                                </div>
+                                <div class="cl-canvas__item canvas-bg">
+                                    <img src="img/cl/backgrounds/background_2.png" id="background" alt="">
+                                </div>
+                            </div>
+                            <div class="cl-success__title">{{ __('asd.Вы успешно создали герб!') }}</div>
+                            @auth
+                                <a class="btn btn-red" href="/home"><span>{{ __('asd.Кабинет') }}</span></a>
+                            @else
+                                <a class="btn btn-red" href="/login"><span>{{ __('asd.ВХОД') }}</span></a>
+                                <span class="or">{{ __('asd.или') }}</span>
+                                <a class="btn btn-red" href="/register"><span>{{ __('asd.РЕГИСТРАЦИЯ') }}</span></a>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -131,39 +182,39 @@
 
                 <div class="cl-choose">
                     <div class="cl-item cl-shield">
-                        <div class="cl-item__title">Выберите форму</div>
+                        <div class="cl-item__title">{{ __('asd.Выберите форму') }}</div>
                         <div class="cl-item__inner">
                             <div class="swiper-container mySwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield101.png" onclick="shield(101)" id="shield_101" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield101.png" onclick="shield(101)" id="shield_101" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield201.png" onclick="shield(201)" id="shield_201" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield201.png" onclick="shield(201)" id="shield_201" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield301.png" onclick="shield(301)" id="shield_301" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield301.png" onclick="shield(301)" id="shield_301" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield401.png" onclick="shield(401)" id="shield_401" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield401.png" onclick="shield(401)" id="shield_401" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield501.png" onclick="shield(501)" id="shield_501" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield501.png" onclick="shield(501)" id="shield_501" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield601.png" onclick="shield(601)" id="shield_601" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield601.png" onclick="shield(601)" id="shield_601" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield701.png" onclick="shield(701)" id="shield_701" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield701.png" onclick="shield(701)" id="shield_701" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield801.png" onclick="shield(801)" id="shield_801" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield801.png" onclick="shield(801)" id="shield_801" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield901.png" onclick="shield(901)" id="shield_901" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield901.png" onclick="shield(901)" id="shield_901" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/shields/shield1001.png" onclick="shield(1001)" id="shield_1001" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/shields/shield1001.png" onclick="shield(1001)" id="shield_1001" alt="">
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
@@ -172,36 +223,36 @@
                         </div>
                     </div>
                     <div class="cl-item cl-background">
-                        <div class="cl-item__title">Выберите фон</div>
+                        <div class="cl-item__title">{{ __('asd.Выберите фон') }}</div>
                         <div class="cl-item__inner">
                             <div class="swiper-container mySwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_1.png" onclick="bg(1)" id="background_1" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_1.png" onclick="bg(1)" id="background_1" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_2.png" onclick="bg(2)" id="background_2" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_2.png" onclick="bg(2)" id="background_2" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_3.png" onclick="bg(3)" id="background_3" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_3.png" onclick="bg(3)" id="background_3" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_4.png" onclick="bg(4)" id="background_4" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_4.png" onclick="bg(4)" id="background_4" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_5.png" onclick="bg(5)" id="background_5" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_5.png" onclick="bg(5)" id="background_5" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_6.png" onclick="bg(6)" id="background_6" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_6.png" onclick="bg(6)" id="background_6" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_7.png" onclick="bg(7)" id="background_7" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_7.png" onclick="bg(7)" id="background_7" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_8.png" onclick="bg(8)" id="background_8" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_8.png" onclick="bg(8)" id="background_8" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="img/cl/backgrounds/background_9.png" onclick="bg(9)" id="background_9" alt="">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
+                                        <img class="swiper-lazy" data-src="img/cl/backgrounds/background_9.png" onclick="bg(9)" id="background_9" alt="">
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
@@ -210,63 +261,63 @@
                         </div>
                     </div>
                     <div class="cl-item cl-color">
-                        <div class="cl-item__title">Выберите паттерн</div>
+                        <div class="cl-item__title">{{ __('asd.Выберите паттерн') }}</div>
                         <div class="cl-item__inner">
                             <div class="swiper-container mySwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color1_open">
-                                            <img src="img/cl/colors/color101.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color101.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color2_open">
-                                            <img src="img/cl/colors/color201.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color201.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color3_open">
-                                            <img src="img/cl/colors/color301.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color301.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color4_open">
-                                            <img src="img/cl/colors/color401.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color401.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color5_open">
-                                            <img src="img/cl/colors/color501.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color501.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color6_open">
-                                            <img src="img/cl/colors/color601.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color601.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color7_open">
-                                            <img src="img/cl/colors/color701.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color701.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color8_open">
-                                            <img src="img/cl/colors/color801.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color801.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color9_open">
-                                            <img src="img/cl/colors/color901.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color901.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color10_open">
-                                            <img src="img/cl/colors/color1001.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color1001.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="color11_open">
-                                            <img src="img/cl/colors/color1101.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/colors/color1101.png" alt="">
                                         </button>
                                     </div>
                                 </div>
@@ -276,98 +327,98 @@
                         </div>
                     </div>
                     <div class="cl-item cl-animal">
-                        <div class="cl-item__title">Выберите символ</div>
+                        <div class="cl-item__title">{{ __('asd.Выберите символ') }}</div>
                         <div class="cl-item__inner">
                             <div class="swiper-container mySwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal1_open">
-                                            <img src="img/cl/animals/animal101.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal101.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal2_open">
-                                            <img src="img/cl/animals/animal201.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal201.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal3_open">
-                                            <img src="img/cl/animals/animal301.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal301.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal4_open">
-                                            <img src="img/cl/animals/animal401.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal401.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal5_open">
-                                            <img src="img/cl/animals/animal501.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal501.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal6_open">
-                                            <img src="img/cl/animals/animal601.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal601.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal7_open">
-                                            <img src="img/cl/animals/animal701.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal701.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal8_open">
-                                            <img src="img/cl/animals/animal801.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal801.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal9_open">
-                                            <img src="img/cl/animals/animal901.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal901.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal10_open">
-                                            <img src="img/cl/animals/animal1001.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1001.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal11_open">
-                                            <img src="img/cl/animals/animal1101.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1101.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal12_open">
-                                            <img src="img/cl/animals/animal1201.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1201.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal13_open">
-                                            <img src="img/cl/animals/animal1301.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1301.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal14_open">
-                                            <img src="img/cl/animals/animal1401.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1401.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal15_open">
-                                            <img src="img/cl/animals/animal1501.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1501.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal16_open">
-                                            <img src="img/cl/animals/animal1601.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1601.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal17_open">
-                                            <img src="img/cl/animals/animal1701.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1701.png" alt="">
                                         </button>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide loud-link-click" data-sound="sound/click">
                                         <button class="animal18_open">
-                                            <img src="img/cl/animals/animal1801.png" alt="">
+                                            <img class="swiper-lazy" data-src="img/cl/animals/animal1801.png" alt="">
                                         </button>
                                     </div>
 
@@ -378,6 +429,7 @@
                         </div>
                     </div>
                 </div>
+                             
             </div>
         </section>
 
@@ -392,14 +444,14 @@
                 <img src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal101.png" onclick="animal(101)" id="animal_101" alt="">
-                <img src="img/cl/animals/animal102.png" onclick="animal(102)" id="animal_102" alt="">
-                <img src="img/cl/animals/animal103.png" onclick="animal(103)" id="animal_103" alt="">
-                <img src="img/cl/animals/animal104.png" onclick="animal(104)" id="animal_104" alt="">
-                <img src="img/cl/animals/animal105.png" onclick="animal(105)" id="animal_105" alt="">
-                <img src="img/cl/animals/animal106.png" onclick="animal(106)" id="animal_106" alt="">
-                <img src="img/cl/animals/animal107.png" onclick="animal(107)" id="animal_107" alt="">
-                <img src="img/cl/animals/animal108.png" onclick="animal(108)" id="animal_108" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal101.png" onclick="animal(101)" id="animal_101" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal102.png" onclick="animal(102)" id="animal_102" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal103.png" onclick="animal(103)" id="animal_103" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal104.png" onclick="animal(104)" id="animal_104" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal105.png" onclick="animal(105)" id="animal_105" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal106.png" onclick="animal(106)" id="animal_106" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal107.png" onclick="animal(107)" id="animal_107" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal108.png" onclick="animal(108)" id="animal_108" alt="">
             </div>
         </div>
     </div>
@@ -407,17 +459,17 @@
     <div id="animal2">
         <div class="modal">
             <button class="animal2_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal201.png" onclick="animal(201)" id="animal_201" alt="">
-                <img src="img/cl/animals/animal202.png" onclick="animal(202)" id="animal_202" alt="">
-                <img src="img/cl/animals/animal203.png" onclick="animal(203)" id="animal_203" alt="">
-                <img src="img/cl/animals/animal204.png" onclick="animal(204)" id="animal_204" alt="">
-                <img src="img/cl/animals/animal205.png" onclick="animal(205)" id="animal_205" alt="">
-                <img src="img/cl/animals/animal206.png" onclick="animal(206)" id="animal_206" alt="">
-                <img src="img/cl/animals/animal207.png" onclick="animal(207)" id="animal_207" alt="">
-                <img src="img/cl/animals/animal208.png" onclick="animal(208)" id="animal_208" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal201.png" onclick="animal(201)" id="animal_201" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal202.png" onclick="animal(202)" id="animal_202" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal203.png" onclick="animal(203)" id="animal_203" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal204.png" onclick="animal(204)" id="animal_204" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal205.png" onclick="animal(205)" id="animal_205" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal206.png" onclick="animal(206)" id="animal_206" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal207.png" onclick="animal(207)" id="animal_207" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal208.png" onclick="animal(208)" id="animal_208" alt="">
             </div>
         </div>
     </div>
@@ -425,17 +477,17 @@
     <div id="animal3">
         <div class="modal">
             <button class="animal3_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal301.png" onclick="animal(301)" id="animal_301" alt="">
-                <img src="img/cl/animals/animal302.png" onclick="animal(302)" id="animal_302" alt="">
-                <img src="img/cl/animals/animal303.png" onclick="animal(303)" id="animal_303" alt="">
-                <img src="img/cl/animals/animal304.png" onclick="animal(304)" id="animal_304" alt="">
-                <img src="img/cl/animals/animal305.png" onclick="animal(305)" id="animal_305" alt="">
-                <img src="img/cl/animals/animal306.png" onclick="animal(306)" id="animal_306" alt="">
-                <img src="img/cl/animals/animal307.png" onclick="animal(307)" id="animal_307" alt="">
-                <img src="img/cl/animals/animal308.png" onclick="animal(308)" id="animal_308" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal301.png" onclick="animal(301)" id="animal_301" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal302.png" onclick="animal(302)" id="animal_302" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal303.png" onclick="animal(303)" id="animal_303" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal304.png" onclick="animal(304)" id="animal_304" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal305.png" onclick="animal(305)" id="animal_305" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal306.png" onclick="animal(306)" id="animal_306" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal307.png" onclick="animal(307)" id="animal_307" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal308.png" onclick="animal(308)" id="animal_308" alt="">
             </div>
         </div>
     </div>
@@ -443,17 +495,17 @@
     <div id="animal4">
         <div class="modal">
             <button class="animal4_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal401.png" onclick="animal(401)" id="animal_401" alt="">
-                <img src="img/cl/animals/animal402.png" onclick="animal(402)" id="animal_402" alt="">
-                <img src="img/cl/animals/animal403.png" onclick="animal(403)" id="animal_403" alt="">
-                <img src="img/cl/animals/animal404.png" onclick="animal(404)" id="animal_404" alt="">
-                <img src="img/cl/animals/animal405.png" onclick="animal(405)" id="animal_405" alt="">
-                <img src="img/cl/animals/animal406.png" onclick="animal(406)" id="animal_406" alt="">
-                <img src="img/cl/animals/animal407.png" onclick="animal(407)" id="animal_407" alt="">
-                <img src="img/cl/animals/animal408.png" onclick="animal(408)" id="animal_408" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal401.png" onclick="animal(401)" id="animal_401" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal402.png" onclick="animal(402)" id="animal_402" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal403.png" onclick="animal(403)" id="animal_403" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal404.png" onclick="animal(404)" id="animal_404" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal405.png" onclick="animal(405)" id="animal_405" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal406.png" onclick="animal(406)" id="animal_406" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal407.png" onclick="animal(407)" id="animal_407" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal408.png" onclick="animal(408)" id="animal_408" alt="">
             </div>
         </div>
     </div>
@@ -461,17 +513,17 @@
     <div id="animal5">
         <div class="modal">
             <button class="animal5_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal501.png" onclick="animal(501)" id="animal_501" alt="">
-                <img src="img/cl/animals/animal502.png" onclick="animal(502)" id="animal_502" alt="">
-                <img src="img/cl/animals/animal503.png" onclick="animal(503)" id="animal_503" alt="">
-                <img src="img/cl/animals/animal504.png" onclick="animal(504)" id="animal_504" alt="">
-                <img src="img/cl/animals/animal505.png" onclick="animal(505)" id="animal_505" alt="">
-                <img src="img/cl/animals/animal506.png" onclick="animal(506)" id="animal_506" alt="">
-                <img src="img/cl/animals/animal507.png" onclick="animal(507)" id="animal_507" alt="">
-                <img src="img/cl/animals/animal508.png" onclick="animal(508)" id="animal_508" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal501.png" onclick="animal(501)" id="animal_501" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal502.png" onclick="animal(502)" id="animal_502" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal503.png" onclick="animal(503)" id="animal_503" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal504.png" onclick="animal(504)" id="animal_504" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal505.png" onclick="animal(505)" id="animal_505" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal506.png" onclick="animal(506)" id="animal_506" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal507.png" onclick="animal(507)" id="animal_507" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal508.png" onclick="animal(508)" id="animal_508" alt="">
             </div>
         </div>
     </div>
@@ -479,17 +531,17 @@
     <div id="animal6">
         <div class="modal">
             <button class="animal6_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal601.png" onclick="animal(601)" id="animal_601" alt="">
-                <img src="img/cl/animals/animal602.png" onclick="animal(602)" id="animal_602" alt="">
-                <img src="img/cl/animals/animal603.png" onclick="animal(603)" id="animal_603" alt="">
-                <img src="img/cl/animals/animal604.png" onclick="animal(604)" id="animal_604" alt="">
-                <img src="img/cl/animals/animal605.png" onclick="animal(605)" id="animal_605" alt="">
-                <img src="img/cl/animals/animal606.png" onclick="animal(606)" id="animal_606" alt="">
-                <img src="img/cl/animals/animal607.png" onclick="animal(607)" id="animal_607" alt="">
-                <img src="img/cl/animals/animal608.png" onclick="animal(608)" id="animal_608" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal601.png" onclick="animal(601)" id="animal_601" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal602.png" onclick="animal(602)" id="animal_602" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal603.png" onclick="animal(603)" id="animal_603" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal604.png" onclick="animal(604)" id="animal_604" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal605.png" onclick="animal(605)" id="animal_605" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal606.png" onclick="animal(606)" id="animal_606" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal607.png" onclick="animal(607)" id="animal_607" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal608.png" onclick="animal(608)" id="animal_608" alt="">
             </div>
         </div>
     </div>
@@ -497,17 +549,17 @@
     <div id="animal7">
         <div class="modal">
             <button class="animal7_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal701.png" onclick="animal(701)" id="animal_701" alt="">
-                <img src="img/cl/animals/animal702.png" onclick="animal(702)" id="animal_702" alt="">
-                <img src="img/cl/animals/animal703.png" onclick="animal(703)" id="animal_703" alt="">
-                <img src="img/cl/animals/animal704.png" onclick="animal(704)" id="animal_704" alt="">
-                <img src="img/cl/animals/animal705.png" onclick="animal(705)" id="animal_705" alt="">
-                <img src="img/cl/animals/animal706.png" onclick="animal(706)" id="animal_706" alt="">
-                <img src="img/cl/animals/animal707.png" onclick="animal(707)" id="animal_707" alt="">
-                <img src="img/cl/animals/animal708.png" onclick="animal(708)" id="animal_708" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal701.png" onclick="animal(701)" id="animal_701" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal702.png" onclick="animal(702)" id="animal_702" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal703.png" onclick="animal(703)" id="animal_703" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal704.png" onclick="animal(704)" id="animal_704" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal705.png" onclick="animal(705)" id="animal_705" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal706.png" onclick="animal(706)" id="animal_706" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal707.png" onclick="animal(707)" id="animal_707" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal708.png" onclick="animal(708)" id="animal_708" alt="">
             </div>
         </div>
     </div>
@@ -515,17 +567,17 @@
     <div id="animal8">
         <div class="modal">
             <button class="animal8_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal801.png" onclick="animal(801)" id="animal_801" alt="">
-                <img src="img/cl/animals/animal802.png" onclick="animal(802)" id="animal_802" alt="">
-                <img src="img/cl/animals/animal803.png" onclick="animal(803)" id="animal_803" alt="">
-                <img src="img/cl/animals/animal804.png" onclick="animal(804)" id="animal_804" alt="">
-                <img src="img/cl/animals/animal805.png" onclick="animal(805)" id="animal_805" alt="">
-                <img src="img/cl/animals/animal806.png" onclick="animal(806)" id="animal_806" alt="">
-                <img src="img/cl/animals/animal807.png" onclick="animal(807)" id="animal_807" alt="">
-                <img src="img/cl/animals/animal808.png" onclick="animal(808)" id="animal_808" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal801.png" onclick="animal(801)" id="animal_801" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal802.png" onclick="animal(802)" id="animal_802" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal803.png" onclick="animal(803)" id="animal_803" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal804.png" onclick="animal(804)" id="animal_804" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal805.png" onclick="animal(805)" id="animal_805" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal806.png" onclick="animal(806)" id="animal_806" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal807.png" onclick="animal(807)" id="animal_807" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal808.png" onclick="animal(808)" id="animal_808" alt="">
             </div>
         </div>
     </div>
@@ -533,17 +585,17 @@
     <div id="animal9">
         <div class="modal">
             <button class="animal9_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal901.png" onclick="animal(901)" id="animal_901" alt="">
-                <img src="img/cl/animals/animal902.png" onclick="animal(902)" id="animal_902" alt="">
-                <img src="img/cl/animals/animal903.png" onclick="animal(903)" id="animal_903" alt="">
-                <img src="img/cl/animals/animal904.png" onclick="animal(904)" id="animal_904" alt="">
-                <img src="img/cl/animals/animal905.png" onclick="animal(905)" id="animal_905" alt="">
-                <img src="img/cl/animals/animal906.png" onclick="animal(906)" id="animal_906" alt="">
-                <img src="img/cl/animals/animal907.png" onclick="animal(907)" id="animal_907" alt="">
-                <img src="img/cl/animals/animal908.png" onclick="animal(908)" id="animal_908" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal901.png" onclick="animal(901)" id="animal_901" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal902.png" onclick="animal(902)" id="animal_902" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal903.png" onclick="animal(903)" id="animal_903" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal904.png" onclick="animal(904)" id="animal_904" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal905.png" onclick="animal(905)" id="animal_905" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal906.png" onclick="animal(906)" id="animal_906" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal907.png" onclick="animal(907)" id="animal_907" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal908.png" onclick="animal(908)" id="animal_908" alt="">
             </div>
         </div>
     </div>
@@ -551,17 +603,17 @@
     <div id="animal10">
         <div class="modal">
             <button class="animal10_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1001.png" onclick="animal(1001)" id="animal_1001" alt="">
-                <img src="img/cl/animals/animal1002.png" onclick="animal(1002)" id="animal_1002" alt="">
-                <img src="img/cl/animals/animal1003.png" onclick="animal(1003)" id="animal_1003" alt="">
-                <img src="img/cl/animals/animal1004.png" onclick="animal(1004)" id="animal_1004" alt="">
-                <img src="img/cl/animals/animal1005.png" onclick="animal(1005)" id="animal_1005" alt="">
-                <img src="img/cl/animals/animal1006.png" onclick="animal(1006)" id="animal_1006" alt="">
-                <img src="img/cl/animals/animal1007.png" onclick="animal(1007)" id="animal_1007" alt="">
-                <img src="img/cl/animals/animal1008.png" onclick="animal(1008)" id="animal_1008" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1001.png" onclick="animal(1001)" id="animal_1001" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1002.png" onclick="animal(1002)" id="animal_1002" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1003.png" onclick="animal(1003)" id="animal_1003" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1004.png" onclick="animal(1004)" id="animal_1004" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1005.png" onclick="animal(1005)" id="animal_1005" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1006.png" onclick="animal(1006)" id="animal_1006" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1007.png" onclick="animal(1007)" id="animal_1007" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1008.png" onclick="animal(1008)" id="animal_1008" alt="">
             </div>
         </div>
     </div>
@@ -569,17 +621,17 @@
     <div id="animal11">
         <div class="modal">
             <button class="animal11_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1101.png" onclick="animal(1101)" id="animal_1101" alt="">
-                <img src="img/cl/animals/animal1102.png" onclick="animal(1102)" id="animal_1102" alt="">
-                <img src="img/cl/animals/animal1103.png" onclick="animal(1103)" id="animal_1103" alt="">
-                <img src="img/cl/animals/animal1104.png" onclick="animal(1104)" id="animal_1104" alt="">
-                <img src="img/cl/animals/animal1105.png" onclick="animal(1105)" id="animal_1105" alt="">
-                <img src="img/cl/animals/animal1106.png" onclick="animal(1106)" id="animal_1106" alt="">
-                <img src="img/cl/animals/animal1107.png" onclick="animal(1107)" id="animal_1107" alt="">
-                <img src="img/cl/animals/animal1108.png" onclick="animal(1108)" id="animal_1108" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1101.png" onclick="animal(1101)" id="animal_1101" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1102.png" onclick="animal(1102)" id="animal_1102" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1103.png" onclick="animal(1103)" id="animal_1103" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1104.png" onclick="animal(1104)" id="animal_1104" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1105.png" onclick="animal(1105)" id="animal_1105" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1106.png" onclick="animal(1106)" id="animal_1106" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1107.png" onclick="animal(1107)" id="animal_1107" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1108.png" onclick="animal(1108)" id="animal_1108" alt="">
             </div>
         </div>
     </div>
@@ -587,17 +639,17 @@
     <div id="animal12">
         <div class="modal">
             <button class="animal12_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1201.png" onclick="animal(1201)" id="animal_1201" alt="">
-                <img src="img/cl/animals/animal1202.png" onclick="animal(1202)" id="animal_1202" alt="">
-                <img src="img/cl/animals/animal1203.png" onclick="animal(1203)" id="animal_1203" alt="">
-                <img src="img/cl/animals/animal1204.png" onclick="animal(1204)" id="animal_1204" alt="">
-                <img src="img/cl/animals/animal1205.png" onclick="animal(1205)" id="animal_1205" alt="">
-                <img src="img/cl/animals/animal1206.png" onclick="animal(1206)" id="animal_1206" alt="">
-                <img src="img/cl/animals/animal1207.png" onclick="animal(1207)" id="animal_1207" alt="">
-                <img src="img/cl/animals/animal1208.png" onclick="animal(1208)" id="animal_1208" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1201.png" onclick="animal(1201)" id="animal_1201" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1202.png" onclick="animal(1202)" id="animal_1202" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1203.png" onclick="animal(1203)" id="animal_1203" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1204.png" onclick="animal(1204)" id="animal_1204" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1205.png" onclick="animal(1205)" id="animal_1205" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1206.png" onclick="animal(1206)" id="animal_1206" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1207.png" onclick="animal(1207)" id="animal_1207" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1208.png" onclick="animal(1208)" id="animal_1208" alt="">
             </div>
         </div>
     </div>
@@ -605,17 +657,17 @@
     <div id="animal13">
         <div class="modal">
             <button class="animal13_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1301.png" onclick="animal(1301)" id="animal_1301" alt="">
-                <img src="img/cl/animals/animal1302.png" onclick="animal(1302)" id="animal_1302" alt="">
-                <img src="img/cl/animals/animal1303.png" onclick="animal(1303)" id="animal_1303" alt="">
-                <img src="img/cl/animals/animal1304.png" onclick="animal(1304)" id="animal_1304" alt="">
-                <img src="img/cl/animals/animal1305.png" onclick="animal(1305)" id="animal_1305" alt="">
-                <img src="img/cl/animals/animal1306.png" onclick="animal(1306)" id="animal_1306" alt="">
-                <img src="img/cl/animals/animal1307.png" onclick="animal(1307)" id="animal_1307" alt="">
-                <img src="img/cl/animals/animal1308.png" onclick="animal(1308)" id="animal_1308" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1301.png" onclick="animal(1301)" id="animal_1301" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1302.png" onclick="animal(1302)" id="animal_1302" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1303.png" onclick="animal(1303)" id="animal_1303" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1304.png" onclick="animal(1304)" id="animal_1304" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1305.png" onclick="animal(1305)" id="animal_1305" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1306.png" onclick="animal(1306)" id="animal_1306" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1307.png" onclick="animal(1307)" id="animal_1307" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1308.png" onclick="animal(1308)" id="animal_1308" alt="">
             </div>
         </div>
     </div>
@@ -623,17 +675,17 @@
     <div id="animal14">
         <div class="modal">
             <button class="animal14_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1401.png" onclick="animal(1401)" id="animal_1401" alt="">
-                <img src="img/cl/animals/animal1402.png" onclick="animal(1402)" id="animal_1402" alt="">
-                <img src="img/cl/animals/animal1403.png" onclick="animal(1403)" id="animal_1403" alt="">
-                <img src="img/cl/animals/animal1404.png" onclick="animal(1404)" id="animal_1404" alt="">
-                <img src="img/cl/animals/animal1405.png" onclick="animal(1405)" id="animal_1405" alt="">
-                <img src="img/cl/animals/animal1406.png" onclick="animal(1406)" id="animal_1406" alt="">
-                <img src="img/cl/animals/animal1407.png" onclick="animal(1407)" id="animal_1407" alt="">
-                <img src="img/cl/animals/animal1408.png" onclick="animal(1408)" id="animal_1408" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1401.png" onclick="animal(1401)" id="animal_1401" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1402.png" onclick="animal(1402)" id="animal_1402" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1403.png" onclick="animal(1403)" id="animal_1403" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1404.png" onclick="animal(1404)" id="animal_1404" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1405.png" onclick="animal(1405)" id="animal_1405" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1406.png" onclick="animal(1406)" id="animal_1406" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1407.png" onclick="animal(1407)" id="animal_1407" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1408.png" onclick="animal(1408)" id="animal_1408" alt="">
             </div>
         </div>
     </div>
@@ -641,17 +693,17 @@
     <div id="animal15">
         <div class="modal">
             <button class="animal15_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1501.png" onclick="animal(1501)" id="animal_1501" alt="">
-                <img src="img/cl/animals/animal1502.png" onclick="animal(1502)" id="animal_1502" alt="">
-                <img src="img/cl/animals/animal1503.png" onclick="animal(1503)" id="animal_1503" alt="">
-                <img src="img/cl/animals/animal1504.png" onclick="animal(1504)" id="animal_1504" alt="">
-                <img src="img/cl/animals/animal1505.png" onclick="animal(1505)" id="animal_1505" alt="">
-                <img src="img/cl/animals/animal1506.png" onclick="animal(1506)" id="animal_1506" alt="">
-                <img src="img/cl/animals/animal1507.png" onclick="animal(1507)" id="animal_1507" alt="">
-                <img src="img/cl/animals/animal1508.png" onclick="animal(1508)" id="animal_1508" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1501.png" onclick="animal(1501)" id="animal_1501" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1502.png" onclick="animal(1502)" id="animal_1502" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1503.png" onclick="animal(1503)" id="animal_1503" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1504.png" onclick="animal(1504)" id="animal_1504" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1505.png" onclick="animal(1505)" id="animal_1505" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1506.png" onclick="animal(1506)" id="animal_1506" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1507.png" onclick="animal(1507)" id="animal_1507" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1508.png" onclick="animal(1508)" id="animal_1508" alt="">
             </div>
         </div>
     </div>
@@ -659,17 +711,17 @@
     <div id="animal16">
         <div class="modal">
             <button class="animal16_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1601.png" onclick="animal(1601)" id="animal_1601" alt="">
-                <img src="img/cl/animals/animal1602.png" onclick="animal(1602)" id="animal_1602" alt="">
-                <img src="img/cl/animals/animal1603.png" onclick="animal(1603)" id="animal_1603" alt="">
-                <img src="img/cl/animals/animal1604.png" onclick="animal(1604)" id="animal_1604" alt="">
-                <img src="img/cl/animals/animal1605.png" onclick="animal(1605)" id="animal_1605" alt="">
-                <img src="img/cl/animals/animal1606.png" onclick="animal(1606)" id="animal_1606" alt="">
-                <img src="img/cl/animals/animal1607.png" onclick="animal(1607)" id="animal_1607" alt="">
-                <img src="img/cl/animals/animal1608.png" onclick="animal(1608)" id="animal_1608" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1601.png" onclick="animal(1601)" id="animal_1601" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1602.png" onclick="animal(1602)" id="animal_1602" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1603.png" onclick="animal(1603)" id="animal_1603" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1604.png" onclick="animal(1604)" id="animal_1604" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1605.png" onclick="animal(1605)" id="animal_1605" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1606.png" onclick="animal(1606)" id="animal_1606" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1607.png" onclick="animal(1607)" id="animal_1607" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1608.png" onclick="animal(1608)" id="animal_1608" alt="">
             </div>
         </div>
     </div>
@@ -677,17 +729,17 @@
     <div id="animal17">
         <div class="modal">
             <button class="animal17_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1701.png" onclick="animal(1701)" id="animal_1701" alt="">
-                <img src="img/cl/animals/animal1702.png" onclick="animal(1702)" id="animal_1702" alt="">
-                <img src="img/cl/animals/animal1703.png" onclick="animal(1703)" id="animal_1703" alt="">
-                <img src="img/cl/animals/animal1704.png" onclick="animal(1704)" id="animal_1704" alt="">
-                <img src="img/cl/animals/animal1705.png" onclick="animal(1705)" id="animal_1705" alt="">
-                <img src="img/cl/animals/animal1706.png" onclick="animal(1706)" id="animal_1706" alt="">
-                <img src="img/cl/animals/animal1707.png" onclick="animal(1707)" id="animal_1707" alt="">
-                <img src="img/cl/animals/animal1708.png" onclick="animal(1708)" id="animal_1708" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1701.png" onclick="animal(1701)" id="animal_1701" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1702.png" onclick="animal(1702)" id="animal_1702" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1703.png" onclick="animal(1703)" id="animal_1703" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1704.png" onclick="animal(1704)" id="animal_1704" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1705.png" onclick="animal(1705)" id="animal_1705" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1706.png" onclick="animal(1706)" id="animal_1706" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1707.png" onclick="animal(1707)" id="animal_1707" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1708.png" onclick="animal(1708)" id="animal_1708" alt="">
             </div>
         </div>
     </div>
@@ -695,17 +747,17 @@
     <div id="animal18">
         <div class="modal">
             <button class="animal18_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/animals/animal1801.png" onclick="animal(1801)" id="animal_1801" alt="">
-                <img src="img/cl/animals/animal1802.png" onclick="animal(1802)" id="animal_1802" alt="">
-                <img src="img/cl/animals/animal1803.png" onclick="animal(1803)" id="animal_1803" alt="">
-                <img src="img/cl/animals/animal1804.png" onclick="animal(1804)" id="animal_1804" alt="">
-                <img src="img/cl/animals/animal1805.png" onclick="animal(1805)" id="animal_1805" alt="">
-                <img src="img/cl/animals/animal1806.png" onclick="animal(1806)" id="animal_1806" alt="">
-                <img src="img/cl/animals/animal1807.png" onclick="animal(1807)" id="animal_1807" alt="">
-                <img src="img/cl/animals/animal1808.png" onclick="animal(1808)" id="animal_1808" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1801.png" onclick="animal(1801)" id="animal_1801" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1802.png" onclick="animal(1802)" id="animal_1802" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1803.png" onclick="animal(1803)" id="animal_1803" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1804.png" onclick="animal(1804)" id="animal_1804" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1805.png" onclick="animal(1805)" id="animal_1805" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1806.png" onclick="animal(1806)" id="animal_1806" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1807.png" onclick="animal(1807)" id="animal_1807" alt="">
+                <img class="lozad" data-src="img/cl/animals/animal1808.png" onclick="animal(1808)" id="animal_1808" alt="">
             </div>
         </div>
     </div>
@@ -717,17 +769,17 @@
     <div id="color1">
         <div class="modal">
             <button class="color1_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color101.png" onclick="color_l(101)" id="color_l_101" alt="">
-                <img src="img/cl/colors/color102.png" onclick="color_l(102)" id="color_l_102" alt="">
-                <img src="img/cl/colors/color103.png" onclick="color_l(103)" id="color_l_103" alt="">
-                <img src="img/cl/colors/color104.png" onclick="color_l(104)" id="color_l_104" alt="">
-                <img src="img/cl/colors/color105.png" onclick="color_l(105)" id="color_l_105" alt="">
-                <img src="img/cl/colors/color106.png" onclick="color_l(106)" id="color_l_106" alt="">
-                <img src="img/cl/colors/color107.png" onclick="color_l(107)" id="color_l_107" alt="">
-                <img src="img/cl/colors/color108.png" onclick="color_l(108)" id="color_l_108" alt="">
+                <img class="lozad" data-src="img/cl/colors/color101.png" onclick="color_l(101)" id="color_l_101" alt="">
+                <img class="lozad" data-src="img/cl/colors/color102.png" onclick="color_l(102)" id="color_l_102" alt="">
+                <img class="lozad" data-src="img/cl/colors/color103.png" onclick="color_l(103)" id="color_l_103" alt="">
+                <img class="lozad" data-src="img/cl/colors/color104.png" onclick="color_l(104)" id="color_l_104" alt="">
+                <img class="lozad" data-src="img/cl/colors/color105.png" onclick="color_l(105)" id="color_l_105" alt="">
+                <img class="lozad" data-src="img/cl/colors/color106.png" onclick="color_l(106)" id="color_l_106" alt="">
+                <img class="lozad" data-src="img/cl/colors/color107.png" onclick="color_l(107)" id="color_l_107" alt="">
+                <img class="lozad" data-src="img/cl/colors/color108.png" onclick="color_l(108)" id="color_l_108" alt="">
             </div>
         </div>
     </div>
@@ -735,17 +787,17 @@
     <div id="color2">
         <div class="modal">
             <button class="color2_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color201.png" onclick="color_l(201)" id="color_l_201" alt="">
-                <img src="img/cl/colors/color202.png" onclick="color_l(202)" id="color_l_202" alt="">
-                <img src="img/cl/colors/color203.png" onclick="color_l(203)" id="color_l_203" alt="">
-                <img src="img/cl/colors/color204.png" onclick="color_l(204)" id="color_l_204" alt="">
-                <img src="img/cl/colors/color205.png" onclick="color_l(205)" id="color_l_205" alt="">
-                <img src="img/cl/colors/color206.png" onclick="color_l(206)" id="color_l_206" alt="">
-                <img src="img/cl/colors/color207.png" onclick="color_l(207)" id="color_l_207" alt="">
-                <img src="img/cl/colors/color208.png" onclick="color_l(208)" id="color_l_208" alt="">
+                <img class="lozad" data-src="img/cl/colors/color201.png" onclick="color_l(201)" id="color_l_201" alt="">
+                <img class="lozad" data-src="img/cl/colors/color202.png" onclick="color_l(202)" id="color_l_202" alt="">
+                <img class="lozad" data-src="img/cl/colors/color203.png" onclick="color_l(203)" id="color_l_203" alt="">
+                <img class="lozad" data-src="img/cl/colors/color204.png" onclick="color_l(204)" id="color_l_204" alt="">
+                <img class="lozad" data-src="img/cl/colors/color205.png" onclick="color_l(205)" id="color_l_205" alt="">
+                <img class="lozad" data-src="img/cl/colors/color206.png" onclick="color_l(206)" id="color_l_206" alt="">
+                <img class="lozad" data-src="img/cl/colors/color207.png" onclick="color_l(207)" id="color_l_207" alt="">
+                <img class="lozad" data-src="img/cl/colors/color208.png" onclick="color_l(208)" id="color_l_208" alt="">
             </div>
         </div>
     </div>
@@ -753,17 +805,17 @@
     <div id="color3">
         <div class="modal">
             <button class="color3_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color301.png" onclick="color_l(301)" id="color_l_301" alt="">
-                <img src="img/cl/colors/color302.png" onclick="color_l(302)" id="color_l_302" alt="">
-                <img src="img/cl/colors/color303.png" onclick="color_l(303)" id="color_l_303" alt="">
-                <img src="img/cl/colors/color304.png" onclick="color_l(304)" id="color_l_304" alt="">
-                <img src="img/cl/colors/color305.png" onclick="color_l(305)" id="color_l_305" alt="">
-                <img src="img/cl/colors/color306.png" onclick="color_l(306)" id="color_l_306" alt="">
-                <img src="img/cl/colors/color307.png" onclick="color_l(307)" id="color_l_307" alt="">
-                <img src="img/cl/colors/color308.png" onclick="color_l(308)" id="color_l_308" alt="">
+                <img class="lozad" data-src="img/cl/colors/color301.png" onclick="color_l(301)" id="color_l_301" alt="">
+                <img class="lozad" data-src="img/cl/colors/color302.png" onclick="color_l(302)" id="color_l_302" alt="">
+                <img class="lozad" data-src="img/cl/colors/color303.png" onclick="color_l(303)" id="color_l_303" alt="">
+                <img class="lozad" data-src="img/cl/colors/color304.png" onclick="color_l(304)" id="color_l_304" alt="">
+                <img class="lozad" data-src="img/cl/colors/color305.png" onclick="color_l(305)" id="color_l_305" alt="">
+                <img class="lozad" data-src="img/cl/colors/color306.png" onclick="color_l(306)" id="color_l_306" alt="">
+                <img class="lozad" data-src="img/cl/colors/color307.png" onclick="color_l(307)" id="color_l_307" alt="">
+                <img class="lozad" data-src="img/cl/colors/color308.png" onclick="color_l(308)" id="color_l_308" alt="">
             </div>
         </div>
     </div>
@@ -771,17 +823,17 @@
     <div id="color4">
         <div class="modal">
             <button class="color4_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color401.png" onclick="color_l(401)" id="color_l_401" alt="">
-                <img src="img/cl/colors/color402.png" onclick="color_l(402)" id="color_l_402" alt="">
-                <img src="img/cl/colors/color403.png" onclick="color_l(403)" id="color_l_403" alt="">
-                <img src="img/cl/colors/color404.png" onclick="color_l(404)" id="color_l_404" alt="">
-                <img src="img/cl/colors/color405.png" onclick="color_l(405)" id="color_l_405" alt="">
-                <img src="img/cl/colors/color406.png" onclick="color_l(406)" id="color_l_406" alt="">
-                <img src="img/cl/colors/color407.png" onclick="color_l(407)" id="color_l_407" alt="">
-                <img src="img/cl/colors/color408.png" onclick="color_l(408)" id="color_l_408" alt="">
+                <img class="lozad" data-src="img/cl/colors/color401.png" onclick="color_l(401)" id="color_l_401" alt="">
+                <img class="lozad" data-src="img/cl/colors/color402.png" onclick="color_l(402)" id="color_l_402" alt="">
+                <img class="lozad" data-src="img/cl/colors/color403.png" onclick="color_l(403)" id="color_l_403" alt="">
+                <img class="lozad" data-src="img/cl/colors/color404.png" onclick="color_l(404)" id="color_l_404" alt="">
+                <img class="lozad" data-src="img/cl/colors/color405.png" onclick="color_l(405)" id="color_l_405" alt="">
+                <img class="lozad" data-src="img/cl/colors/color406.png" onclick="color_l(406)" id="color_l_406" alt="">
+                <img class="lozad" data-src="img/cl/colors/color407.png" onclick="color_l(407)" id="color_l_407" alt="">
+                <img class="lozad" data-src="img/cl/colors/color408.png" onclick="color_l(408)" id="color_l_408" alt="">
             </div>
         </div>
     </div>
@@ -789,17 +841,17 @@
     <div id="color5">
         <div class="modal">
             <button class="color5_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color501.png" onclick="color_l(501)" id="color_l_501" alt="">
-                <img src="img/cl/colors/color502.png" onclick="color_l(502)" id="color_l_502" alt="">
-                <img src="img/cl/colors/color503.png" onclick="color_l(503)" id="color_l_503" alt="">
-                <img src="img/cl/colors/color504.png" onclick="color_l(504)" id="color_l_504" alt="">
-                <img src="img/cl/colors/color505.png" onclick="color_l(505)" id="color_l_505" alt="">
-                <img src="img/cl/colors/color506.png" onclick="color_l(506)" id="color_l_506" alt="">
-                <img src="img/cl/colors/color507.png" onclick="color_l(507)" id="color_l_507" alt="">
-                <img src="img/cl/colors/color508.png" onclick="color_l(508)" id="color_l_508" alt="">
+                <img class="lozad" data-src="img/cl/colors/color501.png" onclick="color_l(501)" id="color_l_501" alt="">
+                <img class="lozad" data-src="img/cl/colors/color502.png" onclick="color_l(502)" id="color_l_502" alt="">
+                <img class="lozad" data-src="img/cl/colors/color503.png" onclick="color_l(503)" id="color_l_503" alt="">
+                <img class="lozad" data-src="img/cl/colors/color504.png" onclick="color_l(504)" id="color_l_504" alt="">
+                <img class="lozad" data-src="img/cl/colors/color505.png" onclick="color_l(505)" id="color_l_505" alt="">
+                <img class="lozad" data-src="img/cl/colors/color506.png" onclick="color_l(506)" id="color_l_506" alt="">
+                <img class="lozad" data-src="img/cl/colors/color507.png" onclick="color_l(507)" id="color_l_507" alt="">
+                <img class="lozad" data-src="img/cl/colors/color508.png" onclick="color_l(508)" id="color_l_508" alt="">
             </div>
         </div>
     </div>
@@ -807,17 +859,17 @@
     <div id="color6">
         <div class="modal">
             <button class="color6_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color601.png" onclick="color_l(601)" id="color_l_601" alt="">
-                <img src="img/cl/colors/color602.png" onclick="color_l(602)" id="color_l_602" alt="">
-                <img src="img/cl/colors/color603.png" onclick="color_l(603)" id="color_l_603" alt="">
-                <img src="img/cl/colors/color604.png" onclick="color_l(604)" id="color_l_604" alt="">
-                <img src="img/cl/colors/color605.png" onclick="color_l(605)" id="color_l_605" alt="">
-                <img src="img/cl/colors/color606.png" onclick="color_l(606)" id="color_l_606" alt="">
-                <img src="img/cl/colors/color607.png" onclick="color_l(607)" id="color_l_607" alt="">
-                <img src="img/cl/colors/color608.png" onclick="color_l(608)" id="color_l_608" alt="">
+                <img class="lozad" data-src="img/cl/colors/color601.png" onclick="color_l(601)" id="color_l_601" alt="">
+                <img class="lozad" data-src="img/cl/colors/color602.png" onclick="color_l(602)" id="color_l_602" alt="">
+                <img class="lozad" data-src="img/cl/colors/color603.png" onclick="color_l(603)" id="color_l_603" alt="">
+                <img class="lozad" data-src="img/cl/colors/color604.png" onclick="color_l(604)" id="color_l_604" alt="">
+                <img class="lozad" data-src="img/cl/colors/color605.png" onclick="color_l(605)" id="color_l_605" alt="">
+                <img class="lozad" data-src="img/cl/colors/color606.png" onclick="color_l(606)" id="color_l_606" alt="">
+                <img class="lozad" data-src="img/cl/colors/color607.png" onclick="color_l(607)" id="color_l_607" alt="">
+                <img class="lozad" data-src="img/cl/colors/color608.png" onclick="color_l(608)" id="color_l_608" alt="">
             </div>
         </div>
     </div>
@@ -825,17 +877,17 @@
     <div id="color7">
         <div class="modal">
             <button class="color7_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color701.png" onclick="color_l(701)" id="color_l_701" alt="">
-                <img src="img/cl/colors/color702.png" onclick="color_l(702)" id="color_l_702" alt="">
-                <img src="img/cl/colors/color703.png" onclick="color_l(703)" id="color_l_703" alt="">
-                <img src="img/cl/colors/color704.png" onclick="color_l(704)" id="color_l_704" alt="">
-                <img src="img/cl/colors/color705.png" onclick="color_l(705)" id="color_l_705" alt="">
-                <img src="img/cl/colors/color706.png" onclick="color_l(706)" id="color_l_706" alt="">
-                <img src="img/cl/colors/color707.png" onclick="color_l(707)" id="color_l_707" alt="">
-                <img src="img/cl/colors/color708.png" onclick="color_l(708)" id="color_l_708" alt="">
+                <img class="lozad" data-src="img/cl/colors/color701.png" onclick="color_l(701)" id="color_l_701" alt="">
+                <img class="lozad" data-src="img/cl/colors/color702.png" onclick="color_l(702)" id="color_l_702" alt="">
+                <img class="lozad" data-src="img/cl/colors/color703.png" onclick="color_l(703)" id="color_l_703" alt="">
+                <img class="lozad" data-src="img/cl/colors/color704.png" onclick="color_l(704)" id="color_l_704" alt="">
+                <img class="lozad" data-src="img/cl/colors/color705.png" onclick="color_l(705)" id="color_l_705" alt="">
+                <img class="lozad" data-src="img/cl/colors/color706.png" onclick="color_l(706)" id="color_l_706" alt="">
+                <img class="lozad" data-src="img/cl/colors/color707.png" onclick="color_l(707)" id="color_l_707" alt="">
+                <img class="lozad" data-src="img/cl/colors/color708.png" onclick="color_l(708)" id="color_l_708" alt="">
             </div>
         </div>
     </div>
@@ -843,17 +895,17 @@
     <div id="color8">
         <div class="modal">
             <button class="color8_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color801.png" onclick="color_l(801)" id="color_l_801" alt="">
-                <img src="img/cl/colors/color802.png" onclick="color_l(802)" id="color_l_802" alt="">
-                <img src="img/cl/colors/color803.png" onclick="color_l(803)" id="color_l_803" alt="">
-                <img src="img/cl/colors/color804.png" onclick="color_l(804)" id="color_l_804" alt="">
-                <img src="img/cl/colors/color805.png" onclick="color_l(805)" id="color_l_805" alt="">
-                <img src="img/cl/colors/color806.png" onclick="color_l(806)" id="color_l_806" alt="">
-                <img src="img/cl/colors/color807.png" onclick="color_l(807)" id="color_l_807" alt="">
-                <img src="img/cl/colors/color808.png" onclick="color_l(808)" id="color_l_808" alt="">
+                <img class="lozad" data-src="img/cl/colors/color801.png" onclick="color_l(801)" id="color_l_801" alt="">
+                <img class="lozad" data-src="img/cl/colors/color802.png" onclick="color_l(802)" id="color_l_802" alt="">
+                <img class="lozad" data-src="img/cl/colors/color803.png" onclick="color_l(803)" id="color_l_803" alt="">
+                <img class="lozad" data-src="img/cl/colors/color804.png" onclick="color_l(804)" id="color_l_804" alt="">
+                <img class="lozad" data-src="img/cl/colors/color805.png" onclick="color_l(805)" id="color_l_805" alt="">
+                <img class="lozad" data-src="img/cl/colors/color806.png" onclick="color_l(806)" id="color_l_806" alt="">
+                <img class="lozad" data-src="img/cl/colors/color807.png" onclick="color_l(807)" id="color_l_807" alt="">
+                <img class="lozad" data-src="img/cl/colors/color808.png" onclick="color_l(808)" id="color_l_808" alt="">
             </div>
         </div>
     </div>
@@ -861,17 +913,17 @@
     <div id="color9">
         <div class="modal">
             <button class="color9_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color901.png" onclick="color_l(901)" id="color_l_901" alt="">
-                <img src="img/cl/colors/color902.png" onclick="color_l(902)" id="color_l_902" alt="">
-                <img src="img/cl/colors/color903.png" onclick="color_l(903)" id="color_l_903" alt="">
-                <img src="img/cl/colors/color904.png" onclick="color_l(904)" id="color_l_904" alt="">
-                <img src="img/cl/colors/color905.png" onclick="color_l(905)" id="color_l_905" alt="">
-                <img src="img/cl/colors/color906.png" onclick="color_l(906)" id="color_l_906" alt="">
-                <img src="img/cl/colors/color907.png" onclick="color_l(907)" id="color_l_907" alt="">
-                <img src="img/cl/colors/color908.png" onclick="color_l(908)" id="color_l_908" alt="">
+                <img class="lozad" data-src="img/cl/colors/color901.png" onclick="color_l(901)" id="color_l_901" alt="">
+                <img class="lozad" data-src="img/cl/colors/color902.png" onclick="color_l(902)" id="color_l_902" alt="">
+                <img class="lozad" data-src="img/cl/colors/color903.png" onclick="color_l(903)" id="color_l_903" alt="">
+                <img class="lozad" data-src="img/cl/colors/color904.png" onclick="color_l(904)" id="color_l_904" alt="">
+                <img class="lozad" data-src="img/cl/colors/color905.png" onclick="color_l(905)" id="color_l_905" alt="">
+                <img class="lozad" data-src="img/cl/colors/color906.png" onclick="color_l(906)" id="color_l_906" alt="">
+                <img class="lozad" data-src="img/cl/colors/color907.png" onclick="color_l(907)" id="color_l_907" alt="">
+                <img class="lozad" data-src="img/cl/colors/color908.png" onclick="color_l(908)" id="color_l_908" alt="">
             </div>
         </div>
     </div>
@@ -879,17 +931,17 @@
     <div id="color10">
         <div class="modal">
             <button class="color10_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color1001.png" onclick="color_l(1001)" id="color_l_1001" alt="">
-                <img src="img/cl/colors/color1002.png" onclick="color_l(1002)" id="color_l_1002" alt="">
-                <img src="img/cl/colors/color1003.png" onclick="color_l(1003)" id="color_l_1003" alt="">
-                <img src="img/cl/colors/color1004.png" onclick="color_l(1004)" id="color_l_1004" alt="">
-                <img src="img/cl/colors/color1005.png" onclick="color_l(1005)" id="color_l_1005" alt="">
-                <img src="img/cl/colors/color1006.png" onclick="color_l(1006)" id="color_l_1006" alt="">
-                <img src="img/cl/colors/color1007.png" onclick="color_l(1007)" id="color_l_1007" alt="">
-                <img src="img/cl/colors/color1008.png" onclick="color_l(1008)" id="color_l_1008" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1001.png" onclick="color_l(1001)" id="color_l_1001" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1002.png" onclick="color_l(1002)" id="color_l_1002" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1003.png" onclick="color_l(1003)" id="color_l_1003" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1004.png" onclick="color_l(1004)" id="color_l_1004" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1005.png" onclick="color_l(1005)" id="color_l_1005" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1006.png" onclick="color_l(1006)" id="color_l_1006" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1007.png" onclick="color_l(1007)" id="color_l_1007" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1008.png" onclick="color_l(1008)" id="color_l_1008" alt="">
             </div>
         </div>
     </div>
@@ -897,17 +949,17 @@
     <div id="color11">
         <div class="modal">
             <button class="color11_close modal-close" type="button">
-                <img src="img/usermoda-close.svg" alt="">
+                <img class="lozad" data-src="img/usermoda-close.svg" alt="">
             </button>
             <div class="cl-modal">
-                <img src="img/cl/colors/color1101.png" onclick="color_l(1101)" id="color_l_1101" alt="">
-                <img src="img/cl/colors/color1102.png" onclick="color_l(1102)" id="color_l_1102" alt="">
-                <img src="img/cl/colors/color1103.png" onclick="color_l(1103)" id="color_l_1103" alt="">
-                <img src="img/cl/colors/color1104.png" onclick="color_l(1104)" id="color_l_1104" alt="">
-                <img src="img/cl/colors/color1105.png" onclick="color_l(1105)" id="color_l_1105" alt="">
-                <img src="img/cl/colors/color1106.png" onclick="color_l(1106)" id="color_l_1106" alt="">
-                <img src="img/cl/colors/color1107.png" onclick="color_l(1107)" id="color_l_1107" alt="">
-                <img src="img/cl/colors/color1108.png" onclick="color_l(1108)" id="color_l_1108" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1101.png" onclick="color_l(1101)" id="color_l_1101" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1102.png" onclick="color_l(1102)" id="color_l_1102" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1103.png" onclick="color_l(1103)" id="color_l_1103" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1104.png" onclick="color_l(1104)" id="color_l_1104" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1105.png" onclick="color_l(1105)" id="color_l_1105" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1106.png" onclick="color_l(1106)" id="color_l_1106" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1107.png" onclick="color_l(1107)" id="color_l_1107" alt="">
+                <img class="lozad" data-src="img/cl/colors/color1108.png" onclick="color_l(1108)" id="color_l_1108" alt="">
             </div>
         </div>
     </div>
@@ -916,22 +968,55 @@
     <script type="text/javascript" src="/js/libs.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <script>
+
+        $('#logo_create').on('click', function() {
+            var animal = $('input#animal').val();
+            var shield = $('input#shield').val();
+            var color = $('input#color').val();
+            var background = $('input#background').val();
+            console.log(animal, shield, color, background)
+            $.ajax({
+                type: 'GET',
+                url: '/create/logo',
+                data: {animal: animal, shield: shield, color: color, background: background},
+                success: function() {
+                    $('.cl-button').hide();
+                    $('.cl-success').show();
+                    $('#is-have').hide()
+                    // setTimeout(function() {
+                        // $('.modal-form__sent').addClass('is-active')
+                    // }, 2e3);
+                },
+                error: function () {
+                    $('#is-have').show()
+                }
+            });
+            return false;
+        });
+
         function shield(id) {
             let img = $('#shield_'+id).attr('src');
-            $('#shield').attr('src', img);
+            $('img#shield').attr('src', img);
+            $('input#shield').attr('value', img);
+            // console.log(img)
         }
         function color_l(id) {
             let img = $('#color_l_'+id).attr('src');
-            $('#color').attr('src', img);
-            console.log(img)
+            $('img#color').attr('src', img);
+            $('input#color').attr('value', img);
+            // console.log(img)
         }
         function animal(id) {
             let img = $('#animal_'+id).attr('src');
-            $('#animal').attr('src', img);
+            $('img#animal').attr('src', img);
+            $('input#animal').attr('value', img);
+            // console.log(img)
         }
         function bg(id) {
             let img = $('#background_'+id).attr('src');
-            $('#background').attr('src', img);
+            $('img#background').attr('src', img);
+            $('input#background').attr('value', img);
+            // console.log(img)
         }
         let button = document.getElementById('btnSave');
         button.addEventListener('click', function (e) {
@@ -939,5 +1024,6 @@
             button.href = dataURL;
         });
     </script>
+    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(82797076, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/82797076" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 </body>
 </html>

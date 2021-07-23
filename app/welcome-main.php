@@ -434,3 +434,47 @@
 
 </body>
 </html>
+
+
+
+                                    @if(session()->get('locale') == 'ru')
+                                    <div class="form__group">
+                                        <label for="country">Выберите регион</label>
+                                        <select class="input" name="region">
+                                            <option value="Андижанская область">Андижанская область</option>
+                                            <option value="Бухарская область">Бухарская область</option>
+                                            <option value="Джизакская область">Джизакская область</option>
+                                            <option value="Каракалпакстан">Каракалпакстан</option>
+                                            <option value="Кашкадарьинская область">Кашкадарьинская область</option>
+                                            <option value="Навоийская область">Навоийская область</option>
+                                            <option value="Наманганская область">Наманганская область</option>
+                                            <option value="Самаркандская область">Самаркандская область</option>
+                                            <option value="Сурхандарьинская область">Сурхандарьинская область</option>
+                                            <option value="Сырдарьинская область">Сырдарьинская область</option>
+                                            <option value="Ташкент">Ташкент</option>
+                                            <option value="Ташкентская область">Ташкентская область</option>
+                                            <option value="Ферганская область">Ферганская область</option>
+                                            <option value="Хоразмская область">Хоразмская область</option>
+                                        </select>
+                                    </div>
+                                    @else
+                                    <div class="form__group">
+                                        <label for="country">Viloyatingizni tanglang</label>
+                                        <select class="input" name="region">
+                                            <option value="Andijon viloyati">Andijon viloyati</option>
+                                            <option value="Buxoro viloyati">Buxoro viloyati</option>
+                                            <option value="Jizzax viloyat">Jizzax viloyat</option>
+                                            <option value="Qpraqalpog'iston viloyati">Qpraqalpog'iston viloyati</option>
+                                            <option value="Qashqadaryo viloyati">Qashqadaryo viloyati</option>
+                                            <option value="Navoiy viloyati">Navoiy viloyati</option>
+                                            <option value="Namangan viloyati">Namangan viloyati</option>
+                                            <option value="Samarqand viloyati">Samarqand viloyati</option>
+                                            <option value="Surxondaryo viloyati">Surxondaryo viloyati</option>
+                                            <option value="Sirdaryo viloyati">Sirdaryo viloyati</option>
+                                            <option value="Toshkent">Toshkent</option>
+                                            <option value="Toshkent viloyati">Toshkent viloyati</option>
+                                            <option value="Farg'ona viloyat">Farg'ona viloyat</option>
+                                            <option value="Xorazm viloyati">Xorazm viloyati</option>
+                                        </select>
+                                    </div>
+                                    @endif

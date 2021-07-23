@@ -36,239 +36,243 @@ $(document).ready(function () {
         animationTime = 0;
     }
 
+    const observer = lozad('.lozad', {
+        rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+        threshold: 0.1, // ratio of element convergence
+        enableAutoReload: true // it will reload the new image when validating attributes changes
+    });
+    observer.observe();
+
+    let swiper = new Swiper(".mySwiper", {
+        slidesPerView: 6,
+        spaceBetween: 15,
+        freeMode: true,
+        loop: true,
+        lazy: true,
+        preloadImages: false,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 20
+            },
+            992: {
+                slidesPerView: 5,
+            }
+        }
+    });
+
 });//document ready
 
 var ScrollTrigger;
 var scroller;
 $(window).on('load', function() {
 
+    changeLogo()
+
     var html = $('html');
-
     html.addClass('loader-done');
-
     setTimeout(function() {
-
         html.addClass('loader-gone');
-
         html.removeClass('loader-html');
+    }, animationTime);
 
-        scroller = new LocomotiveScroll({
-            el: document.querySelector('[data-scroll-container]'),
+    scroller = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        getDirection: true,
+        direction: 'vertical',
+        reloadOnContextChange: true,
+        scrollingClass: "has-scroll-scrolling",
+        draggingClass: "has-scroll-dragging",
+        smartphone: {
             smooth: true,
-            getDirection: true,
             direction: 'vertical',
-            reloadOnContextChange: true,
-            scrollingClass: "has-scroll-scrolling",
-            draggingClass: "has-scroll-dragging",
-            smartphone: {
-                smooth: true,
-                direction: 'vertical',
-            },
-            tablet: {
-                smooth: true,
-                direction: 'vertical',
-            }
-        });
+        },
+        tablet: {
+            smooth: true,
+            direction: 'vertical',
+        }
+    });
 
-        gsap.registerPlugin(ScrollTrigger);
-        scroller.on('scroll', ScrollTrigger.update);
+    gsap.registerPlugin(ScrollTrigger);
+    scroller.on('scroll', ScrollTrigger.update);
 
-        $(window).resize(function() {
-            ScrollTrigger.update;
-        });
+    $(window).resize(function() {
+        ScrollTrigger.update;
+    });
 
-        //------------------------------------------------------------------------------------------//
-        
-        $(document).on('click', '.to_top', function(event) {
-            event.preventDefault();
-            var target = document.querySelector('#home');
-            scroller.scrollTo(target);
-        });
-        $(document).on('click', '.to-anim-about', function(event) {
-            event.preventDefault();
-            var target = document.querySelector('#about');
-            scroller.scrollTo(target);
-        });
-        $(document).on('click', '.to-anim-mexanika', function(event) {
-            event.preventDefault();
-            var target = document.querySelector('#mexanika');
-            scroller.scrollTo(target);
-        });
-        $(document).on('click', '.to-anim-create', function(event) {
-            event.preventDefault();
-            var target = document.querySelector('#create');
-            scroller.scrollTo(target);
-        });
-        $(document).on('click', '.to-anim-how', function(event) {
-            event.preventDefault();
-            var target = document.querySelector('#how');
-            scroller.scrollTo(target);
-        });
-        $(document).on('click', '.btn-show-video', function(event) {
-            event.preventDefault();
-            var target = document.querySelector('#about');
-            scroller.scrollTo(target);
-        });
+    //------------------------------------------------------------------------------------------//
+    
+    $(document).on('click', '.to_top', function(event) {
+        event.preventDefault();
+        var target = document.querySelector('#home');
+        scroller.scrollTo(target);
+    });
+    $(document).on('click', '.to-anim-about', function(event) {
+        event.preventDefault();
+        var target = document.querySelector('#about');
+        scroller.scrollTo(target);
+    });
+    $(document).on('click', '.to-anim-mexanika', function(event) {
+        event.preventDefault();
+        var target = document.querySelector('#mexanika');
+        scroller.scrollTo(target);
+    });
+    $(document).on('click', '.to-anim-create', function(event) {
+        event.preventDefault();
+        var target = document.querySelector('#create');
+        scroller.scrollTo(target);
+    });
+    $(document).on('click', '.to-anim-how', function(event) {
+        event.preventDefault();
+        var target = document.querySelector('#how');
+        scroller.scrollTo(target);
+    });
+    $(document).on('click', '.btn-show-video', function(event) {
+        event.preventDefault();
+        var target = document.querySelector('#about');
+        scroller.scrollTo(target);
+    });
 
-    	const observer = lozad('.lozad');
-    	observer.observe();
+    const observer = lozad('.lozad');
+    observer.observe();
 
-    	let inputPhone = $('[type="tel"]').inputmask({
-    		mask: "+\\9\\98 99 999 99 99",
-    		placeholder: "-",
-    	});
+    let inputPhone = $('[type="tel"]').inputmask({
+        mask: "+\\9\\98 99 999 99 99",
+        placeholder: "-",
+    });
 
-        //MOBILE OPEN MENU
-        $('.burger').click(function() {
-            if (!$(this).hasClass('transformed')) {
-                $(this).addClass('transformed');
-                $('.mob-menu').addClass('opened');
-                setTimeout(function() {
-                    $('body').addClass('overflow');
-                }, 200)
-            } else {
-                $(this).removeClass('transformed');
-                $('.mob-menu').removeClass('opened');
-                $('body').removeClass('overflow');
-            }
-        });
-
-        $(".mob-menu a").click(function() {
-            $('.burger').removeClass('transformed');
+    //MOBILE OPEN MENU
+    $('.burger').click(function() {
+        if (!$(this).hasClass('transformed')) {
+            $(this).addClass('transformed');
+            $('.mob-menu').addClass('opened');
+            setTimeout(function() {
+                $('body').addClass('overflow');
+            }, 200)
+        } else {
+            $(this).removeClass('transformed');
             $('.mob-menu').removeClass('opened');
             $('body').removeClass('overflow');
-        })
-
-        var mySwiper = new Swiper(".demoherb", {
-            spaceBetween: 15,
-            slidesPerView: 2,
-            centeredSlides: true,
-            roundLengths: true,
-            loop: true,
-            speed: 1000,
-            loopAdditionalSlides: 30,
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 30
-                },
-            }
-        });
-
-    	// Fancy Box active
-        $('[data-fancybox]').fancybox();
-
-    	// FAQ
-        const items = document.querySelectorAll(".acc-btn");
-        function toggleAccordion() {
-            const itemToggle = this.getAttribute('aria-expanded');
-            for (let i = 0; i < items.length; i++) {
-                items[i].setAttribute('aria-expanded', 'false');
-            }
-            if (itemToggle == 'false') {
-                this.setAttribute('aria-expanded', 'true');
-            }
         }
-        items.forEach(item => item.addEventListener('click', toggleAccordion));
+    });
 
-        // home-2
-        const userMediaSlider = new Swiper('.usermedia__slider', {
-            slidesPerView: 4,
-            centeredSlides: true,
-            spaceBetween: 15,
-            initialSlide: 1,
-            watchOverflow: true,
-            speed: 600
-        });
+    $(".mob-menu a").click(function() {
+        $('.burger').removeClass('transformed');
+        $('.mob-menu').removeClass('opened');
+        $('body').removeClass('overflow');
+    })
 
-        // Slider Tabs
-        $('.tab_content').hide();
-        $('.tab_content:first').show();
-        $('.tabs li:first').addClass('is-active');
-
-        $('.tabs li').click(function(e) {
-            e.preventDefault()
-            $('.tabs li').removeClass('is-active');
-            $(this).addClass('is-active');
-            $('.tab_content').hide();
-
-            let selectTab = $(this).find('a').attr("href");
-
-            $(selectTab).fadeIn();
-        });
-
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 2,
-            spaceBetween: 15,
-            freeMode: true,
-            loop: true,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+    var mySwiper = new Swiper(".demoherb", {
+        spaceBetween: 15,
+        slidesPerView: 2,
+        centeredSlides: true,
+        roundLengths: true,
+        loop: true,
+        speed: 1500,
+        loopAdditionalSlides: 30,
+        autoplay: {
+            delay: 1500,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 30
             },
-            breakpoints: {
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                },
-                992: {
-                    slidesPerView: 4,
-                }
-            }
-        });
+        }
+    });
 
-        ScrollTrigger.addEventListener('refresh', () => scroller.update());
-        ScrollTrigger.refresh();
+    // Fancy Box active
+    $('[data-fancybox]').fancybox();
 
-        $('#usermodal_command').popup({
-            blur: false,
-            transition: 'all 0.3s'
-        });
+    // FAQ
+    const items = document.querySelectorAll(".acc-btn");
+    function toggleAccordion() {
+        const itemToggle = this.getAttribute('aria-expanded');
+        for (let i = 0; i < items.length; i++) {
+            items[i].setAttribute('aria-expanded', 'false');
+        }
+        if (itemToggle == 'false') {
+            this.setAttribute('aria-expanded', 'true');
+        }
+    }
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
 
-        $('#usermodal_create').popup({
-            blur: false,
-            transition: 'all 0.3s'
-        });
+    // home-2
+    const userMediaSlider = new Swiper('.usermedia__slider', {
+        slidesPerView: 4,
+        centeredSlides: true,
+        spaceBetween: 15,
+        initialSlide: 1,
+        watchOverflow: true,
+        speed: 600
+    });
 
-        // password-eye
-        $('body').on('click', '.password-eye-1', function(){
-            if ($('#password').attr('type') == 'password'){
-                $(this).addClass('view');
-                $('#password').attr('type', 'text');
-            } else {
-                $(this).removeClass('view');
-                $('#password').attr('type', 'password');
-            }
-            return false;
-        });
+    // Slider Tabs
+    $('.tab_content').hide();
+    $('.tab_content:first').show();
+    $('.tabs li:first').addClass('is-active');
 
-        $('body').on('click', '.password-eye-22', function(){
-            if ($('#password').attr('type') == 'password'){
-                $(this).addClass('view');
-                $('#password').attr('type', 'text');
-            } else {
-                $(this).removeClass('view');
-                $('#password').attr('type', 'password');
-            }
-            return false;
-        });
+    $('.tabs li').click(function(e) {
+        e.preventDefault()
+        $('.tabs li').removeClass('is-active');
+        $(this).addClass('is-active');
+        $('.tab_content').hide();
 
-        $('body').on('click', '.password-eye-2', function(){
-            if ($('#confirm').attr('type') == 'password'){
-                $(this).addClass('view');
-                $('#confirm').attr('type', 'text');
-            } else {
-                $(this).removeClass('view');
-                $('#confirm').attr('type', 'password');
-            }
-            return false;
-        });
+        let selectTab = $(this).find('a').attr("href");
 
-    }, animationTime);
+        $(selectTab).fadeIn();
+    });
+
+    ScrollTrigger.addEventListener('refresh', () => scroller.update());
+    ScrollTrigger.refresh();
+
+    $('#usermodal_command').popup({
+        transition: 'all 0.3s'
+    });
+
+    $('#usermodal_create').popup({
+        transition: 'all 0.3s'
+    });
+
+    // password-eye
+    $('body').on('click', '.password-eye-1', function(){
+        if ($('#password').attr('type') == 'password'){
+            $(this).addClass('view');
+            $('#password').attr('type', 'text');
+        } else {
+            $(this).removeClass('view');
+            $('#password').attr('type', 'password');
+        }
+        return false;
+    });
+
+    $('body').on('click', '.password-eye-22', function(){
+        if ($('#password').attr('type') == 'password'){
+            $(this).addClass('view');
+            $('#password').attr('type', 'text');
+        } else {
+            $(this).removeClass('view');
+            $('#password').attr('type', 'password');
+        }
+        return false;
+    });
+
+    $('body').on('click', '.password-eye-2', function(){
+        if ($('#confirm').attr('type') == 'password'){
+            $(this).addClass('view');
+            $('#confirm').attr('type', 'text');
+        } else {
+            $(this).removeClass('view');
+            $('#confirm').attr('type', 'password');
+        }
+        return false;
+    });
 
 }); //window load
 
@@ -278,6 +282,323 @@ function validatePhone(phoneVal) {
     let regex = /^((\+998)[\- ]?)?\(?\d{2}\)?[\- ]?\d{3}[\- ]?\d{2}[\- ]?\d{2}?$/;
     return regex.test(phoneVal);
 }
+
+jQuery.extend(jQuery.validator.messages, {
+    // required: "Обязательное поле",
+    required: "Majburiy maydon",
+    equalTo: "Пароли не совпадают",
+    accept: "Please enter a value with a valid extension.",
+    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+    minlength: jQuery.validator.format("Пожалуйста, введите не менее {0} символов."),
+});
+
+// form user invite
+$('#contact').on('submit', function() {
+    $.ajax({
+        type: 'POST',
+        url: 'https://dmaxquest.uz/register',
+        data: $('#contact').serialize(),
+        success: function() {
+            $('.regform-load').addClass('is-active');
+            setTimeout(function() {
+                document.location.href = '/home';
+            }, 2000)
+        }
+    });
+    return false;
+})
+
+// form user invite
+$('#userinvite').on('submit', function() {
+    $.ajax({
+        type: 'POST',
+        url: '/profiles',
+        data: $('#userinvite').serialize(),
+        success: function() {
+            setTimeout(function() {
+                $('.modal-form__sent').addClass('is-active')
+            }, 2e3);
+        }
+    });
+    return false;
+})
+
+$('.usermodal_create_close').on('click',function() {
+    $('.modal-form__sent').removeClass('is-active')
+})
+
+let form = $("#contact");
+form.validate({
+    errorPlacement: function errorPlacement(error, element) { element.after(error); },
+    rules: {
+        password: {
+            minlength : 6
+        },
+        confirm: {
+            minlength : 6,
+            equalTo: "#password"
+        }
+    },
+	success: function(label){
+	    label.addClass("valid");                        
+	},
+});
+
+// login
+$('#login-form').validate({
+    errorPlacement: function errorPlacement(error, element) { element.after(error); },
+    rules: {
+        phoneNumber: {
+            matches: "/^((\+998)[\- ]?)?\(?\d{2}\)?[\- ]?\d{3}[\- ]?\d{2}[\- ]?\d{2}?$/",  // <-- no such method called "matches"!
+            minlength: 10,
+            maxlength: 10
+        },
+        password: {
+            minlength : 6
+        }
+    },
+	success: function(label){
+	    label.addClass("valid");                        
+	},
+});
+
+// userchange
+$('#userchange').validate({
+    errorPlacement: function errorPlacement(error, element) { element.after(error); },
+	success: function(label) {
+	    label.addClass("valid");                        
+	}
+});
+
+// answer
+$('#answerform').validate({
+    errorPlacement: function errorPlacement(error, element) { element.after(error); },
+    success: function(label) {
+        label.addClass("valid");                        
+    }
+});
+
+// answer
+$('#invite-form').validate({
+    errorPlacement: function errorPlacement(error, element) { element.after(error); },
+    success: function(label) {
+        label.addClass("valid");                        
+    }
+});
+
+// user change info modal
+$('#usermodal').popup({
+    transition: 'all 0.3s'
+});
+
+$('#animal1').popup({
+    transition: 'all 0.3s'
+});
+$('#animal2').popup({
+    transition: 'all 0.3s'
+});
+$('#animal3').popup({
+    transition: 'all 0.3s'
+});
+$('#animal4').popup({
+    transition: 'all 0.3s'
+});
+$('#animal5').popup({
+    transition: 'all 0.3s'
+});
+$('#animal6').popup({
+    transition: 'all 0.3s'
+});
+$('#animal7').popup({
+    transition: 'all 0.3s'
+});
+$('#animal8').popup({
+    transition: 'all 0.3s'
+});
+$('#animal9').popup({
+    transition: 'all 0.3s'
+});
+$('#animal10').popup({
+    transition: 'all 0.3s'
+});
+$('#animal11').popup({
+    transition: 'all 0.3s'
+});
+$('#animal12').popup({
+    transition: 'all 0.3s'
+});
+$('#animal13').popup({
+    transition: 'all 0.3s'
+});
+$('#animal14').popup({
+    transition: 'all 0.3s'
+});
+$('#animal15').popup({
+    transition: 'all 0.3s'
+});
+$('#animal16').popup({
+    transition: 'all 0.3s'
+});
+$('#animal17').popup({
+    transition: 'all 0.3s'
+});
+$('#animal18').popup({
+    transition: 'all 0.3s'
+});
+
+
+// user change info modal
+$('#color1').popup({
+    transition: 'all 0.3s'
+});
+$('#color2').popup({
+    transition: 'all 0.3s'
+});
+$('#color3').popup({
+    transition: 'all 0.3s'
+});
+$('#color4').popup({
+    transition: 'all 0.3s'
+});
+$('#color5').popup({
+    transition: 'all 0.3s'
+});
+$('#color6').popup({
+    transition: 'all 0.3s'
+});
+$('#color7').popup({
+    transition: 'all 0.3s'
+});
+$('#color8').popup({
+    transition: 'all 0.3s'
+});
+$('#color9').popup({
+    transition: 'all 0.3s'
+});
+$('#color10').popup({
+    transition: 'all 0.3s'
+});
+$('#color11').popup({
+    transition: 'all 0.3s'
+});
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////  CABINET
+
+// video
+const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p));
+
+// notifications
+let notificationsOpenBtn = $('.notification__btn'),
+    notificationsCloseBtn = $('.notifications__close');
+
+notificationsOpenBtn.on('click',function() {
+    $('.notifications').addClass('is-active');
+    $('body').addClass('overflow');
+    $('.overlay').addClass('is-active');
+})
+
+notificationsCloseBtn.on('click',function() {
+    $('.notifications').removeClass('is-active');
+    $('body').removeClass('overflow');
+    $('.overlay').removeClass('is-active');
+})
+
+// help
+let helpOpenBtn = $('.help__btn'),
+    helpCloseBtn = $('.help__close');
+
+helpOpenBtn.on('click',function() {
+    $('.help__modal').addClass('is-active');
+    $('.overlay').addClass('is-active');
+})
+
+helpCloseBtn.on('click',function() {
+    $('.help__modal').removeClass('is-active');
+    $('.overlay').removeClass('is-active');
+})
+
+// videos
+let mediaSlider,
+    mediaSliderLength = $('.slider__tabs').length;
+if (mediaSliderLength) {
+    mediaSlider = new Swiper('.slider__tabs', {
+        slidesPerView: 1,
+        speed: 600,
+        lazy: true,
+        spaceBetween: 20,
+        freeMode: true,
+        breakpoints: {
+            768: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
+            },
+        }
+    });
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////   Countdown
+
+$('[data-countdown]').each(function() {
+  let $this = $(this), 
+  finalDate = $(this).data('countdown');
+  $this.countdown(finalDate, function(event) {
+    let $this = $(this).html(event.strftime(''
+      + '<div class="countdown__group"><div class="countdown__num">%D</div> <div class="countdown__text days">день</div></div> '
+      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
+      + '<div class="countdown__group"><div class="countdown__num">%H</div> <div class="countdown__text hours">часов</div></div> '
+      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
+      + '<div class="countdown__group"><div class="countdown__num">%M</div> <div class="countdown__text minutes">минут</div></div> '
+      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
+      + '<div class="countdown__group"><div class="countdown__num">%S</div> <div class="countdown__text secunds">секунд</div></div>'));
+  });
+});
+
+$('[data-countdownuz]').each(function() {
+  let $this = $(this), 
+  finalDate = $(this).data('countdownuz');
+  $this.countdown(finalDate, function(event) {
+    let $this = $(this).html(event.strftime(''
+      + '<div class="countdown__group"><div class="countdown__num">%D</div> <div class="countdown__text days">kun </div></div> '
+      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
+      + '<div class="countdown__group"><div class="countdown__num">%H</div> <div class="countdown__text hours">soat</div></div> '
+      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
+      + '<div class="countdown__group"><div class="countdown__num">%M</div> <div class="countdown__text minutes">daqiqa</div></div> '
+      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
+      + '<div class="countdown__group"><div class="countdown__num">%S</div> <div class="countdown__text secunds">soniya</div></div>'));
+  });
+});
+
+let $window = $(window),
+    $imgLogo = $('.home .header .logo img');
+
+function changeLogo() {
+    if ($window.width() < 1000) {
+        $imgLogo.attr('src', 'img/logo-2.svg');
+    }
+    else if ($window.width() > 1000) {
+        $imgLogo.attr('src', 'img/logo.svg');
+    }
+}
+
+$(window).on('resize', function() {
+    changeLogo()
+})
+
+// let $backToTop = $(".to_top");
+// $backToTop.hide();
+
+// $(window).on('scroll', function() {
+//     if ($(this).scrollTop() > 200) {
+//         $backToTop.fadeIn();
+//     } else {
+//         $backToTop.fadeOut();
+//     }
+// });
 
 $(document).ready(function() {
 
@@ -641,288 +962,4 @@ $(document).ready(function() {
         captions: 'ru'
     });
 
-});
-
-jQuery.extend(jQuery.validator.messages, {
-    required: "Обязательное поле",
-    equalTo: "Пароли не совпадают",
-    accept: "Please enter a value with a valid extension.",
-    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
-    minlength: jQuery.validator.format("Пожалуйста, введите не менее {0} символов."),
-    // remote: "Please fix this field.",
-});
-
-// form user invite
-$('#userinvite').on('submit', function() {
-    $.ajax({
-        type: 'POST',
-        url: '/profiles',
-        data: $('#userinvite').serialize(),
-        success: function() {
-            setTimeout(function() {
-                $('.modal-form__sent').addClass('is-active')
-            }, 2e3);
-        }
-    });
-    return false;
-})
-
-$('.usermodal_create_close').on('click',function() {
-    $('.modal-form__sent').removeClass('is-active')
-})
-
-let form = $("#contact");
-form.validate({
-    errorPlacement: function errorPlacement(error, element) { element.after(error); },
-    rules: {
-        password: {
-            minlength : 6
-        },
-        confirm: {
-            minlength : 6,
-            equalTo: "#password"
-        }
-    },
-	success: function(label){
-	    label.addClass("valid");                        
-	},
-});
-
-// login
-$('#login-form').validate({
-    errorPlacement: function errorPlacement(error, element) { element.after(error); },
-    rules: {
-        phoneNumber: {
-            matches: "/^((\+998)[\- ]?)?\(?\d{2}\)?[\- ]?\d{3}[\- ]?\d{2}[\- ]?\d{2}?$/",  // <-- no such method called "matches"!
-            minlength: 10,
-            maxlength: 10
-        },
-        password: {
-            minlength : 6
-        }
-    },
-	success: function(label){
-	    label.addClass("valid");                        
-	},
-});
-
-// userchange
-$('#userchange').validate({
-    errorPlacement: function errorPlacement(error, element) { element.after(error); },
-	success: function(label) {
-	    label.addClass("valid");                        
-	}
-});
-
-// answer
-$('#answerform').validate({
-    errorPlacement: function errorPlacement(error, element) { element.after(error); },
-    success: function(label) {
-        label.addClass("valid");                        
-    }
-});
-
-// answer
-$('#invite-form').validate({
-    errorPlacement: function errorPlacement(error, element) { element.after(error); },
-    success: function(label) {
-        label.addClass("valid");                        
-    }
-});
-
-// user change info modal
-$('#usermodal').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-
-$('#animal1').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal2').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal3').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal4').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal5').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal6').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal7').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal8').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal9').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal10').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal11').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal12').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal13').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal14').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal15').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal16').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal17').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#animal18').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-
-
-// user change info modal
-$('#color1').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color2').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color3').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color4').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color5').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color6').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color7').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color8').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color9').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color10').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-$('#color11').popup({
-    blur: false,
-    transition: 'all 0.3s'
-});
-
-///////////////////////////////////////////////////////////////////////////////////////
-// /////////////////////////////  CABINET
-
-// video
-const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p));
-
-// notifications
-let notificationsOpenBtn = $('.notification__btn'),
-    notificationsCloseBtn = $('.notifications__close');
-
-notificationsOpenBtn.on('click',function() {
-    $('.notifications').addClass('is-active');
-    $('body').addClass('overflow');
-    $('.overlay').addClass('is-active');
-})
-
-notificationsCloseBtn.on('click',function() {
-    $('.notifications').removeClass('is-active');
-    $('body').removeClass('overflow');
-    $('.overlay').removeClass('is-active');
-})
-
-// videos
-let mediaSlider,
-    mediaSliderLength = $('.slider__tabs').length;
-if (mediaSliderLength) {
-    mediaSlider = new Swiper('.slider__tabs', {
-        slidesPerView: 1,
-        speed: 600,
-        lazy: true,
-        spaceBetween: 20,
-        freeMode: true,
-        breakpoints: {
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            },
-        }
-    });
-}
-
-// upload video/photo
-$(document).ready(function() {
-    
-    // enable fileuploader plugin
-    $('input[name="files"]').fileuploader({
-        addMore: true
-    });
-    
-});   
-
-///////////////////////////////////////////////////////////////////////////////////////
-// /////////////////////////////   Countdown
-
-$('[data-countdown]').each(function() {
-  let $this = $(this), 
-  finalDate = $(this).data('countdown');
-  $this.countdown(finalDate, function(event) {
-    let $this = $(this).html(event.strftime(''
-      + '<div class="countdown__group"><div class="countdown__num">%D</div> <div class="countdown__text days">день</div></div> '
-      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
-      + '<div class="countdown__group"><div class="countdown__num">%H</div> <div class="countdown__text hours">часы</div></div> '
-      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
-      + '<div class="countdown__group"><div class="countdown__num">%M</div> <div class="countdown__text minutes">минуты</div></div> '
-      + '<div class="countdown__group"><div class="countdown__divider">:</div></div>'
-      + '<div class="countdown__group"><div class="countdown__num">%S</div> <div class="countdown__text secunds">секунды</div></div>'));
-  });
 });
