@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
-    <title>DMAX-QUEST</title>
+    <title>CABINET</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="DMAX-QUEST" />
@@ -42,19 +42,22 @@
         
         <section class="cabinet">
 
+            <div class="dontnext">
+                <p>к сожалению вы не прошли на следующий этап</p>
+                <!-- <p>AFSUSKI, KEYINGI BOSQICHGA O'TMAolmaDINGIZ</p> -->
+            </div>
+
             <!-- top countdown -->
-            <div class="countdown__top">
+
+<!--             <div class="countdown__top">
                 <div class="container">
                     <div class="cabinet__step--title">2 ЭТАП</div>
                     <div class="countdown cabinet__top--countdown">
                         <div class="countdown__title">до окончания этапа осталось</div>
                         <div class="countdown__block" data-countdown="2021/08/01"></div>
                     </div>
-<!--                     <button class="countdown__top--close" type="button">
-                        <img src="img/top-close.svg" alt="">
-                    </button> -->
                 </div>
-            </div>
+            </div> -->
 
             <!-- header -->
             <header class="header">
@@ -216,9 +219,9 @@
 
         <!-- slider -->
         <section class="content__slider">
-            <div class="user__lock">
+<!--             <div class="user__lock">
                 <img src="img/lock.svg" alt="">
-            </div>
+            </div> -->
             <!-- tab -->
             <div class="tab">
                 <ul class="tabs">
@@ -235,6 +238,10 @@
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
                                 <div class="swiper-slide">
+                                    <div class="under-moderation">
+                                        <p>на модерации</p>
+                                        <!-- <p>tekshirilmoqchda</p> -->
+                                    </div>
                                     <div class="slider__tabs-img">
                                         <img src="img/cabinet-slide.jpg" class="swiper-lazy" alt="">
                                     </div>
@@ -373,21 +380,6 @@
                                             </button>
                                         </div>
                                     </form>
-                                    
-                                    <!-- answer -->
-                                    <div class="form__answer">
-                                        <div class="tasks__answer--subtitle">ответ на вопрос</div>
-                                        <form id="answerform" method="post" enctype="multipart/form-data">
-                                            <div class="form__group">
-                                                <textarea class="required input" name="tasks__answer" id="" cols="30" rows="10" placeholder="Напишите ответ на вопрос"></textarea>
-                                            </div>
-                                            <div class="form__group">
-                                                <button class="btn btn-black" type="submit">
-                                                    <span>Отправить ответ</span>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
 
                                 </div>
 
@@ -642,5 +634,11 @@
     <script type="text/javascript" src="js/libs.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            var scroller = new LocomotiveScroll;
+            scroller.destroy()
+        })
+    </script>
 </body>
 </html>

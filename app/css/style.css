@@ -7147,6 +7147,8 @@ label.error {
   .notifications__text {
     font-size: 14px;
     margin: 20px 0; }
+    .notifications__text p {
+      margin-bottom: 20px; }
 
 @media only screen and (max-width: 992px) {
   .slider__video .swiper-slide {
@@ -7323,6 +7325,27 @@ label.error {
   @media only screen and (max-width: 768px) {
     .help__title {
       margin-top: 30px; } }
+
+.under-moderation {
+  width: 100%;
+  height: 100%;
+  background: rgba(227, 6, 19, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  color: #fff;
+  font-family: tbold, sans-serif;
+  text-transform: uppercase; }
+
+.dontnext {
+  padding: 25px 20px;
+  font-size: 16px;
+  font-family: tmedium, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #E30613;
+  color: #fff; }
 
 .cl-page {
   background: #ddd; }

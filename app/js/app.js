@@ -67,8 +67,6 @@ $(document).ready(function () {
 
 });//document ready
 
-var ScrollTrigger;
-var scroller;
 $(window).on('load', function() {
 
     changeLogo()
@@ -80,201 +78,204 @@ $(window).on('load', function() {
         html.removeClass('loader-html');
     }, animationTime);
 
-    scroller = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
+}); //window load
+
+var ScrollTrigger;
+var scroller;
+
+scroller = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    getDirection: true,
+    direction: 'vertical',
+    reloadOnContextChange: true,
+    scrollingClass: "has-scroll-scrolling",
+    draggingClass: "has-scroll-dragging",
+    smartphone: {
         smooth: true,
-        getDirection: true,
         direction: 'vertical',
-        reloadOnContextChange: true,
-        scrollingClass: "has-scroll-scrolling",
-        draggingClass: "has-scroll-dragging",
-        smartphone: {
-            smooth: true,
-            direction: 'vertical',
-        },
-        tablet: {
-            smooth: true,
-            direction: 'vertical',
-        }
-    });
+    },
+    tablet: {
+        smooth: true,
+        direction: 'vertical',
+    }
+});
 
-    gsap.registerPlugin(ScrollTrigger);
-    scroller.on('scroll', ScrollTrigger.update);
+gsap.registerPlugin(ScrollTrigger);
+scroller.on('scroll', ScrollTrigger.update);
 
-    $(window).resize(function() {
-        ScrollTrigger.update;
-    });
+$(window).resize(function() {
+    ScrollTrigger.update;
+});
 
-    //------------------------------------------------------------------------------------------//
-    
-    $(document).on('click', '.to_top', function(event) {
-        event.preventDefault();
-        var target = document.querySelector('#home');
-        scroller.scrollTo(target);
-    });
-    $(document).on('click', '.to-anim-about', function(event) {
-        event.preventDefault();
-        var target = document.querySelector('#about');
-        scroller.scrollTo(target);
-    });
-    $(document).on('click', '.to-anim-mexanika', function(event) {
-        event.preventDefault();
-        var target = document.querySelector('#mexanika');
-        scroller.scrollTo(target);
-    });
-    $(document).on('click', '.to-anim-create', function(event) {
-        event.preventDefault();
-        var target = document.querySelector('#create');
-        scroller.scrollTo(target);
-    });
-    $(document).on('click', '.to-anim-how', function(event) {
-        event.preventDefault();
-        var target = document.querySelector('#how');
-        scroller.scrollTo(target);
-    });
-    $(document).on('click', '.btn-show-video', function(event) {
-        event.preventDefault();
-        var target = document.querySelector('#about');
-        scroller.scrollTo(target);
-    });
+//------------------------------------------------------------------------------------------//
 
-    const observer = lozad('.lozad');
-    observer.observe();
+$(document).on('click', '.to_top', function(event) {
+    event.preventDefault();
+    var target = document.querySelector('#home');
+    scroller.scrollTo(target);
+});
+$(document).on('click', '.to-anim-about', function(event) {
+    event.preventDefault();
+    var target = document.querySelector('#about');
+    scroller.scrollTo(target);
+});
+$(document).on('click', '.to-anim-mexanika', function(event) {
+    event.preventDefault();
+    var target = document.querySelector('#mexanika');
+    scroller.scrollTo(target);
+});
+$(document).on('click', '.to-anim-create', function(event) {
+    event.preventDefault();
+    var target = document.querySelector('#create');
+    scroller.scrollTo(target);
+});
+$(document).on('click', '.to-anim-how', function(event) {
+    event.preventDefault();
+    var target = document.querySelector('#how');
+    scroller.scrollTo(target);
+});
+$(document).on('click', '.btn-show-video', function(event) {
+    event.preventDefault();
+    var target = document.querySelector('#about');
+    scroller.scrollTo(target);
+});
 
-    let inputPhone = $('[type="tel"]').inputmask({
-        mask: "+\\9\\98 99 999 99 99",
-        placeholder: "-",
-    });
+const observer = lozad('.lozad');
+observer.observe();
 
-    //MOBILE OPEN MENU
-    $('.burger').click(function() {
-        if (!$(this).hasClass('transformed')) {
-            $(this).addClass('transformed');
-            $('.mob-menu').addClass('opened');
-            setTimeout(function() {
-                $('body').addClass('overflow');
-            }, 200)
-        } else {
-            $(this).removeClass('transformed');
-            $('.mob-menu').removeClass('opened');
-            $('body').removeClass('overflow');
-        }
-    });
+let inputPhone = $('[type="tel"]').inputmask({
+    mask: "+\\9\\98 99 999 99 99",
+    placeholder: "-",
+});
 
-    $(".mob-menu a").click(function() {
-        $('.burger').removeClass('transformed');
+//MOBILE OPEN MENU
+$('.burger').click(function() {
+    if (!$(this).hasClass('transformed')) {
+        $(this).addClass('transformed');
+        $('.mob-menu').addClass('opened');
+        setTimeout(function() {
+            $('body').addClass('overflow');
+        }, 200)
+    } else {
+        $(this).removeClass('transformed');
         $('.mob-menu').removeClass('opened');
         $('body').removeClass('overflow');
-    })
-
-    var mySwiper = new Swiper(".demoherb", {
-        spaceBetween: 15,
-        slidesPerView: 2,
-        centeredSlides: true,
-        roundLengths: true,
-        loop: true,
-        speed: 1500,
-        loopAdditionalSlides: 30,
-        autoplay: {
-            delay: 1500,
-            disableOnInteraction: false,
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            },
-        }
-    });
-
-    // Fancy Box active
-    $('[data-fancybox]').fancybox();
-
-    // FAQ
-    const items = document.querySelectorAll(".acc-btn");
-    function toggleAccordion() {
-        const itemToggle = this.getAttribute('aria-expanded');
-        for (let i = 0; i < items.length; i++) {
-            items[i].setAttribute('aria-expanded', 'false');
-        }
-        if (itemToggle == 'false') {
-            this.setAttribute('aria-expanded', 'true');
-        }
     }
-    items.forEach(item => item.addEventListener('click', toggleAccordion));
+});
 
-    // home-2
-    const userMediaSlider = new Swiper('.usermedia__slider', {
-        slidesPerView: 4,
-        centeredSlides: true,
-        spaceBetween: 15,
-        initialSlide: 1,
-        watchOverflow: true,
-        speed: 600
-    });
+$(".mob-menu a").click(function() {
+    $('.burger').removeClass('transformed');
+    $('.mob-menu').removeClass('opened');
+    $('body').removeClass('overflow');
+})
 
-    // Slider Tabs
+var mySwiper = new Swiper(".demoherb", {
+    spaceBetween: 15,
+    slidesPerView: 2,
+    centeredSlides: true,
+    roundLengths: true,
+    loop: true,
+    speed: 1500,
+    loopAdditionalSlides: 30,
+    autoplay: {
+        delay: 1500,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 30
+        },
+    }
+});
+
+// Fancy Box active
+$('[data-fancybox]').fancybox();
+
+// FAQ
+const items = document.querySelectorAll(".acc-btn");
+function toggleAccordion() {
+    const itemToggle = this.getAttribute('aria-expanded');
+    for (let i = 0; i < items.length; i++) {
+        items[i].setAttribute('aria-expanded', 'false');
+    }
+    if (itemToggle == 'false') {
+        this.setAttribute('aria-expanded', 'true');
+    }
+}
+items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+// home-2
+const userMediaSlider = new Swiper('.usermedia__slider', {
+    slidesPerView: 4,
+    centeredSlides: true,
+    spaceBetween: 15,
+    initialSlide: 1,
+    watchOverflow: true,
+    speed: 600
+});
+
+// Slider Tabs
+$('.tab_content').hide();
+$('.tab_content:first').show();
+$('.tabs li:first').addClass('is-active');
+
+$('.tabs li').click(function(e) {
+    e.preventDefault()
+    $('.tabs li').removeClass('is-active');
+    $(this).addClass('is-active');
     $('.tab_content').hide();
-    $('.tab_content:first').show();
-    $('.tabs li:first').addClass('is-active');
 
-    $('.tabs li').click(function(e) {
-        e.preventDefault()
-        $('.tabs li').removeClass('is-active');
-        $(this).addClass('is-active');
-        $('.tab_content').hide();
+    let selectTab = $(this).find('a').attr("href");
 
-        let selectTab = $(this).find('a').attr("href");
+    $(selectTab).fadeIn();
+});
 
-        $(selectTab).fadeIn();
-    });
+ScrollTrigger.addEventListener('refresh', () => scroller.update());
+ScrollTrigger.refresh();
 
-    ScrollTrigger.addEventListener('refresh', () => scroller.update());
-    ScrollTrigger.refresh();
+$('#usermodal_command').popup({
+    transition: 'all 0.3s'
+});
 
-    $('#usermodal_command').popup({
-        transition: 'all 0.3s'
-    });
+$('#usermodal_create').popup({
+    transition: 'all 0.3s'
+});
 
-    $('#usermodal_create').popup({
-        transition: 'all 0.3s'
-    });
+// password-eye
+$('body').on('click', '.password-eye-1', function(){
+    if ($('#password').attr('type') == 'password'){
+        $(this).addClass('view');
+        $('#password').attr('type', 'text');
+    } else {
+        $(this).removeClass('view');
+        $('#password').attr('type', 'password');
+    }
+    return false;
+});
 
-    // password-eye
-    $('body').on('click', '.password-eye-1', function(){
-        if ($('#password').attr('type') == 'password'){
-            $(this).addClass('view');
-            $('#password').attr('type', 'text');
-        } else {
-            $(this).removeClass('view');
-            $('#password').attr('type', 'password');
-        }
-        return false;
-    });
+$('body').on('click', '.password-eye-22', function(){
+    if ($('#password').attr('type') == 'password'){
+        $(this).addClass('view');
+        $('#password').attr('type', 'text');
+    } else {
+        $(this).removeClass('view');
+        $('#password').attr('type', 'password');
+    }
+    return false;
+});
 
-    $('body').on('click', '.password-eye-22', function(){
-        if ($('#password').attr('type') == 'password'){
-            $(this).addClass('view');
-            $('#password').attr('type', 'text');
-        } else {
-            $(this).removeClass('view');
-            $('#password').attr('type', 'password');
-        }
-        return false;
-    });
-
-    $('body').on('click', '.password-eye-2', function(){
-        if ($('#confirm').attr('type') == 'password'){
-            $(this).addClass('view');
-            $('#confirm').attr('type', 'text');
-        } else {
-            $(this).removeClass('view');
-            $('#confirm').attr('type', 'password');
-        }
-        return false;
-    });
-
-}); //window load
+$('body').on('click', '.password-eye-2', function(){
+    if ($('#confirm').attr('type') == 'password'){
+        $(this).addClass('view');
+        $('#confirm').attr('type', 'text');
+    } else {
+        $(this).removeClass('view');
+        $('#confirm').attr('type', 'password');
+    }
+    return false;
+});
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // /////////////////////////////       FORM
@@ -300,31 +301,13 @@ $('#contact').on('submit', function() {
         data: $('#contact').serialize(),
         success: function() {
             $('.regform-load').addClass('is-active');
+            ym(82797076, 'reachGoal', 'sign_form'); return true;
             setTimeout(function() {
                 document.location.href = '/home';
             }, 2000)
         }
     });
     return false;
-})
-
-// form user invite
-$('#userinvite').on('submit', function() {
-    $.ajax({
-        type: 'POST',
-        url: '/profiles',
-        data: $('#userinvite').serialize(),
-        success: function() {
-            setTimeout(function() {
-                $('.modal-form__sent').addClass('is-active')
-            }, 2e3);
-        }
-    });
-    return false;
-})
-
-$('.usermodal_create_close').on('click',function() {
-    $('.modal-form__sent').removeClass('is-active')
 })
 
 let form = $("#contact");
