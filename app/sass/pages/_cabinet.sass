@@ -702,7 +702,7 @@
 		padding: 15px
 
 .slider__photo
-	cursor: url(/img/cursor-2.png) 45 45, auto
+	cursor: grab
 
 .slider__video video:hover
 	cursor: default !important
@@ -710,6 +710,12 @@
 .slider__video,
 .slider__photo
 	.swiper-slide
+		height: 400px
+		img
+			height: 400px
+			width: 100%
+			object-fit: cover
+			object-position: center
 		+r(992)
 			width: 300px !important
 

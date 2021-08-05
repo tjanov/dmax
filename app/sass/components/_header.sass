@@ -76,10 +76,12 @@
 			color: $red
 
 .guest
-	.header
-		top: 40px
-		+r(1200)
-			top: 85px
+	// .header
+	// 	top: 40px
+	// 	+r(1200)
+	// 		top: 85px
 	.nav a,
 	.lang a
 		color: $w
+		&.is-active
+			color: $red

@@ -1,6 +1,9 @@
 .guest
 	.hero__title
 		color: $w
+		// div
+		// 	&:first-child
+		// 		color: $w
 
 	.countdown__top
 		position: relative
@@ -82,12 +85,19 @@
 		margin-bottom: 60px
 		display: flex
 		justify-content: flex-end
-	
 
 .hero
 	&__content
 		display: flex
 		justify-content: space-between
+
+.guest-2
+	.hero .quest-navigation
+		margin-bottom: 50px
+		display: block
+		justify-content: unset
+	.btn-link
+		bottom: 0
 
 .table
 	background-color: $blck
@@ -179,6 +189,39 @@
 	text-transform: uppercase
 	color: $blck
 
+	&.rating-2
+		img
+			margin: 0 auto
+			max-width: 70px
+			+r(768)
+				max-width: 50px
+		.column-1
+			+r(768)
+				flex-basis: 10%
+				max-width: 10%
+		.column-2
+			flex-basis: 20%
+			max-width: 20%
+			+r(768)
+				flex-basis: 30%
+				max-width: 30%
+		.column-3
+			flex-basis: 60%
+			max-width: 60%
+		.rating__title
+			margin-left: 0
+
+	&.rating-3
+		.column-4
+			flex-basis: 15%
+			max-width: 15%
+		.column-5
+			flex-basis: 15%
+			max-width: 15%
+		.column-6
+			flex-basis: 15%
+			max-width: 15%
+
 	&__header
 		margin-top: 80px
 		display: flex
@@ -209,6 +252,7 @@
 
 	&__row
 		display: flex
+		align-items: center
 
 		.column-1
 			flex-basis: 3%
@@ -250,6 +294,8 @@
 		font-size: 24px
 		+bold
 		margin-left: 90px
+		+r(768)
+			font-size: 20px
 
 	&__footer
 		display: flex
@@ -334,3 +380,61 @@
 		display: flex
 		align-items: center
 		justify-content: flex-end
+
+	.circle-pulse
+		position: relative
+
+		&::after
+			content: ''
+			display: block
+			position: absolute
+			top: 50%
+			left: 50%
+			width: 15px
+			height: 15px
+			border-radius: 50%
+			background-color:  $red
+			cursor: pointer
+			box-shadow: 0 0 0 rgba($red, 0.4)
+			animation: pulse 2s infinite
+			z-index: 10
+
+// @-webkit-keyframes pulse
+// 	0%
+// 		-webkit-box-shadow: 0 0 0 0 rgba($red, 0.4)
+// 	70%
+// 		-webkit-box-shadow: 0 0 0 30px rgba($red, 0)
+// 	100%
+// 		-webkit-box-shadow: 0 0 0 0 rgba($red, 0)
+ 
+// @keyframes pulse
+// 	0%
+// 		-moz-box-shadow: 0 0 0 0 rgba($red, 0.4)
+// 		box-shadow: 0 0 0 0 rgba($red, 0.4)
+// 	70%
+// 		-moz-box-shadow: 0 0 0 30px rgba($red, 0)
+// 		box-shadow: 0 0 0 30px rgba($red, 0)
+// 	100%
+// 		-moz-box-shadow: 0 0 0 0 rgba($red, 0)
+// 		box-shadow: 0 0 0 0 rgba($red, 0)
+
+	// .circle-pulse1
+	// 	position: relative
+	// 	display: block
+	// 	fill: red
+	// 	fill-opacity: 0
+	// 	// transform-origin: center
+	// 	animation-duration: 2s
+	// 	animation-name: pulse2
+	// 	animation-iteration-count: infinite
+	// 	cursor: pointer
+
+	// @keyframes pulse2
+	// 	from
+	// 		stroke-width: 3px
+	// 		stroke-opacity: 1
+	// 		transform: scale(0.3)
+	// 	to
+	// 		stroke-width: 0
+	// 		stroke-opacity: 0
+	// 		transform: scale(2)

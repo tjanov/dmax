@@ -2,7 +2,7 @@
 .hero
 	width: 100%
 	background-color: $w
-	padding: 200px 0 120px
+	padding: 150px 0 120px
 	background: url(../img/hero-right.png) no-repeat center right -100px
 	background-size: contain
 	position: relative
@@ -84,7 +84,13 @@
 				left: 0
 				transition: width 0.5s cubic-bezier(0.23, 1.08, 0.62, 0.95)
 
-
+	&__video
+		display: block
+		position: relative
+		margin-top: 50px
+		max-width: 100%
+		// opacity: 0
+		// transform: translateY(100px)
 
 	.herocount
 		margin: 50px 0
@@ -189,7 +195,7 @@
 
 .loader-gone .hero__title,
 .loader-gone .herocount,
-.loader-gone .hero__active,
+// .loader-gone .hero__video,
 .loader-gone .btn-link
 	animation: fadeInUp 0.6s ease
 	animation-delay: 1.3s
@@ -198,11 +204,8 @@
 .loader-gone .herocount
 	animation-delay: 1.4s
 
-.loader-gone .hero__active
-	animation-delay: 1.5s
-
-.loader-gone .hero__active
-	animation-delay: 1.6s
+// .loader-gone .hero__video
+// 	animation-delay: 1.5s
 
 // about
 .about
@@ -245,6 +248,7 @@
 		max-width: 60%
 		flex-basis: 60%
 		margin-right: 50px
+		position: relative
 		+r(992)
 			max-width: 100%
 			flex-basis: 100%
